@@ -62,18 +62,76 @@ textarea,
 
 #ui-left,
 #ui-left > *,
+#ui-left :is(ol, ul, li, menu, nav, section, div),
 #controls,
 #controls ol,
 #controls li,
+#controls :is(ol, ul, li, menu, nav, section, div),
 .scene-controls,
 .main-controls,
 .sub-controls,
 .control-tools,
+.control-tools :is(ol, ul, li, menu, nav, section, div),
 .directory .action-buttons,
 .sheet-footer,
 .dialog-buttons,
 .form-footer {
   overflow: visible !important;
+  overflow-clip-margin: 3rem !important;
+  clip-path: none !important;
+  contain: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+#ui-left,
+#controls,
+.scene-controls,
+.main-controls,
+.sub-controls,
+.control-tools {
+  position: relative;
+  isolation: auto !important;
+  z-index: 80;
+}
+
+#ui-left,
+#ui-left :is(ol, ul, li, menu, nav, section, div),
+#controls,
+#controls :is(ol, ul, li, menu, nav, section, div),
+.scene-controls,
+.main-controls,
+.sub-controls,
+.control-tools,
+.control-tools :is(ol, ul, li, menu, nav, section, div) {
+  border: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#ui-left :is(ol, ul, li, menu, nav, section, div)::before,
+#ui-left :is(ol, ul, li, menu, nav, section, div)::after,
+#controls :is(ol, ul, li, menu, nav, section, div)::before,
+#controls :is(ol, ul, li, menu, nav, section, div)::after,
+.scene-controls::before,
+.scene-controls::after,
+.main-controls::before,
+.main-controls::after,
+.sub-controls::before,
+.sub-controls::after,
+.control-tools::before,
+.control-tools::after {
+  border: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .app,
@@ -519,11 +577,68 @@ textarea,
 }
 
 #sidebar-content {
-  border-left: 1px solid rgba(184, 210, 255, 0.16) !important;
+  border-left: 0 !important;
   box-shadow:
-    inset 1px 0 0 rgba(238, 246, 255, 0.08),
     -10px 0 28px rgba(6, 8, 18, 0.12),
     0 0 18px rgba(98, 214, 255, 0.06) !important;
+}
+
+#sidebar-content::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(184, 210, 255, 0.09) 12%,
+    rgba(184, 210, 255, 0.055) 50%,
+    transparent
+  );
+}
+
+#sidebar:hover,
+#sidebar-content:hover {
+  border-left: 0 !important;
+  box-shadow:
+    -10px 0 28px rgba(6, 8, 18, 0.12),
+    0 0 18px rgba(98, 214, 255, 0.06) !important;
+}
+
+#sidebar-content.expanded,
+#sidebar-content.expanded.active-chat {
+  margin-left: 0 !important;
+}
+
+#sidebar-content #chat .chat-scroll,
+#chat-notifications .overflow,
+.chat-sidebar .chat-scroll {
+  direction: ltr !important;
+  scrollbar-gutter: stable !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+#sidebar-content #chat .chat-log,
+#chat-notifications .chat-log,
+.chat-sidebar .chat-log {
+  direction: ltr !important;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+#sidebar-content #chat .chat-scroll::-webkit-scrollbar,
+#chat-notifications .overflow::-webkit-scrollbar,
+.chat-sidebar .chat-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+#sidebar-content #chat .chat-scroll::-webkit-scrollbar-track,
+#chat-notifications .overflow::-webkit-scrollbar-track,
+.chat-sidebar .chat-scroll::-webkit-scrollbar-track {
+  background: transparent !important;
 }
 
 #sidebar .directory .directory-header {
@@ -532,6 +647,72 @@ textarea,
 
 #sidebar .directory .directory-list {
   border-color: rgba(195, 154, 255, 0.12) !important;
+}
+
+.dnd5e2.compendium-browser .mode-toggle {
+  top: 0.8rem !important;
+  left: 1rem !important;
+  display: inline-flex !important;
+  flex-flow: row nowrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.4rem !important;
+  width: max-content !important;
+  min-width: 5.25rem !important;
+  max-width: none !important;
+  height: 1.75rem !important;
+  white-space: nowrap !important;
+  z-index: 3 !important;
+}
+
+.dnd5e2.compendium-browser .mode-toggle slide-toggle {
+  flex: 0 0 auto !important;
+}
+
+.dnd5e2.compendium-browser .mode-toggle label {
+  display: inline-block !important;
+  min-width: max-content !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  writing-mode: horizontal-tb !important;
+  line-height: 1 !important;
+}
+
+.dnd5e2.compendium-browser .sidebar {
+  padding-top: 3.4rem !important;
+}
+
+.dnd5e2.compendium-browser .sidebar .filter-element search {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 2.6rem !important;
+  padding-right: 0.25rem !important;
+}
+
+.dnd5e2.compendium-browser .sidebar .filter-element search > input[type="text"] {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  padding: 0.75rem 0.5rem 0.75rem 2.25rem !important;
+}
+
+.dnd5e2.compendium-browser .sidebar .filter-element search .controls {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  align-self: stretch !important;
+  align-items: stretch !important;
+  padding: 0.5rem 0 !important;
+}
+
+.dnd5e2.compendium-browser .sidebar .filter-element search .filter-control {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1.75rem !important;
+  height: 100% !important;
+  padding: 0 0.375rem !important;
+  transform: none !important;
 }
 
 #notifications .notification,
@@ -630,6 +811,159 @@ textarea,
   background: transparent !important;
   border-color: rgba(184, 210, 255, 0.12) !important;
   box-shadow: none !important;
+}
+
+#navigation,
+#navigation #scene-list,
+#players,
+#hotbar,
+#hotbar #action-bar {
+  border: 1px solid rgba(184, 210, 255, 0.18) !important;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.04), transparent 28%),
+    radial-gradient(circle at 24% 22%, rgba(98, 214, 255, 0.055), transparent 8rem),
+    radial-gradient(circle at 82% 72%, rgba(177, 96, 255, 0.045), transparent 9rem),
+    linear-gradient(180deg, rgba(48, 52, 78, 0.28), rgba(12, 14, 26, 0.26)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.1),
+    0 6px 18px rgba(5, 8, 18, 0.16),
+    0 0 12px rgba(98, 214, 255, 0.045) !important;
+  backdrop-filter: blur(14px) saturate(1.18);
+  -webkit-backdrop-filter: blur(14px) saturate(1.18);
+}
+
+#hotbar {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+#players {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 0.12rem !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0.35rem 0.55rem !important;
+}
+
+#players :is(h3, ol, ul, li) {
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#navigation,
+#navigation #scene-list,
+#navigation .scene,
+#navigation .scene.view,
+#navigation .scene.context,
+#scene-navigation .scene-navigation-menu .scene,
+#scene-navigation .scene-navigation-menu .scene.view,
+#scene-navigation .scene-navigation-menu .scene.active,
+#scene-navigation .scene-navigation-menu .scene.gm {
+  position: relative;
+  isolation: isolate;
+  border-color: rgba(204, 224, 255, 0.22) !important;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.075), transparent 30%),
+    radial-gradient(circle at 18% 24%, rgba(98, 214, 255, 0.085), transparent 7rem),
+    radial-gradient(circle at 82% 72%, rgba(177, 96, 255, 0.065), transparent 8rem),
+    linear-gradient(180deg, rgba(42, 46, 66, 0.42), rgba(12, 14, 24, 0.34)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.14),
+    0 7px 20px rgba(4, 7, 16, 0.18),
+    0 0 14px rgba(98, 214, 255, 0.06) !important;
+  backdrop-filter: blur(18px) saturate(1.22);
+  -webkit-backdrop-filter: blur(18px) saturate(1.22);
+}
+
+#navigation::before,
+#navigation #scene-list::before {
+  position: absolute;
+  inset: -0.18rem;
+  z-index: 0;
+  border: 1px solid rgba(204, 224, 255, 0.24);
+  border-radius: 6px;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.09), transparent 30%),
+    radial-gradient(circle at 18% 24%, rgba(98, 214, 255, 0.1), transparent 7rem),
+    radial-gradient(circle at 82% 72%, rgba(177, 96, 255, 0.075), transparent 8rem),
+    linear-gradient(180deg, rgba(42, 46, 66, 0.52), rgba(12, 14, 24, 0.4));
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.16),
+    0 7px 20px rgba(4, 7, 16, 0.2),
+    0 0 14px rgba(98, 214, 255, 0.07);
+  backdrop-filter: blur(18px) saturate(1.24);
+  -webkit-backdrop-filter: blur(18px) saturate(1.24);
+}
+
+#navigation > *,
+#navigation #scene-list > *,
+#navigation .scene > *,
+#scene-navigation .scene-navigation-menu .scene > * {
+  position: relative;
+  z-index: 1;
+}
+
+#scene-navigation {
+  flex: 0 0 auto !important;
+  width: max-content !important;
+  max-width: calc(20vw + 34px) !important;
+  padding-right: 30px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#scene-navigation .scene-navigation-menu {
+  width: max-content !important;
+  max-width: 20vw !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#scene-navigation .scene-navigation-menu .scene {
+  width: max-content !important;
+  min-width: 8.5rem !important;
+  max-width: 20vw !important;
+}
+
+#scene-navigation #scene-navigation-inactive {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#scene-navigation #scene-navigation-expand {
+  top: 4px !important;
+  right: 0 !important;
+  border: 1px solid rgba(204, 224, 255, 0.2) !important;
+  border-radius: 5px !important;
+  background:
+    linear-gradient(180deg, rgba(54, 58, 82, 0.64), rgba(18, 20, 32, 0.52)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.12),
+    0 4px 12px rgba(4, 7, 16, 0.18) !important;
+  backdrop-filter: blur(14px) saturate(1.18);
+  -webkit-backdrop-filter: blur(14px) saturate(1.18);
 }
 
 .app:hover,
@@ -855,9 +1189,9 @@ button.spell-casting,
 
 .spell-cast-mist-burst {
   position: fixed;
-  width: 5.4em;
-  height: 4.2em;
-  z-index: 10000;
+  width: 7.2em;
+  height: 5.8em;
+  z-index: 100000;
   border-radius: 48% 52% 56% 44% / 54% 45% 55% 46%;
   content: "";
   pointer-events: none;
@@ -869,6 +1203,9 @@ button.spell-casting,
     radial-gradient(ellipse at 42% 22%, rgba(238, 246, 255, 0.28) 0 8%, transparent 30%),
     radial-gradient(ellipse at 58% 82%, rgba(98, 214, 255, 0.24) 0 9%, transparent 34%),
     radial-gradient(ellipse at 50% 50%, rgba(126, 90, 255, 0.18) 0 28%, transparent 68%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 5.4em 4.2em;
   filter: blur(3px) drop-shadow(0 0 9px rgba(98, 214, 255, 0.58)) drop-shadow(0 0 16px rgba(177, 96, 255, 0.42));
   mix-blend-mode: screen;
   transform: translate(-50%, -50%) scale(0.18, 0.12) rotate(-10deg);
@@ -2275,11 +2612,13 @@ button[aria-selected="true"]::after,
   display: none !important;
 }
 
-.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before,
-.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before,
-.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before {
-  content: var(--fa) !important;
-  display: inline-block !important;
+.dnd5e2 .window-header::after,
+.window-app.dnd5e2 .window-header::after,
+.application.dnd5e2 .window-header::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  animation: none !important;
 }
 
 .dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge),
@@ -3850,19 +4189,61 @@ button[aria-selected="true"]::after,
 
 .dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul,
 .window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul {
-  padding-inline-end: 1.35rem !important;
+  padding-inline: 0.75rem 0.7rem !important;
 }
 
 .dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li,
 .window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li {
-  column-gap: 0.58rem !important;
+  display: grid !important;
+  grid-template-columns: 18px 3.1rem minmax(0, 1fr) 1.8rem 1.25rem !important;
+  column-gap: 0.34rem !important;
+  align-items: center !important;
+  padding-inline: 0.25rem !important;
+  overflow: hidden !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > :is(.ability, select.ability),
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > :is(.ability, select.ability) {
+  width: 3.1rem !important;
+  min-width: 0 !important;
+  justify-self: start !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > .name,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > .name {
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.05 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > .bonus,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > .bonus {
+  justify-self: end !important;
+  min-width: 1.55rem !important;
+  text-align: right !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > .config-button,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > .config-button {
+  position: relative !important;
+  inset: auto !important;
+  justify-self: center !important;
+  display: grid !important;
+  place-content: center !important;
+  width: 1.2rem !important;
+  min-width: 1.2rem !important;
+  height: 1.2rem !important;
+  min-height: 1.2rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
 }
 
 /* 0.1.115 - keep skill/tool/saves proficiency pips visible in edit mode. */
 .dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li > proficiency-cycle,
 .window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li > proficiency-cycle {
-  --proficiency-cycle-enabled-color: #6ca7ff;
-  --proficiency-cycle-disabled-color: rgba(124, 191, 255, 0.74);
+  --proficiency-cycle-enabled-color: #f0c96f;
+  --proficiency-cycle-disabled-color: rgba(224, 178, 92, 0.76);
   position: relative;
   z-index: 4;
   flex: 0 0 18px !important;
@@ -3870,13 +4251,46 @@ button[aria-selected="true"]::after,
   height: 18px !important;
   margin-inline: 0 0.05rem !important;
   filter:
-    drop-shadow(0 0 3px rgba(108, 167, 255, 0.5))
+    drop-shadow(0 0 3px rgba(255, 222, 134, 0.48))
     drop-shadow(0 0 5px rgba(8, 16, 36, 0.72)) !important;
 }
 
 .dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li,
 .window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li {
   overflow: visible !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li {
+  overflow: hidden !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .right .pills-group > h3.icon,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .right .pills-group > h3.icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.34rem !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+  padding-inline: 0 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .right .pills-group > h3.icon > .config-button,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .right .pills-group > h3.icon > .config-button {
+  position: static !important;
+  inset: auto !important;
+  flex: 0 0 1.1rem !important;
+  display: inline-grid !important;
+  place-content: center !important;
+  width: 1.1rem !important;
+  min-width: 1.1rem !important;
+  height: 1.1rem !important;
+  min-height: 1.1rem !important;
+  margin: 0 0 0 0.05rem !important;
+  padding: 0 !important;
+  transform: none !important;
 }
 
 /* 0.1.116 - stabilize death-save failure pips and center their X mark. */
@@ -4090,6 +4504,9 @@ button[aria-selected="true"]::after,
 }
 
 /* 0.1.86 - keep the native dnd5e additional-controls ellipsis visible on item sheets. */
+.dnd5e2 .window-header button.header-control[data-action="toggleControls"],
+.window-app.dnd5e2 .window-header button.header-control[data-action="toggleControls"],
+.application.dnd5e2 .window-header button.header-control[data-action="toggleControls"],
 .dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"],
 .window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"],
 .application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] {
@@ -4106,11 +4523,69 @@ button[aria-selected="true"]::after,
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
+  border-radius: 0 !important;
   background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
   box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: rgba(232, 242, 255, 0.9) !important;
   font-size: 0.92rem !important;
   line-height: 1 !important;
-  transform: translateY(2px) !important;
+  text-align: center !important;
+  transform: none !important;
+}
+
+.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::before,
+.window-app.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::before,
+.application.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::before,
+.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before,
+.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before,
+.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before {
+  position: static !important;
+  inset: auto !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: auto !important;
+  height: auto !important;
+  content: var(--fa, "\f142") !important;
+  background: none !important;
+  filter: none !important;
+  animation: none !important;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
+  font-size: 0.95rem !important;
+  font-style: normal !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  color: currentColor !important;
+  text-shadow: inherit !important;
+}
+
+.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::after,
+.window-app.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::after,
+.application.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::after,
+.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::after,
+.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::after,
+.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2 .window-header button.header-control[data-action="toggleControls"] > i,
+.window-app.dnd5e2 .window-header button.header-control[data-action="toggleControls"] > i,
+.application.dnd5e2 .window-header button.header-control[data-action="toggleControls"] > i,
+.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] > i,
+.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] > i,
+.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] > i {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  color: currentColor !important;
+  font-size: 0.95rem !important;
+  line-height: 1 !important;
 }
 
 .dnd5e2.sheet.actor.character .ability-scores .ability-score :is(.label, .mod, .score),
@@ -4495,5 +4970,216 @@ button[aria-selected="true"]::after,
   height: 1.58rem !important;
   padding: 0 !important;
   border-radius: 999px !important;
+}
+
+/* 0.1.114 - dreamy translucent HP and hit-dice meters. */
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice),
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+  border-color: rgba(216, 230, 255, 0.26) !important;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 32%),
+    radial-gradient(circle at 15% 10%, rgba(210, 238, 255, 0.16), transparent 40%),
+    linear-gradient(180deg, rgba(12, 16, 32, 0.4), rgba(8, 10, 22, 0.28)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.18),
+    inset 0 -8px 16px rgba(5, 8, 20, 0.28),
+    0 0 10px rgba(98, 214, 255, 0.08) !important;
+  backdrop-filter: blur(8px) saturate(1.16);
+  -webkit-backdrop-filter: blur(8px) saturate(1.16);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-points .progress,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-points .progress {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-points .progress::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-points .progress::before {
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(32, 132, 91, 0.66), rgba(83, 226, 171, 0.62) 48%, rgba(145, 245, 218, 0.5)),
+    radial-gradient(circle at 18% 45%, rgba(202, 255, 233, 0.34), transparent 32%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 255, 248, 0.28),
+    inset 0 -5px 10px rgba(4, 34, 28, 0.32),
+    0 0 8px rgba(101, 255, 199, 0.26) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-dice.progress::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-dice.progress::before {
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(118, 22, 51, 0.68), rgba(226, 74, 112, 0.6) 50%, rgba(255, 145, 176, 0.48)),
+    radial-gradient(circle at 18% 45%, rgba(255, 220, 235, 0.3), transparent 34%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 236, 244, 0.26),
+    inset 0 -5px 10px rgba(45, 4, 18, 0.34),
+    0 0 8px rgba(255, 102, 160, 0.22) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-points .progress::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-points .progress::after,
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-dice.progress::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-dice.progress::after {
+  position: absolute;
+  inset: 1px auto 1px 1px;
+  z-index: 1;
+  inline-size: max(0px, calc(var(--bar-percentage) - 2px));
+  content: "";
+  pointer-events: none;
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at 11% 34%, rgba(255, 255, 255, 0.92) 0 0.65px, transparent 1.25px),
+    radial-gradient(circle at 53% 24%, rgba(255, 229, 176, 0.64) 0 0.85px, transparent 1.55px),
+    linear-gradient(110deg, transparent 0 38%, rgba(255, 255, 255, 0.14) 45%, transparent 54%);
+  background-size: 41px 19px, 73px 17px, 100% 100%;
+  mix-blend-mode: screen;
+  opacity: 0.42;
+  filter: blur(0.05px);
+  animation: spell-meter-stars-a 17.3s ease-in-out -4.7s infinite;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label {
+  z-index: 2;
+  color: rgba(250, 252, 255, 0.94) !important;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.82),
+    0 0 6px rgba(210, 238, 255, 0.3) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label::before,
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label::after {
+  position: absolute;
+  inset: 1px auto 1px 1px;
+  z-index: -1;
+  inline-size: max(0px, calc(var(--bar-percentage) - 2px));
+  content: "";
+  pointer-events: none;
+  border-radius: 2px;
+  mix-blend-mode: screen;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label::before {
+  background:
+    radial-gradient(circle at 31% 72%, rgba(210, 238, 255, 0.72) 0 1.15px, transparent 1.95px),
+    radial-gradient(circle at 92% 18%, rgba(181, 255, 229, 0.58) 0 0.55px, transparent 1.25px);
+  background-size: 59px 23px, 131px 21px;
+  opacity: 0.38;
+  animation: spell-meter-stars-b 23.1s ease-in-out -11.2s infinite;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label::after {
+  background:
+    radial-gradient(circle at 79% 62%, rgba(204, 178, 255, 0.7) 0 1.55px, transparent 2.45px),
+    radial-gradient(circle at 22% 22%, rgba(255, 255, 255, 0.48) 0 0.45px, transparent 1.1px);
+  background-size: 97px 29px, 83px 31px;
+  opacity: 0.28;
+  animation: spell-meter-stars-c 13.9s ease-in-out -2.6s infinite;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label > *,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter:is(.hit-points, .hit-dice) .label > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-points .tmp,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.hit-points .tmp {
+  position: relative;
+  z-index: 2;
+  border-inline-start-color: rgba(216, 230, 255, 0.3) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(10, 12, 24, 0.14)) !important;
+}
+
+@keyframes spell-meter-stars-a {
+  0% {
+    background-position: 0 0, 9px 1px, center;
+    opacity: 0.18;
+  }
+
+  23% {
+    background-position: 7px -2px, 17px -3px, center;
+    opacity: 0.5;
+  }
+
+  51% {
+    background-position: 14px 5px, 25px 2px, center;
+    opacity: 0.24;
+  }
+
+  76% {
+    background-position: 20px 7px, 34px 5px, center;
+    opacity: 0.62;
+  }
+
+  100% {
+    background-position: 25px 12px, 42px 8px, center;
+    opacity: 0.32;
+  }
+}
+
+@keyframes spell-meter-stars-b {
+  0% {
+    background-position: 17px 2px, 41px 0;
+    opacity: 0.52;
+  }
+
+  19% {
+    background-position: 13px 6px, 38px -2px;
+    opacity: 0.2;
+  }
+
+  44% {
+    background-position: 7px 11px, 47px 5px;
+    opacity: 0.68;
+  }
+
+  71% {
+    background-position: 23px 5px, 35px 14px;
+    opacity: 0.3;
+  }
+
+  100% {
+    background-position: 21px 18px, 64px 16px;
+    opacity: 0.56;
+  }
+}
+
+@keyframes spell-meter-stars-c {
+  0% {
+    background-position: 23px 4px, 3px 12px;
+    opacity: 0.16;
+  }
+
+  27% {
+    background-position: 31px 9px, 17px 4px;
+    opacity: 0.42;
+  }
+
+  58% {
+    background-position: 18px 16px, 9px 19px;
+    opacity: 0.22;
+  }
+
+  83% {
+    background-position: 42px 10px, 25px 7px;
+    opacity: 0.54;
+  }
+
+  100% {
+    background-position: 36px 24px, 31px 18px;
+    opacity: 0.26;
+  }
 }
 

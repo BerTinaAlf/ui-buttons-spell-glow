@@ -2,7 +2,7 @@
   "id": "ui-buttons-spell-glow",
   "title": "UI Buttons Spell Glow",
   "description": "Makes Foundry VTT UI button borders transparent, then adds a blue-violet arcane glow on hover and focus.",
-  "version": "0.1.118",
+  "version": "0.2.0",
   "url": "https://github.com/BerTinaAlf/ui-buttons-spell-glow",
   "manifest": "https://raw.githubusercontent.com/BerTinaAlf/ui-buttons-spell-glow/main/module.json",
   "download": "https://github.com/BerTinaAlf/ui-buttons-spell-glow/archive/refs/heads/main.zip",
