@@ -1,0 +1,4499 @@
+﻿@font-face {
+  font-family: "HuiwenMingchao";
+  src: url("../fonts/%E6%B1%87%E6%96%87%E6%98%8E%E6%9C%9D%E4%BD%93.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --spell-glow-cyan: rgba(98, 214, 255, 0.92);
+  --spell-glow-blue: rgba(78, 130, 255, 0.65);
+  --spell-glow-violet: rgba(177, 96, 255, 0.72);
+  --spell-glow-soft: rgba(126, 90, 255, 0.22);
+  --spell-active-gold: rgba(255, 222, 134, 0.88);
+  --spell-ui-border: rgba(184, 210, 255, 0.36);
+  --spell-ui-border-dim: rgba(195, 154, 255, 0.24);
+  --spell-panel-bg: rgba(56, 58, 82, 0.18);
+  --spell-panel-bg-deep: rgba(24, 26, 44, 0.22);
+  --spell-glass-highlight: rgba(238, 246, 255, 0.11);
+}
+
+body,
+button,
+input,
+select,
+textarea,
+.app,
+.application,
+.window-app,
+.dialog,
+.sheet,
+.sidebar-popout,
+.journal-entry,
+.chat-message {
+  font-family: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", sans-serif !important;
+}
+
+.fa,
+.fas,
+.fa-solid,
+.fa-fw,
+[class^="fa-"],
+[class*=" fa-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
+  font-style: normal;
+  font-weight: 900 !important;
+}
+
+.far,
+.fa-regular {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
+  font-style: normal;
+  font-weight: 400 !important;
+}
+
+.fab,
+.fa-brands {
+  font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important;
+  font-style: normal;
+  font-weight: 400 !important;
+}
+
+#ui-left,
+#ui-left > *,
+#controls,
+#controls ol,
+#controls li,
+.scene-controls,
+.main-controls,
+.sub-controls,
+.control-tools,
+.directory .action-buttons,
+.sheet-footer,
+.dialog-buttons,
+.form-footer {
+  overflow: visible !important;
+}
+
+.app,
+.application,
+.window-app,
+#sidebar,
+#players,
+#navigation,
+#hotbar,
+#pause,
+.dialog,
+.sheet,
+.sidebar-popout {
+  border: 1px solid var(--spell-ui-border) !important;
+  box-shadow:
+    0 0 0 1px rgba(238, 246, 255, 0.08),
+    0 10px 34px rgba(6, 8, 18, 0.16),
+    0 0 18px rgba(98, 214, 255, 0.07),
+    0 0 28px rgba(177, 96, 255, 0.055),
+    inset 0 1px 0 var(--spell-glass-highlight),
+    inset 0 0 22px rgba(98, 214, 255, 0.05) !important;
+  backdrop-filter: blur(16px) saturate(1.25);
+  -webkit-backdrop-filter: blur(16px) saturate(1.25);
+}
+
+.app,
+.application,
+.window-app,
+.dialog,
+.sheet,
+.sidebar-popout {
+  background:
+    radial-gradient(circle at 82% 64%, rgba(177, 96, 255, 0.07), transparent 18rem),
+    radial-gradient(circle at 18% 18%, rgba(98, 214, 255, 0.065), transparent 16rem),
+    linear-gradient(145deg, rgba(72, 76, 108, 0.15), var(--spell-panel-bg-deep)) !important;
+  color: #efeaff;
+}
+
+.window-header::after,
+.app .window-header::after,
+.application .window-header::after,
+.window-app .window-header::after,
+.dialog .window-header::after,
+.sheet-header::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 50%, rgba(98, 214, 255, 0.64) 0 1px, transparent 2px),
+    radial-gradient(circle at 28% 50%, rgba(177, 96, 255, 0.5) 0 1px, transparent 2px),
+    radial-gradient(circle at 63% 50%, rgba(238, 246, 255, 0.46) 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 50%, rgba(98, 214, 255, 0.48) 0 1px, transparent 2px);
+  filter: drop-shadow(0 0 3px rgba(98, 214, 255, 0.42));
+  opacity: 0.42;
+  animation: spell-border-motes 7s ease-in-out infinite alternate;
+}
+
+.sheet .window-header button:first-of-type,
+.sheet .window-header .header-control:first-child,
+.sheet .window-header .header-button:first-child,
+.window-app.sheet .window-header button:first-of-type,
+.window-app.sheet .window-header .header-control:first-child,
+.window-app.sheet .window-header .header-button:first-child {
+  position: relative;
+  min-width: 2.15rem;
+  min-height: 1.18rem;
+  overflow: visible !important;
+  border: 1px solid rgba(184, 210, 255, 0.28) !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle at 28% 50%, rgba(98, 214, 255, 0.18), transparent 52%),
+    linear-gradient(135deg, rgba(35, 39, 64, 0.42), rgba(68, 45, 94, 0.3)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.16),
+    0 0 8px rgba(98, 214, 255, 0.12),
+    0 0 14px rgba(177, 96, 255, 0.1) !important;
+  backdrop-filter: blur(8px) saturate(1.2);
+  -webkit-backdrop-filter: blur(8px) saturate(1.2);
+}
+
+.window-header,
+.app .window-header,
+.application .window-header,
+.window-app .window-header,
+.dialog .window-header,
+.sheet .window-header,
+.window-app.sheet .window-header {
+  display: flex !important;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.window-header .window-title,
+.app .window-header .window-title,
+.application .window-header .window-title,
+.window-app .window-header .window-title,
+.dialog .window-header .window-title,
+.sheet .window-header .window-title,
+.window-app.sheet .window-header .window-title {
+  flex: 1 1 auto;
+}
+
+.window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close),
+.app .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close),
+.application .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close),
+.window-app .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close),
+.dialog .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close),
+.sheet .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close),
+.window-app.sheet .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close) {
+  order: 10;
+  flex: 0 0 auto;
+  margin-left: 0;
+}
+
+.window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close):first-of-type,
+.app .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close):first-of-type,
+.application .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close):first-of-type,
+.window-app .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close):first-of-type,
+.dialog .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close):first-of-type,
+.sheet .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close):first-of-type,
+.window-app.sheet .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close):first-of-type {
+  margin-left: auto;
+}
+
+.sheet .window-header :is(button[data-action="close"], .close, .header-button.close, [data-action="configure"], [data-action="minimize"]),
+.window-app.sheet .window-header :is(button[data-action="close"], .close, .header-button.close, [data-action="configure"], [data-action="minimize"]) {
+  min-width: auto;
+  min-height: auto;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.sheet .window-header :is(button[data-action="close"], .close, .header-button.close, [data-action="configure"], [data-action="minimize"])::before,
+.window-app.sheet .window-header :is(button[data-action="close"], .close, .header-button.close, [data-action="configure"], [data-action="minimize"])::before {
+  content: none !important;
+  display: none !important;
+}
+
+.sheet .window-header button:first-of-type::before,
+.sheet .window-header .header-control:first-child::before,
+.sheet .window-header .header-button:first-child::before,
+.window-app.sheet .window-header button:first-of-type::before,
+.window-app.sheet .window-header .header-control:first-child::before,
+.window-app.sheet .window-header .header-button:first-child::before {
+  position: absolute;
+  inset: -0.3rem;
+  content: "";
+  pointer-events: none;
+  opacity: 0.32;
+  background:
+    radial-gradient(circle at 12% 42%, rgba(98, 214, 255, 0.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 16%, rgba(177, 96, 255, 0.58) 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 74%, rgba(238, 246, 255, 0.5) 0 1px, transparent 2px),
+    radial-gradient(circle at 34% 86%, rgba(98, 214, 255, 0.42) 0 1px, transparent 2px);
+  filter: drop-shadow(0 0 4px rgba(98, 214, 255, 0.48));
+  animation: spell-switch-motes 3.8s ease-in-out infinite alternate;
+}
+
+.sheet .window-header button:first-of-type:hover,
+.sheet .window-header .header-control:first-child:hover,
+.sheet .window-header .header-button:first-child:hover,
+.window-app.sheet .window-header button:first-of-type:hover,
+.window-app.sheet .window-header .header-control:first-child:hover,
+.window-app.sheet .window-header .header-button:first-child:hover {
+  border-color: rgba(184, 210, 255, 0.46) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.2),
+    0 0 9px rgba(98, 214, 255, 0.28),
+    0 0 18px rgba(177, 96, 255, 0.22) !important;
+}
+
+.sheet .window-header button:first-of-type:hover::before,
+.sheet .window-header .header-control:first-child:hover::before,
+.sheet .window-header .header-button:first-child:hover::before,
+.window-app.sheet .window-header button:first-of-type:hover::before,
+.window-app.sheet .window-header .header-control:first-child:hover::before,
+.window-app.sheet .window-header .header-button:first-child:hover::before {
+  opacity: 0.62;
+}
+
+.window-content,
+.app .window-content,
+.application .window-content,
+.window-app .window-content,
+.dialog .window-content,
+.sheet .window-content,
+.sidebar-popout .window-content {
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.038), transparent 24%),
+    radial-gradient(circle at 78% 58%, rgba(177, 96, 255, 0.06), transparent 15rem),
+    radial-gradient(circle at 24% 20%, rgba(98, 214, 255, 0.055), transparent 13rem),
+    linear-gradient(180deg, rgba(67, 70, 102, 0.15), var(--spell-panel-bg) 42%, var(--spell-panel-bg-deep)) !important;
+  color: #efeaff;
+  backdrop-filter: blur(18px) saturate(1.28);
+  -webkit-backdrop-filter: blur(18px) saturate(1.28);
+}
+
+.window-header,
+.app .window-header,
+.application .window-header,
+.window-app .window-header,
+#sidebar-tabs,
+.directory-header,
+.sheet-header,
+.dialog .window-header {
+  background:
+    linear-gradient(90deg, rgba(44, 48, 76, 0.22), rgba(72, 54, 108, 0.2), rgba(36, 42, 70, 0.22)) !important;
+  border-bottom: 1px solid transparent !important;
+  border-image: linear-gradient(
+    90deg,
+    transparent,
+    rgba(98, 214, 255, 0.22) 18%,
+    rgba(177, 96, 255, 0.2) 50%,
+    rgba(98, 214, 255, 0.22) 82%,
+    transparent
+  ) 1 !important;
+  box-shadow:
+    0 6px 16px rgba(98, 214, 255, 0.055) !important;
+  backdrop-filter: blur(14px) saturate(1.25);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+}
+
+.sheet .window-header::after,
+.window-app.sheet .window-header::after {
+  display: none;
+}
+
+.sheet .window-header,
+.window-app.sheet .window-header {
+  border-bottom: 0 !important;
+  border-image: none !important;
+  box-shadow: 0 10px 18px rgba(98, 214, 255, 0.025) !important;
+}
+
+.sheet .window-content,
+.window-app.sheet .window-content {
+  border-top: 0 !important;
+}
+
+.sheet .window-content > header,
+.sheet .window-content .sheet-header,
+.sheet .window-content .sheet-header + *,
+.window-app.sheet .window-content > header,
+.window-app.sheet .window-content .sheet-header,
+.window-app.sheet .window-content .sheet-header + * {
+  border-color: rgba(184, 210, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+.sheet .tabs .item,
+.window-app.sheet .tabs .item,
+.sheet nav.tabs .item,
+.window-app.sheet nav.tabs .item {
+  color: rgba(236, 225, 190, 0.82) !important;
+  opacity: 1 !important;
+  filter:
+    drop-shadow(0 0 2px rgba(10, 12, 24, 0.65))
+    drop-shadow(0 0 4px rgba(255, 222, 134, 0.16));
+  text-shadow:
+    0 0 3px rgba(10, 12, 24, 0.72),
+    0 0 6px rgba(255, 222, 134, 0.16);
+}
+
+.sheet .tabs .item:hover,
+.window-app.sheet .tabs .item:hover,
+.sheet nav.tabs .item:hover,
+.window-app.sheet nav.tabs .item:hover {
+  color: #f7fbff !important;
+  filter:
+    drop-shadow(0 0 3px rgba(98, 214, 255, 0.86))
+    drop-shadow(0 0 8px rgba(177, 96, 255, 0.62))
+    drop-shadow(0 0 12px rgba(255, 222, 134, 0.22));
+  text-shadow:
+    0 0 4px rgba(98, 214, 255, 0.86),
+    0 0 9px rgba(177, 96, 255, 0.62);
+}
+
+.sheet .tabs .item.active,
+.sheet .tabs .item.selected,
+.sheet .tabs .item[aria-selected="true"],
+.window-app.sheet .tabs .item.active,
+.window-app.sheet .tabs .item.selected,
+.window-app.sheet .tabs .item[aria-selected="true"],
+.sheet nav.tabs .item.active,
+.sheet nav.tabs .item.selected,
+.sheet nav.tabs .item[aria-selected="true"],
+.window-app.sheet nav.tabs .item.active,
+.window-app.sheet nav.tabs .item.selected,
+.window-app.sheet nav.tabs .item[aria-selected="true"] {
+  color: #eef9ff !important;
+  filter:
+    drop-shadow(0 0 4px rgba(98, 214, 255, 0.96))
+    drop-shadow(0 0 10px rgba(177, 96, 255, 0.74))
+    drop-shadow(0 0 14px rgba(255, 222, 134, 0.28));
+  text-shadow:
+    0 0 5px rgba(98, 214, 255, 0.92),
+    0 0 10px rgba(177, 96, 255, 0.7);
+}
+
+.directory-list .item::after,
+.directory .item::after,
+#sidebar .directory-list .item::after,
+#sidebar .directory .item::after,
+.settings-list .item::after {
+  display: none !important;
+}
+
+.directory-list .item:hover,
+.directory .item:hover,
+#sidebar .directory-list .item:hover,
+#sidebar .directory .item:hover,
+.settings-list .item:hover {
+  background:
+    linear-gradient(90deg, rgba(98, 214, 255, 0.08), rgba(177, 96, 255, 0.035), transparent 72%) !important;
+  box-shadow:
+    inset 2px 0 0 rgba(98, 214, 255, 0.36),
+    inset 12px 0 18px rgba(98, 214, 255, 0.045) !important;
+}
+
+.directory-list .item:hover :is(.name, h3, h4, label, span:first-child),
+.directory .item:hover :is(.name, h3, h4, label, span:first-child),
+#sidebar .directory-list .item:hover :is(.name, h3, h4, label, span:first-child),
+#sidebar .directory .item:hover :is(.name, h3, h4, label, span:first-child),
+.settings-list .item:hover :is(.name, h3, h4, label, span:first-child) {
+  color: #eef9ff;
+  text-shadow:
+    0 0 4px rgba(98, 214, 255, 0.72),
+    0 0 8px rgba(177, 96, 255, 0.42);
+}
+
+.sidebar-tab,
+.directory-list,
+.window-content,
+.app .window-content,
+.application .window-content,
+.window-app .window-content {
+  border-color: var(--spell-ui-border-dim) !important;
+}
+
+.app input,
+.app select,
+.app textarea,
+.application input,
+.application select,
+.application textarea,
+.window-app input,
+.window-app select,
+.window-app textarea,
+.dialog input,
+.dialog select,
+.dialog textarea,
+.sheet input,
+.sheet select,
+.sheet textarea {
+  background: rgba(34, 36, 58, 0.26) !important;
+  border: 1px solid rgba(184, 210, 255, 0.24) !important;
+  color: #f4efff;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    inset 0 0 10px rgba(98, 214, 255, 0.04) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 0.1.98 - keep native select dropdowns readable in advancement and configuration panels. */
+.app select option,
+.app select optgroup,
+.application select option,
+.application select optgroup,
+.window-app select option,
+.window-app select optgroup,
+.dialog select option,
+.dialog select optgroup,
+.sheet select option,
+.sheet select optgroup,
+.dnd5e.advancement select option,
+.dnd5e.advancement select optgroup,
+.dnd5e2 select option,
+.dnd5e2 select optgroup {
+  background: #f1ece8 !important;
+  color: #1d2432 !important;
+  text-shadow: none !important;
+}
+
+.app select option:checked,
+.application select option:checked,
+.window-app select option:checked,
+.dialog select option:checked,
+.sheet select option:checked,
+.dnd5e.advancement select option:checked,
+.dnd5e2 select option:checked {
+  background: #2e6dd1 !important;
+  color: #ffffff !important;
+}
+
+.dnd5e.advancement select,
+.window-app.dnd5e.advancement select,
+.application.dnd5e.advancement select {
+  color: #f7fbff !important;
+  background:
+    linear-gradient(180deg, rgba(52, 56, 84, 0.62), rgba(28, 31, 52, 0.72)) !important;
+}
+
+#sidebar,
+#sidebar:hover {
+  border: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+#sidebar-tabs,
+#sidebar-tabs:hover {
+  border: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+#sidebar-content,
+#sidebar .sidebar-tab,
+#sidebar .directory,
+#sidebar .directory .directory-header,
+#sidebar .directory .directory-list {
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.04), transparent 24%),
+    radial-gradient(circle at 74% 18%, rgba(98, 214, 255, 0.07), transparent 13rem),
+    radial-gradient(circle at 22% 58%, rgba(177, 96, 255, 0.06), transparent 15rem),
+    linear-gradient(180deg, rgba(67, 70, 102, 0.18), rgba(24, 26, 44, 0.24)) !important;
+  color: #efeaff;
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
+#sidebar-content {
+  border-left: 1px solid rgba(184, 210, 255, 0.16) !important;
+  box-shadow:
+    inset 1px 0 0 rgba(238, 246, 255, 0.08),
+    -10px 0 28px rgba(6, 8, 18, 0.12),
+    0 0 18px rgba(98, 214, 255, 0.06) !important;
+}
+
+#sidebar .directory .directory-header {
+  border-bottom: 1px solid rgba(184, 210, 255, 0.12) !important;
+}
+
+#sidebar .directory .directory-list {
+  border-color: rgba(195, 154, 255, 0.12) !important;
+}
+
+#notifications .notification,
+.notification,
+#players,
+#navigation,
+#navigation #scene-list,
+#navigation .scene,
+#navigation .scene.view,
+#navigation .scene.context,
+#hotbar,
+#hotbar #action-bar,
+#hotbar .macro,
+#hotbar .bar-controls,
+#hotbar .page-control {
+  border: 1px solid rgba(184, 210, 255, 0.22) !important;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.045), transparent 28%),
+    radial-gradient(circle at 20% 22%, rgba(98, 214, 255, 0.06), transparent 9rem),
+    radial-gradient(circle at 82% 74%, rgba(177, 96, 255, 0.055), transparent 10rem),
+    linear-gradient(180deg, rgba(66, 70, 98, 0.22), rgba(25, 28, 45, 0.2)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.11),
+    0 8px 22px rgba(6, 8, 18, 0.12),
+    0 0 14px rgba(98, 214, 255, 0.055) !important;
+  color: #efeaff;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+#notifications .notification.info,
+.notification.info {
+  border-color: rgba(184, 210, 255, 0.3) !important;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(90deg, rgba(72, 116, 174, 0.28), rgba(58, 50, 100, 0.22)) !important;
+}
+
+#players:hover,
+#navigation .scene:hover,
+#hotbar .macro:hover,
+#hotbar .bar-controls:hover,
+#hotbar .page-control:hover {
+  border-color: rgba(184, 210, 255, 0.34) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.14),
+    0 0 12px rgba(98, 214, 255, 0.13),
+    0 0 18px rgba(177, 96, 255, 0.09) !important;
+}
+
+#navigation .scene.active,
+#navigation .scene.view,
+#hotbar .macro.active {
+  border-color: rgba(255, 222, 134, 0.34) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.14),
+    0 0 12px rgba(98, 214, 255, 0.12),
+    0 0 18px rgba(255, 222, 134, 0.12) !important;
+}
+
+#players h3,
+#players ol,
+#players li,
+#hotbar .macro .macro-key,
+#navigation .scene-name {
+  background: transparent !important;
+  color: #efeaff;
+  text-shadow: 0 0 4px rgba(10, 12, 24, 0.72);
+}
+
+#notifications .notification,
+.notification,
+#players,
+#navigation .scene,
+#navigation .scene.view,
+#navigation .scene.context,
+#hotbar .macro,
+#hotbar .bar-controls,
+#hotbar .page-control {
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.035), transparent 30%),
+    radial-gradient(circle at 24% 26%, rgba(98, 214, 255, 0.04), transparent 6rem),
+    radial-gradient(circle at 78% 72%, rgba(177, 96, 255, 0.035), transparent 7rem),
+    linear-gradient(180deg, rgba(70, 74, 104, 0.13), rgba(24, 26, 44, 0.11)) !important;
+  border-color: rgba(184, 210, 255, 0.16) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    0 5px 14px rgba(6, 8, 18, 0.08),
+    0 0 10px rgba(98, 214, 255, 0.035) !important;
+  backdrop-filter: blur(12px) saturate(1.16);
+  -webkit-backdrop-filter: blur(12px) saturate(1.16);
+}
+
+#hotbar #action-bar,
+#navigation #scene-list {
+  background: transparent !important;
+  border-color: rgba(184, 210, 255, 0.12) !important;
+  box-shadow: none !important;
+}
+
+.app:hover,
+.application:hover,
+.window-app:hover,
+#sidebar:hover,
+#players:hover,
+#navigation:hover,
+#hotbar:hover,
+.dialog:hover,
+.sheet:hover,
+.sidebar-popout:hover {
+  border-color: rgba(139, 174, 255, 0.34) !important;
+  box-shadow:
+    0 0 0 1px rgba(34, 28, 74, 0.44),
+    0 0 14px rgba(98, 214, 255, 0.14),
+    0 0 26px rgba(177, 96, 255, 0.13),
+    inset 0 0 18px rgba(98, 214, 255, 0.055),
+    inset 0 1px 0 rgba(238, 246, 255, 0.18) !important;
+}
+
+button,
+.button,
+.control-tool,
+.scene-control,
+.playlist-control,
+.directory .action-buttons button,
+.sheet-footer button,
+.dialog-buttons button,
+.form-footer button,
+.tabs .item,
+#sidebar-tabs .item,
+#controls .control-tool,
+#controls .scene-control {
+  position: relative;
+  isolation: isolate;
+  overflow: visible !important;
+  border: 0 !important;
+  outline: none;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  transition:
+    filter 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 160ms ease,
+    text-shadow 180ms ease,
+    transform 160ms ease;
+}
+
+button > *,
+.button > *,
+.control-tool > *,
+.scene-control > *,
+.playlist-control > *,
+.directory .action-buttons button > *,
+.sheet-footer button > *,
+.dialog-buttons button > *,
+.form-footer button > *,
+.tabs .item > *,
+#sidebar-tabs .item > *,
+#controls .control-tool > *,
+#controls .scene-control > * {
+  position: relative;
+  z-index: 1;
+}
+
+button::after,
+.button::after,
+.control-tool::after,
+.scene-control::after,
+.playlist-control::after,
+.directory .action-buttons button::after,
+.sheet-footer button::after,
+.dialog-buttons button::after,
+.form-footer button::after,
+.tabs .item::after,
+#sidebar-tabs .item::after,
+#controls .control-tool::after,
+#controls .scene-control::after {
+  position: absolute;
+  inset: 50%;
+  width: 2.35em;
+  height: 2.35em;
+  z-index: 0;
+  border-radius: 999px;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 48% 46%, rgba(238, 246, 255, 0.88) 0 3%, transparent 4%),
+    radial-gradient(circle at 36% 62%, rgba(98, 214, 255, 0.44) 0 10%, transparent 22%),
+    radial-gradient(circle at 66% 32%, rgba(177, 96, 255, 0.36) 0 8%, transparent 20%),
+    conic-gradient(
+      from 17deg,
+      transparent,
+      rgba(98, 214, 255, 0.44),
+      transparent 31%,
+      rgba(177, 96, 255, 0.5),
+      transparent,
+      rgba(98, 214, 255, 0.32),
+      transparent
+    );
+  transform: translate(-50%, -50%) scale(0.08) rotate(0deg);
+  transform-origin: center;
+}
+
+button:hover,
+button:focus-visible,
+.button:hover,
+.button:focus-visible,
+.control-tool:hover,
+.control-tool:focus-visible,
+.scene-control:hover,
+.scene-control:focus-visible,
+.playlist-control:hover,
+.playlist-control:focus-visible,
+.directory .action-buttons button:hover,
+.directory .action-buttons button:focus-visible,
+.sheet-footer button:hover,
+.sheet-footer button:focus-visible,
+.dialog-buttons button:hover,
+.dialog-buttons button:focus-visible,
+.form-footer button:hover,
+.form-footer button:focus-visible,
+.tabs .item:hover,
+.tabs .item:focus-visible,
+#sidebar-tabs .item:hover,
+#sidebar-tabs .item:focus-visible,
+#controls .control-tool:hover,
+#controls .control-tool:focus-visible,
+#controls .scene-control:hover,
+#controls .scene-control:focus-visible {
+  border: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #eef6ff;
+  filter:
+    drop-shadow(0 0 3px rgba(98, 214, 255, 0.78))
+    drop-shadow(0 0 7px rgba(177, 96, 255, 0.54));
+  text-shadow:
+    0 0 4px rgba(98, 214, 255, 0.78),
+    0 0 9px rgba(177, 96, 255, 0.56);
+  transform: translateY(-1px);
+}
+
+button:hover::after,
+button:focus-visible::after,
+.button:hover::after,
+.button:focus-visible::after,
+.control-tool:hover::after,
+.control-tool:focus-visible::after,
+.scene-control:hover::after,
+.scene-control:focus-visible::after,
+.playlist-control:hover::after,
+.playlist-control:focus-visible::after,
+.directory .action-buttons button:hover::after,
+.directory .action-buttons button:focus-visible::after,
+.sheet-footer button:hover::after,
+.sheet-footer button:focus-visible::after,
+.dialog-buttons button:hover::after,
+.dialog-buttons button:focus-visible::after,
+.form-footer button:hover::after,
+.form-footer button:focus-visible::after,
+.tabs .item:hover::after,
+.tabs .item:focus-visible::after,
+#sidebar-tabs .item:hover::after,
+#sidebar-tabs .item:focus-visible::after,
+#controls .control-tool:hover::after,
+#controls .control-tool:focus-visible::after,
+#controls .scene-control:hover::after,
+#controls .scene-control:focus-visible::after {
+  opacity: 0.18;
+  transform: translate(-50%, -50%) scale(0.42) rotate(26deg);
+  transition:
+    opacity 180ms ease,
+    transform 240ms ease;
+}
+
+button:active,
+.button:active,
+.control-tool:active,
+.scene-control:active,
+.playlist-control:active,
+.directory .action-buttons button:active,
+.sheet-footer button:active,
+.dialog-buttons button:active,
+.form-footer button:active,
+.tabs .item:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  transform: translateY(0) scale(0.98);
+}
+
+button.spell-casting,
+.button.spell-casting,
+.control-tool.spell-casting,
+.scene-control.spell-casting,
+.playlist-control.spell-casting,
+.directory .action-buttons button.spell-casting,
+.sheet-footer button.spell-casting,
+.dialog-buttons button.spell-casting,
+.form-footer button.spell-casting,
+.tabs .item.spell-casting,
+#sidebar-tabs .item.spell-casting {
+  color: #ffffff;
+  filter:
+    drop-shadow(0 0 5px rgba(238, 246, 255, 0.9))
+    drop-shadow(0 0 11px rgba(98, 214, 255, 0.78))
+    drop-shadow(0 0 17px rgba(177, 96, 255, 0.68));
+  text-shadow:
+    0 0 5px rgba(238, 246, 255, 0.88),
+    0 0 11px rgba(98, 214, 255, 0.76),
+    0 0 17px rgba(177, 96, 255, 0.68);
+  animation: spell-icon-flash 520ms ease-out;
+}
+
+.spell-cast-mist-burst {
+  position: fixed;
+  width: 5.4em;
+  height: 4.2em;
+  z-index: 10000;
+  border-radius: 48% 52% 56% 44% / 54% 45% 55% 46%;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 48% 50%, rgba(255, 255, 255, 0.52) 0 6%, transparent 24%),
+    radial-gradient(ellipse at 28% 46%, rgba(98, 214, 255, 0.5) 0 12%, transparent 38%),
+    radial-gradient(ellipse at 70% 54%, rgba(177, 96, 255, 0.42) 0 12%, transparent 40%),
+    radial-gradient(ellipse at 42% 22%, rgba(238, 246, 255, 0.28) 0 8%, transparent 30%),
+    radial-gradient(ellipse at 58% 82%, rgba(98, 214, 255, 0.24) 0 9%, transparent 34%),
+    radial-gradient(ellipse at 50% 50%, rgba(126, 90, 255, 0.18) 0 28%, transparent 68%);
+  filter: blur(3px) drop-shadow(0 0 9px rgba(98, 214, 255, 0.58)) drop-shadow(0 0 16px rgba(177, 96, 255, 0.42));
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%) scale(0.18, 0.12) rotate(-10deg);
+  transform-origin: center;
+  will-change: opacity, filter, transform;
+  animation: spell-cast-mist 760ms ease-out;
+}
+
+.control-tool.active,
+.control-tool.selected,
+.control-tool[aria-pressed="true"],
+.control-tool[aria-selected="true"],
+.scene-control.active,
+.scene-control.selected,
+.scene-control[aria-pressed="true"],
+.scene-control[aria-selected="true"],
+.playlist-control.active,
+.playlist-control.selected,
+.playlist-control[aria-pressed="true"],
+.playlist-control[aria-selected="true"],
+.button.active,
+.button.selected,
+.button[aria-pressed="true"],
+.button[aria-selected="true"],
+button.active,
+button.selected,
+button[aria-pressed="true"],
+button[aria-selected="true"],
+.tabs .item.active,
+.tabs .item.selected,
+.tabs .item[aria-selected="true"],
+#sidebar-tabs .item.active,
+#sidebar-tabs .item.selected,
+#sidebar-tabs .item[aria-selected="true"] {
+  border: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #f9fbff;
+  box-shadow: none !important;
+  filter:
+    drop-shadow(0 0 3px rgba(98, 214, 255, 0.8))
+    drop-shadow(0 0 8px rgba(177, 96, 255, 0.58))
+    drop-shadow(0 0 10px rgba(255, 222, 134, 0.28));
+  text-shadow:
+    0 0 4px rgba(98, 214, 255, 0.76),
+    0 0 9px rgba(177, 96, 255, 0.58),
+    0 0 10px rgba(255, 222, 134, 0.28);
+}
+
+.control-tool.active::after,
+.control-tool.selected::after,
+.control-tool[aria-pressed="true"]::after,
+.control-tool[aria-selected="true"]::after,
+.scene-control.active::after,
+.scene-control.selected::after,
+.scene-control[aria-pressed="true"]::after,
+.scene-control[aria-selected="true"]::after,
+.playlist-control.active::after,
+.playlist-control.selected::after,
+.playlist-control[aria-pressed="true"]::after,
+.playlist-control[aria-selected="true"]::after,
+.button.active::after,
+.button.selected::after,
+.button[aria-pressed="true"]::after,
+.button[aria-selected="true"]::after,
+button.active::after,
+button.selected::after,
+button[aria-pressed="true"]::after,
+button[aria-selected="true"]::after,
+.tabs .item.active::after,
+.tabs .item.selected::after,
+.tabs .item[aria-selected="true"]::after,
+#sidebar-tabs .item.active::after,
+#sidebar-tabs .item.selected::after,
+#sidebar-tabs .item[aria-selected="true"]::after {
+  opacity: 0.22;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.42) 0 4%, transparent 5%),
+    radial-gradient(circle at 38% 60%, rgba(98, 214, 255, 0.28) 0 13%, transparent 34%),
+    radial-gradient(circle at 68% 35%, rgba(177, 96, 255, 0.24) 0 10%, transparent 28%),
+    conic-gradient(
+      from 38deg,
+      transparent,
+      rgba(98, 214, 255, 0.36),
+      transparent 34%,
+      rgba(177, 96, 255, 0.38),
+      rgba(255, 222, 134, 0.24),
+      transparent
+    );
+  transform: translate(-50%, -50%) scale(0.44) rotate(38deg);
+}
+
+@keyframes spell-cast-mist {
+  0% {
+    opacity: 0;
+    filter: blur(1.5px);
+    transform: translate(-50%, -50%) scale(0.18, 0.12) rotate(-10deg);
+  }
+
+  20% {
+    opacity: 0.82;
+    filter: blur(2.5px) drop-shadow(0 0 10px rgba(238, 246, 255, 0.48)) drop-shadow(0 0 16px rgba(98, 214, 255, 0.5));
+    transform: translate(-50%, -52%) scale(0.7, 0.45) rotate(8deg);
+  }
+
+  52% {
+    opacity: 0.58;
+    filter: blur(4px) drop-shadow(0 0 13px rgba(98, 214, 255, 0.42)) drop-shadow(0 0 22px rgba(177, 96, 255, 0.34));
+    transform: translate(-49%, -54%) scale(1.12, 0.82) rotate(18deg);
+  }
+
+  78% {
+    opacity: 0.24;
+    filter: blur(6px) drop-shadow(0 0 16px rgba(98, 214, 255, 0.26)) drop-shadow(0 0 26px rgba(177, 96, 255, 0.2));
+    transform: translate(-52%, -57%) scale(1.42, 1.08) rotate(25deg);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(8px) drop-shadow(0 0 18px rgba(98, 214, 255, 0.12));
+    transform: translate(-53%, -60%) scale(1.7, 1.26) rotate(31deg);
+  }
+}
+
+@keyframes spell-icon-flash {
+  0% {
+    transform: scale(0.94);
+  }
+
+  26% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spell-border-motes {
+  0% {
+    opacity: 0.24;
+    transform: translate3d(0, 0, 0);
+  }
+
+  45% {
+    opacity: 0.42;
+  }
+
+  100% {
+    opacity: 0.32;
+    transform: translate3d(2px, 0, 0);
+  }
+}
+
+@keyframes spell-switch-motes {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate3d(1px, -1px, 0) rotate(8deg);
+  }
+}
+
+.settings .tabs .item::after,
+.settings-sidebar .item::after,
+.settings-sidebar button::after,
+.settings-list .item::after,
+.settings-list button::after,
+.directory-list .item::after,
+.directory-list button::after,
+.directory .item::after,
+.directory .item button::after,
+#sidebar .directory-list .item::after,
+#sidebar .directory-list button::after,
+#sidebar .directory .item::after,
+#sidebar .directory .item button::after,
+.window-app .tabs.vertical .item::after,
+.window-app .tabs.vertical button::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+  opacity: 0 !important;
+}
+
+.settings .tabs .item,
+.settings-sidebar .item,
+.settings-sidebar button,
+.settings-list .item,
+.settings-list button,
+.directory-list .item,
+.directory-list button,
+.directory .item,
+#sidebar .directory-list .item,
+#sidebar .directory-list button,
+#sidebar .directory .item,
+.window-app .tabs.vertical .item,
+.window-app .tabs.vertical button {
+  box-shadow: none !important;
+}
+
+.dnd5e2.actor.character :is(.card, filigree-box, .meter, .pills-group, .left, .right, .main-content, .sidebar, .portrait, .favorites, .species, .background, .drop-area),
+.window-app.dnd5e2.actor.character :is(.card, filigree-box, .meter, .pills-group, .left, .right, .main-content, .sidebar, .portrait, .favorites, .species, .background, .drop-area) {
+  border-color: rgba(184, 210, 255, 0.18) !important;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.045), transparent 32%),
+    radial-gradient(circle at 22% 16%, rgba(98, 214, 255, 0.055), transparent 9rem),
+    radial-gradient(circle at 78% 72%, rgba(177, 96, 255, 0.052), transparent 10rem),
+    linear-gradient(180deg, rgba(55, 60, 88, 0.18), rgba(20, 22, 38, 0.17)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.09),
+    0 8px 18px rgba(6, 8, 18, 0.1),
+    0 0 14px rgba(98, 214, 255, 0.045) !important;
+  backdrop-filter: blur(14px) saturate(1.18);
+  -webkit-backdrop-filter: blur(14px) saturate(1.18);
+}
+
+.dnd5e2.actor.character :is(.card .header, filigree-box > h3, .pills-group h3),
+.window-app.dnd5e2.actor.character :is(.card .header, filigree-box > h3, .pills-group h3) {
+  border-color: rgba(184, 210, 255, 0.12) !important;
+  background:
+    linear-gradient(90deg, rgba(98, 214, 255, 0.075), rgba(177, 96, 255, 0.045), transparent 82%) !important;
+  color: #efeaff;
+  text-shadow:
+    0 0 4px rgba(98, 214, 255, 0.36),
+    0 0 8px rgba(177, 96, 255, 0.24);
+}
+
+.dnd5e2.actor.character .ability-score,
+.window-app.dnd5e2.actor.character .ability-score {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  border: 0 !important;
+  background: transparent !important;
+  filter:
+    drop-shadow(0 5px 7px rgba(6, 8, 18, 0.18))
+    drop-shadow(0 0 8px rgba(98, 214, 255, 0.12));
+}
+
+.dnd5e2.actor.character .ability-score::before,
+.window-app.dnd5e2.actor.character .ability-score::before {
+  position: absolute;
+  inset: -0.36rem -0.24rem -0.1rem;
+  z-index: -1;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 46%, rgba(238, 246, 255, 0.13), transparent 34%),
+    radial-gradient(circle at 44% 28%, rgba(98, 214, 255, 0.14), transparent 40%),
+    linear-gradient(145deg, rgba(68, 76, 118, 0.28), rgba(43, 31, 76, 0.22)) !important;
+  border: 1px solid rgba(184, 210, 255, 0.2);
+  border-radius: 0.45rem;
+  clip-path: polygon(
+    50% 0%,
+    66% 20%,
+    92% 24%,
+    82% 50%,
+    92% 76%,
+    66% 80%,
+    50% 100%,
+    34% 80%,
+    8% 76%,
+    18% 50%,
+    8% 24%,
+    34% 20%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.14),
+    0 0 12px rgba(98, 214, 255, 0.12),
+    0 0 18px rgba(177, 96, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(1.18);
+  -webkit-backdrop-filter: blur(10px) saturate(1.18);
+}
+
+.dnd5e2.actor.character .ability-score:is(:hover, .hover)::before,
+.window-app.dnd5e2.actor.character .ability-score:is(:hover, .hover)::before {
+  border-color: rgba(184, 210, 255, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.18),
+    0 0 12px rgba(98, 214, 255, 0.22),
+    0 0 22px rgba(177, 96, 255, 0.18);
+}
+
+.dnd5e2.actor.character .ability-score :is(.label, .mod, .score),
+.window-app.dnd5e2.actor.character .ability-score :is(.label, .mod, .score) {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  color: #f3efff;
+  text-shadow:
+    0 0 4px rgba(10, 12, 24, 0.86),
+    0 0 7px rgba(98, 214, 255, 0.25);
+}
+
+.dnd5e2.actor.character .ability-score .score,
+.window-app.dnd5e2.actor.character .ability-score .score {
+  border-radius: 0.35rem;
+  background: rgba(8, 9, 17, 0.42) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    0 0 8px rgba(177, 96, 255, 0.08) !important;
+}
+
+.dnd5e2.actor.character .death-tray,
+.window-app.dnd5e2.actor.character .death-tray {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.dnd5e2.actor.character .death-tray .death-saves,
+.window-app.dnd5e2.actor.character .death-tray .death-saves {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 2rem;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid rgba(184, 210, 255, 0.16) !important;
+  border-radius: 0.55rem;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.035), transparent 30%),
+    linear-gradient(180deg, rgba(34, 38, 58, 0.22), rgba(8, 9, 17, 0.2)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    0 0 10px rgba(98, 214, 255, 0.04) !important;
+  backdrop-filter: blur(10px) saturate(1.12);
+  -webkit-backdrop-filter: blur(10px) saturate(1.12);
+}
+
+.dnd5e2.actor.character .death-tray .death-saves::after,
+.window-app.dnd5e2.actor.character .death-tray .death-saves::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.actor.character .death-tray .death-save,
+.window-app.dnd5e2.actor.character .death-tray .death-save {
+  flex: 0 0 auto;
+  width: 1.65rem !important;
+  height: 1.65rem !important;
+  min-width: 1.65rem !important;
+  min-height: 1.65rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgba(236, 225, 190, 0.92);
+}
+
+.dnd5e2.actor.character .death-tray .death-save::before,
+.window-app.dnd5e2.actor.character .death-tray .death-save::before,
+.dnd5e2.actor.character .death-tray .death-save::after,
+.window-app.dnd5e2.actor.character .death-tray .death-save::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.actor.character .death-tray .death-save :is(i, dnd5e-icon),
+.window-app.dnd5e2.actor.character .death-tray .death-save :is(i, dnd5e-icon) {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: inherit;
+  filter:
+    drop-shadow(0 0 4px rgba(10, 12, 24, 0.82))
+    drop-shadow(0 0 7px rgba(177, 96, 255, 0.28));
+}
+
+.dnd5e2.actor.character .death-tray .pips,
+.window-app.dnd5e2.actor.character .death-tray .pips {
+  display: flex;
+  gap: 0.16rem;
+}
+
+.dnd5e2.actor.character .death-tray .pip,
+.window-app.dnd5e2.actor.character .death-tray .pip {
+  width: 0.62rem !important;
+  height: 0.62rem !important;
+  min-width: 0.62rem !important;
+  min-height: 0.62rem !important;
+  border: 1px solid rgba(236, 225, 190, 0.46) !important;
+  border-radius: 999px !important;
+  background: rgba(238, 246, 255, 0.05) !important;
+}
+
+.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray,
+.window-app.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray {
+  position: relative !important;
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray.open,
+.window-app.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray.open {
+  height: auto !important;
+}
+
+.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray .death-saves,
+.window-app.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray .death-saves {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 1.25rem !important;
+  z-index: 4;
+  display: flex !important;
+  width: auto !important;
+  min-width: 8.5rem;
+  max-width: none !important;
+  height: 1.8rem !important;
+  min-height: 1.8rem !important;
+  padding: 0.12rem 0.5rem !important;
+  transform: translateX(-50%);
+  border: 1px solid rgba(184, 210, 255, 0.12) !important;
+  border-radius: 999px;
+  background: rgba(10, 12, 24, 0.34) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    0 0 10px rgba(98, 214, 255, 0.04) !important;
+  backdrop-filter: blur(8px) saturate(1.08);
+  -webkit-backdrop-filter: blur(8px) saturate(1.08);
+}
+
+.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray .death-tab,
+.window-app.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray .death-tab {
+  position: relative !important;
+  z-index: 5;
+  display: flex !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 1.25rem !important;
+  min-height: 1.25rem !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgba(236, 225, 190, 0.78) !important;
+}
+
+.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray:not(.open) .death-saves,
+.window-app.dnd5e2.actor.character .sheet-body .sidebar .card .death-tray:not(.open) .death-saves {
+  display: flex !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray {
+  --lip: 6px;
+  --tray-height: 72px;
+  position: absolute !important;
+  top: calc(100% - var(--tray-height)) !important;
+  left: 0 !important;
+  z-index: 2;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  width: 100% !important;
+  height: var(--tray-height) !important;
+  padding: 0 8px !important;
+  transform: translateZ(-1px);
+  transition: top 450ms cubic-bezier(0.36, 0, 0.66, -0.56);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray.open,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray.open {
+  top: calc(100% - var(--lip)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves {
+  --padding: 6px;
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: calc(var(--padding) * 2 + var(--lip)) var(--padding) calc(var(--padding) * 2) !important;
+  transform: none !important;
+  border: 0 !important;
+  border-radius: 0 0 5px 5px !important;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.04), transparent 30%),
+    linear-gradient(180deg, rgba(34, 38, 58, 0.36), rgba(8, 9, 17, 0.34)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    0 0 10px rgba(98, 214, 255, 0.07),
+    0 0 16px rgba(177, 96, 255, 0.05) !important;
+  backdrop-filter: blur(8px) saturate(1.08);
+  -webkit-backdrop-filter: blur(8px) saturate(1.08);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves::after {
+  display: block !important;
+  content: "" !important;
+  position: absolute;
+  inset: calc(var(--padding) + var(--lip)) var(--padding) var(--padding);
+  border: 1px solid rgba(236, 225, 190, 0.58);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .death-save,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .death-save {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .death-save dnd5e-icon,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .death-save dnd5e-icon {
+  --icon-size: 40px;
+  --icon-fill: rgba(236, 225, 190, 0.92);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip {
+  width: revert !important;
+  height: revert !important;
+  min-width: revert !important;
+  min-height: revert !important;
+  background: rgba(8, 9, 17, 0.72) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip.filled,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip.filled {
+  background: rgba(236, 225, 190, 0.92) !important;
+}
+
+.dnd5e2.sheet.actor.character,
+.window-app.dnd5e2.sheet.actor.character {
+  --dnd5e-character-background-content: "";
+  --dnd5e-character-background-image: url("../assets/character-stars.jpg");
+  --dnd5e-character-header-image: url("../assets/character-stars.jpg");
+}
+
+.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before,
+.window-app.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before {
+  content: "" !important;
+  background:
+    linear-gradient(180deg, rgba(6, 8, 18, 0.08), rgba(6, 8, 18, 0.46)),
+    url("../assets/character-stars.jpg") no-repeat top center / cover !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header,
+.window-app.dnd5e2.sheet.actor.character .sheet-header {
+  background:
+    linear-gradient(90deg, rgba(6, 8, 18, 0.2), rgba(34, 26, 64, 0.1), rgba(6, 8, 18, 0.24)),
+    linear-gradient(180deg, rgba(6, 8, 18, 0.03), rgba(6, 8, 18, 0.34)),
+    url("../assets/character-stars.jpg") no-repeat center 42% / cover !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray,
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray.open,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray.open {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: auto !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0.35rem 0 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  transition: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves,
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray:not(.open) .death-saves,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray:not(.open) .death-saves {
+  position: static !important;
+  left: auto !important;
+  bottom: auto !important;
+  z-index: auto !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  padding: 0.28rem 0.55rem !important;
+  transform: none !important;
+  border: 1px solid rgba(184, 210, 255, 0.14) !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.035), transparent 30%),
+    linear-gradient(180deg, rgba(34, 38, 58, 0.24), rgba(8, 9, 17, 0.22)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    0 0 10px rgba(98, 214, 255, 0.04) !important;
+  backdrop-filter: blur(8px) saturate(1.08);
+  -webkit-backdrop-filter: blur(8px) saturate(1.08);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-tab,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-tab {
+  display: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .death-save,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .death-save {
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  min-width: 1.75rem !important;
+  min-height: 1.75rem !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .death-save dnd5e-icon,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .death-save dnd5e-icon {
+  --icon-size: 1.55rem;
+  --icon-fill: rgba(236, 225, 190, 0.92);
+}
+
+.dnd5e2.sheet.actor.character .window-header,
+.window-app.dnd5e2.sheet.actor.character .window-header {
+  background:
+    linear-gradient(90deg, rgba(8, 10, 22, 0.72), rgba(22, 16, 42, 0.58), rgba(8, 10, 22, 0.72)) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header :is(.left, .right),
+.window-app.dnd5e2.sheet.actor.character .sheet-header :is(.left, .right),
+.dnd5e2.sheet.actor.character .sheet-header :is(.document-name, .class, .level-badge, .boon-badge),
+.window-app.dnd5e2.sheet.actor.character .sheet-header :is(.document-name, .class, .level-badge, .boon-badge) {
+  border: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character :is(.card, filigree-box, .meter, .pills-group, .portrait, .favorites, .species, .background, .drop-area),
+.window-app.dnd5e2.sheet.actor.character :is(.card, filigree-box, .meter, .pills-group, .portrait, .favorites, .species, .background, .drop-area) {
+  border: 1px solid transparent !important;
+  border-image: linear-gradient(
+    135deg,
+    rgba(98, 214, 255, 0.28),
+    rgba(177, 96, 255, 0.16) 42%,
+    rgba(255, 222, 134, 0.18) 72%,
+    rgba(98, 214, 255, 0.08)
+  ) 1 !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 34%),
+    linear-gradient(180deg, rgba(26, 31, 50, 0.18), rgba(12, 14, 26, 0.13)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.055),
+    0 5px 14px rgba(6, 8, 18, 0.08) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character :is(.sheet-body, .main-content, .sidebar, .right, nav.tabs, .tabs),
+.window-app.dnd5e2.sheet.actor.character :is(.sheet-body, .main-content, .sidebar, .right, nav.tabs, .tabs) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores,
+.window-app.dnd5e2.sheet.actor.character .ability-scores {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header,
+.window-app.dnd5e2.sheet.actor.character .sheet-header {
+  position: relative;
+  box-shadow: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-header::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  display: block !important;
+  height: 1px;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(98, 214, 255, 0.1) 12%,
+      rgba(238, 246, 255, 0.22) 46%,
+      rgba(177, 96, 255, 0.14) 68%,
+      transparent
+    );
+  box-shadow:
+    0 0 7px rgba(98, 214, 255, 0.1),
+    0 1px 12px rgba(177, 96, 255, 0.08);
+  opacity: 0.72;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores::before {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 75px;
+  height: 1px;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(98, 214, 255, 0.08) 18%,
+      rgba(238, 246, 255, 0.16) 50%,
+      rgba(177, 96, 255, 0.1) 78%,
+      transparent
+  );
+  opacity: 0.62;
+}
+
+.dnd5e2.sheet.actor.character .window-content,
+.window-app.dnd5e2.sheet.actor.character .window-content {
+  background:
+    radial-gradient(circle at 78% 58%, rgba(177, 96, 255, 0.035), transparent 16rem),
+    radial-gradient(circle at 24% 34%, rgba(98, 214, 255, 0.03), transparent 14rem),
+    linear-gradient(180deg, rgba(42, 47, 72, 0.12), rgba(20, 22, 38, 0.1)) !important;
+}
+
+.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before,
+.window-app.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before {
+  opacity: 0.62;
+}
+
+.dnd5e2.sheet.actor.character .window-content::after,
+.window-app.dnd5e2.sheet.actor.character .window-content::after {
+  position: absolute;
+  inset: var(--dnd5e-sheet-header-height, 180px) 0 0 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 11% 18%, rgba(238, 246, 255, 0.42) 0 1px, transparent 2px),
+    radial-gradient(circle at 27% 72%, rgba(98, 214, 255, 0.32) 0 1px, transparent 2px),
+    radial-gradient(circle at 43% 34%, rgba(177, 96, 255, 0.26) 0 1px, transparent 2px),
+    radial-gradient(circle at 61% 82%, rgba(238, 246, 255, 0.34) 0 1px, transparent 2px),
+    radial-gradient(circle at 76% 26%, rgba(98, 214, 255, 0.28) 0 1px, transparent 2px),
+    radial-gradient(circle at 91% 64%, rgba(255, 222, 134, 0.26) 0 1px, transparent 2px);
+  filter: drop-shadow(0 0 4px rgba(98, 214, 255, 0.28));
+  opacity: 0.36;
+  animation: spell-sheet-stars 9s ease-in-out infinite alternate;
+}
+
+@keyframes spell-sheet-stars {
+  0% {
+    opacity: 0.22;
+    transform: translate3d(0, 0, 0);
+  }
+
+  55% {
+    opacity: 0.42;
+  }
+
+  100% {
+    opacity: 0.3;
+    transform: translate3d(2px, -3px, 0);
+  }
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar > .card,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar > .card,
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait,
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats,
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar > .card,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar > .card {
+  border: 0 !important;
+  border-image: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait {
+  border: 1px solid transparent !important;
+  border-image: linear-gradient(
+    135deg,
+    rgba(255, 222, 134, 0.42),
+    rgba(98, 214, 255, 0.18) 44%,
+    rgba(177, 96, 255, 0.14)
+  ) 1 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites {
+  border-top: 1px solid transparent !important;
+  border-image: linear-gradient(
+    90deg,
+    rgba(255, 222, 134, 0.38),
+    rgba(98, 214, 255, 0.12),
+    transparent 82%
+  ) 1 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-header::after,
+.dnd5e2.sheet.actor.character .ability-scores::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores::before {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.dnd5e2.sheet.actor.character .window-content,
+.window-app.dnd5e2.sheet.actor.character .window-content {
+  background:
+    linear-gradient(180deg, rgba(18, 22, 38, 0.28), rgba(32, 36, 58, 0.34) 14rem, rgba(22, 24, 42, 0.36)),
+    radial-gradient(circle at 78% 58%, rgba(177, 96, 255, 0.055), transparent 18rem),
+    radial-gradient(circle at 24% 34%, rgba(98, 214, 255, 0.045), transparent 16rem) !important;
+}
+
+.dnd5e2.sheet.actor.character .window-content::after,
+.window-app.dnd5e2.sheet.actor.character .window-content::after {
+  inset: 0;
+  mask-image: none;
+  -webkit-mask-image: none;
+  opacity: 0.18;
+}
+
+.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before,
+.window-app.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before {
+  opacity: 0.78;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body,
+.window-app.dnd5e2.sheet.actor.character .sheet-body {
+  background:
+    linear-gradient(180deg, rgba(38, 44, 68, 0.3), rgba(30, 32, 52, 0.34)) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score {
+  filter:
+    drop-shadow(0 3px 5px rgba(6, 8, 18, 0.42))
+    drop-shadow(0 0 5px rgba(98, 214, 255, 0.18)) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  inset: -0.38rem -0.28rem -0.14rem;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 222, 134, 0.12), transparent 35%),
+    linear-gradient(145deg, rgba(36, 46, 82, 0.9), rgba(15, 17, 32, 0.94)) !important;
+  border: 2px solid rgba(255, 222, 134, 0.76);
+  border-radius: 0;
+  clip-path: polygon(
+    50% 0%,
+    63% 24%,
+    90% 24%,
+    74% 50%,
+    90% 76%,
+    63% 76%,
+    50% 100%,
+    37% 76%,
+    10% 76%,
+    26% 50%,
+    10% 24%,
+    37% 24%
+  );
+  box-shadow:
+    inset 0 0 0 2px rgba(98, 214, 255, 0.38),
+    inset 0 0 0 4px rgba(177, 96, 255, 0.12),
+    inset 0 1px 0 rgba(238, 246, 255, 0.18),
+    0 0 0 1px rgba(8, 10, 20, 0.88),
+    0 0 10px rgba(98, 214, 255, 0.22),
+    0 0 16px rgba(255, 222, 134, 0.16) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::after {
+  position: absolute;
+  inset: -0.46rem -0.38rem -0.2rem;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.9;
+  background:
+    linear-gradient(90deg, transparent 6%, rgba(255, 222, 134, 0.72) 7% 22%, transparent 23% 77%, rgba(255, 222, 134, 0.72) 78% 93%, transparent 94%) 50% 100% / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent 17%, rgba(98, 214, 255, 0.52) 18% 34%, transparent 35% 65%, rgba(98, 214, 255, 0.52) 66% 82%, transparent 83%) 50% 7% / 100% 1px no-repeat,
+    radial-gradient(circle at 50% 6%, rgba(255, 222, 134, 0.95) 0 1.4px, transparent 2.4px),
+    radial-gradient(circle at 86% 30%, rgba(98, 214, 255, 0.82) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 74% 82%, rgba(177, 96, 255, 0.76) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 26% 82%, rgba(98, 214, 255, 0.76) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 14% 30%, rgba(255, 222, 134, 0.82) 0 1.2px, transparent 2.2px);
+  filter:
+    drop-shadow(0 0 3px rgba(255, 222, 134, 0.34))
+    drop-shadow(0 0 5px rgba(98, 214, 255, 0.28));
+  animation: spell-ability-motes 4.8s ease-in-out infinite alternate;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .label::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .label::before,
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .label::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .label::after {
+  display: inline-block;
+  width: 0.32rem;
+  height: 1px;
+  margin: 0 0.18rem 0.18rem;
+  content: "";
+  vertical-align: middle;
+  background: linear-gradient(90deg, transparent, rgba(255, 222, 134, 0.82), transparent);
+  box-shadow: 0 0 4px rgba(255, 222, 134, 0.36);
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .label,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .label {
+  color: #fff1bd !important;
+  text-shadow:
+    0 0 3px rgba(6, 8, 18, 0.9),
+    0 0 5px rgba(255, 222, 134, 0.36),
+    0 0 8px rgba(98, 214, 255, 0.28);
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .mod,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .mod {
+  color: #f5f7ff !important;
+  text-shadow:
+    0 0 3px rgba(6, 8, 18, 0.9),
+    0 0 8px rgba(177, 96, 255, 0.32);
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score {
+  border: 1px solid rgba(184, 210, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(20, 24, 42, 0.92), rgba(10, 12, 24, 0.9)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    inset 0 0 0 1px rgba(255, 222, 134, 0.18),
+    0 0 6px rgba(98, 214, 255, 0.16),
+    0 0 9px rgba(255, 222, 134, 0.1) !important;
+}
+
+@keyframes spell-ability-motes {
+  0% {
+    opacity: 0.38;
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    opacity: 0.68;
+    transform: translate3d(1px, -1px, 0);
+  }
+}
+
+.dnd5e2.sheet.actor.character .ability-scores,
+.window-app.dnd5e2.sheet.actor.character .ability-scores {
+  overflow: visible !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score {
+  overflow: visible !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  inset: -0.38rem -0.28rem -0.14rem;
+  clip-path: polygon(
+    50% 0%,
+    63% 24%,
+    90% 24%,
+    74% 50%,
+    90% 76%,
+    63% 76%,
+    50% 100%,
+    37% 76%,
+    10% 76%,
+    26% 50%,
+    10% 24%,
+    37% 24%
+  );
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::after {
+  inset: -0.46rem -0.38rem -0.2rem;
+  background:
+    linear-gradient(90deg, transparent 6%, rgba(255, 222, 134, 0.72) 7% 22%, transparent 23% 77%, rgba(255, 222, 134, 0.72) 78% 93%, transparent 94%) 50% 100% / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent 17%, rgba(98, 214, 255, 0.52) 18% 34%, transparent 35% 65%, rgba(98, 214, 255, 0.52) 66% 82%, transparent 83%) 50% 7% / 100% 1px no-repeat,
+    radial-gradient(circle at 50% 7%, rgba(255, 222, 134, 0.95) 0 1.4px, transparent 2.4px),
+    radial-gradient(circle at 86% 30%, rgba(98, 214, 255, 0.82) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 74% 82%, rgba(177, 96, 255, 0.76) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 26% 82%, rgba(98, 214, 255, 0.76) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 14% 30%, rgba(255, 222, 134, 0.82) 0 1.2px, transparent 2.2px) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score {
+  position: relative;
+  z-index: 3;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores,
+.window-app.dnd5e2.sheet.actor.character .ability-scores {
+  padding-top: 0.42rem !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score {
+  transform: translateY(0.16rem);
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  border: 2px solid rgba(255, 226, 150, 0.9) !important;
+  box-shadow:
+    inset 0 0 0 2px rgba(9, 12, 26, 0.9),
+    inset 0 0 0 4px rgba(98, 214, 255, 0.28),
+    inset 0 0 0 6px rgba(255, 222, 134, 0.14),
+    inset 0 1px 0 rgba(255, 248, 220, 0.22),
+    0 0 0 2px rgba(4, 6, 16, 0.86),
+    0 0 0 3px rgba(255, 222, 134, 0.34),
+    0 0 10px rgba(98, 214, 255, 0.26),
+    0 0 16px rgba(255, 222, 134, 0.18) !important;
+}
+
+.dnd5e2.sheet.actor.character,
+.window-app.dnd5e2.sheet.actor.character {
+  --dnd5e-character-background-content: "";
+  --dnd5e-character-background-image: url("../assets/character-stars.jpg");
+  --dnd5e-character-header-image: url("../assets/character-stars.jpg");
+  --dnd5e-character-body-image: none;
+}
+
+.dnd5e2.sheet.actor.character .window-content,
+.window-app.dnd5e2.sheet.actor.character .window-content {
+  background:
+    url("../assets/magic-circle.svg") no-repeat calc(100% + clamp(5.5rem, 10vw, 9rem)) calc(100% + clamp(6.5rem, 12vw, 10rem)) / clamp(20rem, 48vw, 43rem) clamp(20rem, 48vw, 43rem),
+    linear-gradient(180deg, rgba(20, 24, 42, 0.32), rgba(30, 34, 54, 0.38) 15rem, rgba(20, 22, 38, 0.42)),
+    radial-gradient(circle at 76% 56%, rgba(177, 96, 255, 0.06), transparent 18rem),
+    radial-gradient(circle at 24% 36%, rgba(98, 214, 255, 0.045), transparent 16rem) !important;
+}
+
+.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before,
+.window-app.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before {
+  content: "" !important;
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 300px;
+  border-radius: 5px 5px 0 0;
+  opacity: 0.72;
+  background:
+    linear-gradient(180deg, rgba(4, 6, 14, 0.04), rgba(4, 6, 14, 0.1) 48%, rgba(4, 6, 14, 0.22)),
+    url("../assets/character-stars.jpg") no-repeat top center / cover !important;
+  mask-image: linear-gradient(to bottom, black 0%, black 44%, rgba(0, 0, 0, 0.72) 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 44%, rgba(0, 0, 0, 0.72) 62%, transparent 100%);
+}
+
+.dnd5e2.sheet.actor.character .sheet-header,
+.window-app.dnd5e2.sheet.actor.character .sheet-header {
+  background:
+    linear-gradient(180deg, rgba(4, 6, 14, 0.12), rgba(4, 6, 14, 0.1) 58%, rgba(4, 6, 14, 0.02) 88%, transparent),
+    url("../assets/character-stars.jpg") no-repeat center 42% / cover !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body,
+.window-app.dnd5e2.sheet.actor.character .sheet-body {
+  background:
+    linear-gradient(180deg, rgba(78, 88, 112, 0.34), rgba(42, 47, 70, 0.38) 5rem, rgba(30, 32, 52, 0.4)) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.36) 10px, black 34px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.36) 10px, black 34px);
+}
+
+.dnd5e2.sheet.actor.character .window-content::after,
+.window-app.dnd5e2.sheet.actor.character .window-content::after {
+  opacity: 0.14;
+  mask-image: linear-gradient(to bottom, transparent, black 8rem);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 8rem);
+}
+
+/* 0.1.100 - the arcane circle is a true transparent SVG clipped by the character window. */
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  inset: -0.41rem -0.33rem -0.13rem !important;
+  z-index: -1;
+  border: 0 !important;
+  background:
+    linear-gradient(145deg, #b99b55, #7f6227 42%, #c8a866 58%, #5e481e) !important;
+  clip-path: polygon(
+    50% 0%,
+    63% 24%,
+    90% 24%,
+    74% 50%,
+    90% 76%,
+    63% 76%,
+    50% 100%,
+    37% 76%,
+    10% 76%,
+    26% 50%,
+    10% 24%,
+    37% 24%
+  );
+  box-shadow:
+    0 0 0 1px rgba(5, 6, 14, 0.94),
+    0 0 5px rgba(158, 124, 54, 0.18),
+    0 0 10px rgba(98, 214, 255, 0.12) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::after {
+  inset: -0.375rem -0.295rem -0.095rem !important;
+  z-index: 0;
+  opacity: 1;
+  background:
+    linear-gradient(90deg, transparent 10%, rgba(157, 126, 63, 0.42) 11% 19%, transparent 20% 80%, rgba(157, 126, 63, 0.42) 81% 89%, transparent 90%) 50% 97% / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent 20%, rgba(98, 214, 255, 0.36) 21% 34%, transparent 35% 65%, rgba(98, 214, 255, 0.36) 66% 79%, transparent 80%) 50% 8% / 100% 1px no-repeat,
+    radial-gradient(circle at 50% 7%, rgba(174, 143, 75, 0.62) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 86% 30%, rgba(98, 214, 255, 0.52) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 74% 82%, rgba(177, 96, 255, 0.44) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 26% 82%, rgba(98, 214, 255, 0.44) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 14% 30%, rgba(157, 126, 63, 0.5) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 46% 30%, rgba(170, 220, 255, 0.12), transparent 34%),
+    linear-gradient(145deg, rgba(20, 42, 78, 0.98), rgba(9, 20, 48, 0.99) 48%, rgba(5, 12, 32, 0.99)) !important;
+  clip-path: polygon(
+    50% 0%,
+    63% 24%,
+    90% 24%,
+    74% 50%,
+    90% 76%,
+    63% 76%,
+    50% 100%,
+    37% 76%,
+    10% 76%,
+    26% 50%,
+    10% 24%,
+    37% 24%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(157, 126, 63, 0.18),
+    inset 0 0 0 2px rgba(98, 214, 255, 0.12),
+    0 0 6px rgba(98, 214, 255, 0.16) !important;
+  filter:
+    drop-shadow(0 0 2px rgba(134, 104, 45, 0.18))
+    drop-shadow(0 0 5px rgba(98, 214, 255, 0.16));
+}
+
+.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge),
+.window-app.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge) {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  color: #fffaf0 !important;
+  background: none !important;
+  background-image: none !important;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 7px rgba(184, 218, 255, 0.48),
+    0 0 12px rgba(255, 222, 134, 0.28) !important;
+  filter:
+    drop-shadow(0 4px 5px rgba(4, 6, 16, 0.62))
+    drop-shadow(0 0 9px rgba(98, 214, 255, 0.24)) !important;
+}
+
+.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge)::before,
+.window-app.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge)::before {
+  position: absolute;
+  inset: 4px;
+  z-index: -2;
+  content: "";
+  border: 2px solid rgba(255, 226, 150, 0.86);
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255, 255, 255, 0.34), transparent 18%),
+    radial-gradient(circle at 68% 76%, rgba(177, 96, 255, 0.26), transparent 30%),
+    linear-gradient(135deg, rgba(210, 238, 255, 0.46), rgba(65, 92, 150, 0.55) 34%, rgba(78, 46, 128, 0.58) 64%, rgba(18, 24, 48, 0.74)) !important;
+  box-shadow:
+    inset 0 0 0 2px rgba(7, 10, 24, 0.82),
+    inset 0 0 0 4px rgba(98, 214, 255, 0.18),
+    inset 0 9px 14px rgba(255, 255, 255, 0.12),
+    inset 0 -11px 18px rgba(7, 10, 24, 0.44),
+    0 0 0 1px rgba(5, 6, 14, 0.92),
+    0 0 14px rgba(98, 214, 255, 0.28),
+    0 0 18px rgba(255, 222, 134, 0.16);
+}
+
+.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge)::after,
+.window-app.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge)::after {
+  position: absolute;
+  inset: 11px 13px 12px 13px;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(118deg, transparent 0 28%, rgba(255, 255, 255, 0.36) 29% 31%, transparent 32% 100%),
+    linear-gradient(28deg, transparent 0 58%, rgba(98, 214, 255, 0.3) 59% 61%, transparent 62% 100%),
+    radial-gradient(circle at 46% 42%, rgba(255, 255, 255, 0.18), transparent 38%);
+  opacity: 0.92;
+}
+
+.dnd5e2.sheet.actor.character .level-badge::before,
+.window-app.dnd5e2.sheet.actor.character .level-badge::before {
+  border-radius: 50%;
+}
+
+.dnd5e2.sheet.actor.character .level-badge::after,
+.window-app.dnd5e2.sheet.actor.character .level-badge::after {
+  border-radius: 50%;
+}
+
+.dnd5e2.sheet.actor.character .ac-badge::before,
+.window-app.dnd5e2.sheet.actor.character .ac-badge::before {
+  inset: 3px 6px 4px;
+  clip-path: polygon(50% 0%, 91% 18%, 86% 69%, 50% 100%, 14% 69%, 9% 18%);
+}
+
+.dnd5e2.sheet.actor.character .ac-badge::after,
+.window-app.dnd5e2.sheet.actor.character .ac-badge::after {
+  inset: 10px 14px 14px;
+  clip-path: polygon(50% 0%, 91% 18%, 86% 69%, 50% 100%, 14% 69%, 9% 18%);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge {
+  position: relative;
+  isolation: isolate;
+  background: none !important;
+  background-image: none !important;
+  color: #fffaf0 !important;
+  filter:
+    drop-shadow(0 3px 5px rgba(4, 6, 16, 0.56))
+    drop-shadow(0 0 7px rgba(98, 214, 255, 0.18)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before {
+  position: absolute;
+  inset: 0.08rem 0.08rem 0.55rem;
+  z-index: -2;
+  content: "";
+  border: 1px solid rgba(255, 226, 150, 0.82);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.3), transparent 18%),
+    linear-gradient(135deg, rgba(210, 238, 255, 0.42), rgba(61, 86, 142, 0.58) 36%, rgba(87, 48, 135, 0.54) 66%, rgba(14, 18, 36, 0.78)) !important;
+  clip-path: polygon(14% 50%, 31% 18%, 69% 18%, 86% 50%, 69% 82%, 31% 82%);
+  box-shadow:
+    inset 0 0 0 2px rgba(7, 10, 24, 0.76),
+    inset 0 5px 10px rgba(255, 255, 255, 0.12),
+    inset 0 -7px 12px rgba(7, 10, 24, 0.44),
+    0 0 0 1px rgba(5, 6, 14, 0.86),
+    0 0 10px rgba(98, 214, 255, 0.2);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after {
+  position: absolute;
+  inset: 0.38rem 0.82rem 1.15rem;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 0 38%, rgba(255, 255, 255, 0.42) 39% 42%, transparent 43% 100%),
+    linear-gradient(28deg, transparent 0 62%, rgba(98, 214, 255, 0.28) 63% 66%, transparent 67% 100%);
+  clip-path: polygon(14% 50%, 31% 18%, 69% 18%, 86% 50%, 69% 82%, 31% 82%);
+  opacity: 0.9;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .value,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .value {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 7px rgba(184, 218, 255, 0.42),
+    0 0 10px rgba(255, 222, 134, 0.2) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.pills-group, filigree-box),
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.pills-group, filigree-box) {
+  border: 0 !important;
+  border-image: none !important;
+  outline: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.pills-group, filigree-box) > :is(h3, .header),
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.pills-group, filigree-box) > :is(h3, .header) {
+  border: 0 !important;
+  border-image: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.pills-group, filigree-box)::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.pills-group, filigree-box)::before,
+.dnd5e2.sheet.actor.character .sheet-body :is(.pills-group, filigree-box)::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.pills-group, filigree-box)::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header .document-name,
+.window-app.dnd5e2.sheet.actor.character .sheet-header .document-name,
+.dnd5e2.sheet.actor.character .sheet-header input.document-name,
+.window-app.dnd5e2.sheet.actor.character .sheet-header input.document-name {
+  font-family: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+.sheet:not(.actor.character) .window-header button:first-of-type,
+.sheet:not(.actor.character) .window-header .header-control:first-child,
+.sheet:not(.actor.character) .window-header .header-button:first-child,
+.window-app.sheet:not(.actor.character) .window-header button:first-of-type,
+.window-app.sheet:not(.actor.character) .window-header .header-control:first-child,
+.window-app.sheet:not(.actor.character) .window-header .header-button:first-child,
+.dnd5e2:not(.actor.character) .window-header button:first-of-type,
+.dnd5e2:not(.actor.character) .window-header .header-control:first-child,
+.dnd5e2:not(.actor.character) .window-header .header-button:first-child {
+  min-width: auto !important;
+  min-height: auto !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.sheet:not(.actor.character) .window-header button:first-of-type::before,
+.sheet:not(.actor.character) .window-header .header-control:first-child::before,
+.sheet:not(.actor.character) .window-header .header-button:first-child::before,
+.window-app.sheet:not(.actor.character) .window-header button:first-of-type::before,
+.window-app.sheet:not(.actor.character) .window-header .header-control:first-child::before,
+.window-app.sheet:not(.actor.character) .window-header .header-button:first-child::before,
+.dnd5e2:not(.actor.character) .window-header button:first-of-type::before,
+.dnd5e2:not(.actor.character) .window-header .header-control:first-child::before,
+.dnd5e2:not(.actor.character) .window-header .header-button:first-child::before {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before,
+.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before,
+.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before {
+  content: var(--fa) !important;
+  display: inline-block !important;
+}
+
+.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge),
+.window-app.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge) {
+  background: none !important;
+  background-image: none !important;
+}
+
+.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge)::before,
+.window-app.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge)::before {
+  border: 0 !important;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.32), transparent 18%),
+    radial-gradient(circle at 72% 78%, rgba(177, 96, 255, 0.3), transparent 30%),
+    linear-gradient(135deg, rgba(210, 238, 255, 0.42), rgba(65, 92, 150, 0.5) 34%, rgba(78, 46, 128, 0.54) 64%, rgba(18, 24, 48, 0.7)) !important;
+  box-shadow:
+    inset 0 7px 12px rgba(255, 255, 255, 0.14),
+    inset 0 -12px 18px rgba(7, 10, 24, 0.46),
+    0 0 12px rgba(98, 214, 255, 0.22) !important;
+}
+
+.dnd5e2.sheet.actor.character .level-badge::before,
+.window-app.dnd5e2.sheet.actor.character .level-badge::before {
+  inset: 8px;
+  border-radius: 50%;
+}
+
+.dnd5e2.sheet.actor.character .level-badge::after,
+.window-app.dnd5e2.sheet.actor.character .level-badge::after {
+  inset: 0;
+  z-index: -1;
+  border-radius: 0;
+  background:
+    linear-gradient(125deg, transparent 0 32%, rgba(255, 255, 255, 0.25) 33% 35%, transparent 36% 100%),
+    linear-gradient(30deg, transparent 0 60%, rgba(98, 214, 255, 0.22) 61% 63%, transparent 64% 100%),
+    url("/systems/dnd5e/ui/level-badge.webp") no-repeat center / contain !important;
+  opacity: 1;
+}
+
+.dnd5e2.sheet.actor.character .ac-badge::before,
+.window-app.dnd5e2.sheet.actor.character .ac-badge::before {
+  inset: 9px 13px 12px;
+  clip-path: polygon(50% 0%, 91% 18%, 86% 69%, 50% 100%, 14% 69%, 9% 18%);
+}
+
+.dnd5e2.sheet.actor.character .ac-badge::after,
+.window-app.dnd5e2.sheet.actor.character .ac-badge::after {
+  inset: 0;
+  z-index: -1;
+  clip-path: none;
+  background:
+    linear-gradient(125deg, transparent 0 30%, rgba(255, 255, 255, 0.24) 31% 34%, transparent 35% 100%),
+    linear-gradient(30deg, transparent 0 62%, rgba(98, 214, 255, 0.22) 63% 65%, transparent 66% 100%),
+    url("/systems/dnd5e/ui/ac-badge.webp") no-repeat center / contain !important;
+  opacity: 1;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before {
+  border: 0 !important;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.26), transparent 18%),
+    linear-gradient(135deg, rgba(210, 238, 255, 0.38), rgba(61, 86, 142, 0.5) 36%, rgba(87, 48, 135, 0.48) 66%, rgba(14, 18, 36, 0.72)) !important;
+  box-shadow:
+    inset 0 5px 10px rgba(255, 255, 255, 0.1),
+    inset 0 -7px 12px rgba(7, 10, 24, 0.42),
+    0 0 9px rgba(98, 214, 255, 0.18) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after {
+  inset: 0 0 0.55rem;
+  z-index: -1;
+  clip-path: none;
+  background:
+    linear-gradient(120deg, transparent 0 38%, rgba(255, 255, 255, 0.28) 39% 41%, transparent 42% 100%),
+    linear-gradient(28deg, transparent 0 62%, rgba(98, 214, 255, 0.2) 63% 65%, transparent 66% 100%),
+    url("/systems/dnd5e/ui/lozenge.svg") no-repeat top center / contain !important;
+  opacity: 1;
+}
+
+.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge)::before,
+.window-app.dnd5e2.sheet.actor.character :is(.level-badge, .ac-badge)::before {
+  background:
+    radial-gradient(circle at 31% 18%, rgba(210, 238, 255, 0.22), transparent 18%),
+    radial-gradient(circle at 70% 76%, rgba(78, 96, 170, 0.28), transparent 30%),
+    linear-gradient(135deg, rgba(28, 66, 114, 0.62), rgba(12, 32, 72, 0.76) 38%, rgba(12, 24, 58, 0.82) 68%, rgba(5, 12, 32, 0.88)) !important;
+}
+
+.dnd5e2.sheet.actor.character .level-badge::after,
+.window-app.dnd5e2.sheet.actor.character .level-badge::after {
+  background: url("/systems/dnd5e/ui/level-badge.webp") no-repeat center / contain !important;
+  filter:
+    sepia(1)
+    saturate(1.15)
+    hue-rotate(165deg)
+    brightness(0.58)
+    contrast(1.18)
+    drop-shadow(0 0 4px rgba(98, 214, 255, 0.18));
+}
+
+.dnd5e2.sheet.actor.character .ac-badge::after,
+.window-app.dnd5e2.sheet.actor.character .ac-badge::after {
+  background: url("/systems/dnd5e/ui/ac-badge.webp") no-repeat center / contain !important;
+  filter:
+    sepia(1)
+    saturate(1.15)
+    hue-rotate(165deg)
+    brightness(0.58)
+    contrast(1.18)
+    drop-shadow(0 0 4px rgba(98, 214, 255, 0.18));
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(210, 238, 255, 0.2), transparent 18%),
+    linear-gradient(135deg, rgba(28, 66, 114, 0.58), rgba(12, 32, 72, 0.72) 38%, rgba(13, 25, 58, 0.8) 68%, rgba(5, 12, 32, 0.86)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after {
+  background: url("/systems/dnd5e/ui/lozenge.svg") no-repeat top center / contain !important;
+  filter:
+    sepia(1)
+    saturate(1.1)
+    hue-rotate(165deg)
+    brightness(0.55)
+    contrast(1.14)
+    drop-shadow(0 0 3px rgba(98, 214, 255, 0.16));
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait {
+  border-color: rgba(72, 126, 176, 0.34) !important;
+  border-image: linear-gradient(
+    135deg,
+    rgba(98, 214, 255, 0.28),
+    rgba(64, 96, 170, 0.2) 48%,
+    rgba(18, 40, 88, 0.24)
+  ) 1 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .label,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .label {
+  color: rgba(168, 210, 244, 0.82) !important;
+  text-shadow: 0 0 4px rgba(98, 214, 255, 0.24);
+}
+
+.window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]),
+.app .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]),
+.application .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]),
+.window-app .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]),
+.sheet .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]),
+.window-app.sheet .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]) {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem !important;
+  min-height: 1.35rem !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  line-height: 1;
+  text-shadow:
+    0 0 4px rgba(10, 12, 24, 0.85),
+    0 0 8px rgba(98, 214, 255, 0.35);
+}
+
+.window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]) > i,
+.app .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]) > i,
+.application .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]) > i,
+.window-app .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]) > i,
+.sheet .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]) > i,
+.window-app.sheet .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"]) > i {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: inherit !important;
+}
+
+.window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"])::before,
+.app .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"])::before,
+.application .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"])::before,
+.window-app .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"])::before,
+.sheet .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"])::before,
+.window-app.sheet .window-header :is(.close, .header-button.close, [data-action="close"], button[data-action="close"])::before {
+  display: inline-block !important;
+  content: "\f00d" !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #ffffff !important;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 900 !important;
+  line-height: 1;
+  text-shadow:
+    0 0 4px rgba(10, 12, 24, 0.86),
+    0 0 8px rgba(98, 214, 255, 0.38);
+}
+
+/* 0.1.57 - CSS-drawn astral sigils for ability backgrounds. */
+.dnd5e2.sheet.actor.character .ability-scores,
+.window-app.dnd5e2.sheet.actor.character .ability-scores {
+  position: relative !important;
+  isolation: isolate;
+  overflow: visible !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -6.1rem;
+  z-index: 0;
+  width: min(28rem, 96vw);
+  height: min(28rem, 96vw);
+  pointer-events: none;
+  transform: translateX(-50%) rotate(-7deg);
+  border-radius: 50%;
+  opacity: 0.26;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(circle at 77% 22%, transparent 0 7%, rgba(224, 241, 255, 0.32) 7.2% 7.7%, transparent 8%),
+    radial-gradient(circle at 77% 22%, transparent 0 13%, rgba(224, 241, 255, 0.22) 13.2% 13.7%, transparent 14%),
+    radial-gradient(circle at 22% 76%, transparent 0 10%, rgba(224, 241, 255, 0.28) 10.2% 10.8%, transparent 11.2%),
+    radial-gradient(circle at 50% 50%, transparent 0 28%, rgba(224, 241, 255, 0.19) 28.3% 28.9%, transparent 29.2% 37%, rgba(224, 241, 255, 0.24) 37.3% 38%, transparent 38.4% 47%, rgba(157, 126, 63, 0.18) 47.3% 48%, transparent 48.4% 55%, rgba(224, 241, 255, 0.2) 55.2% 55.8%, transparent 56.2%),
+    repeating-conic-gradient(from -4deg, transparent 0 4.8deg, rgba(224, 241, 255, 0.17) 5.1deg 5.7deg, transparent 6deg 10deg),
+    conic-gradient(from 18deg, transparent 0 11.5deg, rgba(224, 241, 255, 0.2) 11.7deg 12.3deg, transparent 12.6deg 70deg, rgba(224, 241, 255, 0.18) 70.2deg 71deg, transparent 71.4deg 142deg, rgba(157, 126, 63, 0.16) 142.2deg 143deg, transparent 143.4deg 214deg, rgba(224, 241, 255, 0.18) 214.2deg 215deg, transparent 215.4deg 286deg, rgba(224, 241, 255, 0.18) 286.2deg 287deg, transparent 287.4deg 360deg),
+    linear-gradient(28deg, transparent 38%, rgba(224, 241, 255, 0.24) 38.4% 38.9%, transparent 39.3% 63%, rgba(224, 241, 255, 0.18) 63.4% 63.9%, transparent 64.3%),
+    linear-gradient(151deg, transparent 31%, rgba(224, 241, 255, 0.2) 31.4% 31.9%, transparent 32.3% 70%, rgba(157, 126, 63, 0.15) 70.4% 70.9%, transparent 71.3%),
+    linear-gradient(90deg, transparent 15%, rgba(224, 241, 255, 0.16) 15.4% 15.9%, transparent 16.3% 84%, rgba(224, 241, 255, 0.16) 84.4% 84.9%, transparent 85.3%);
+  -webkit-mask-image: radial-gradient(circle, transparent 0 16%, #000 17% 64%, transparent 73%);
+  mask-image: radial-gradient(circle, transparent 0 16%, #000 17% 64%, transparent 73%);
+  filter: blur(0.15px) drop-shadow(0 0 3px rgba(98, 214, 255, 0.18));
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score {
+  position: relative !important;
+  z-index: 1;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  background:
+    linear-gradient(145deg, rgba(150, 122, 58, 0.88), rgba(85, 65, 28, 0.9) 43%, rgba(168, 137, 72, 0.84) 58%, rgba(58, 44, 18, 0.92)) !important;
+  box-shadow:
+    0 0 0 1px rgba(5, 6, 14, 0.96),
+    0 0 0 2px rgba(157, 126, 63, 0.26),
+    0 0 7px rgba(98, 214, 255, 0.13) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::after {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 24%, rgba(214, 235, 255, 0.3) 24.8% 26%, transparent 26.8% 38%, rgba(214, 235, 255, 0.21) 38.8% 39.8%, transparent 40.8%),
+    repeating-conic-gradient(from -6deg at 50% 50%, transparent 0 14deg, rgba(214, 235, 255, 0.19) 14.4deg 15.2deg, transparent 15.6deg 30deg),
+    conic-gradient(from 30deg at 50% 52%, transparent 0 58deg, rgba(214, 235, 255, 0.23) 58.4deg 60deg, transparent 60.4deg 118deg, rgba(157, 126, 63, 0.22) 118.4deg 120deg, transparent 120.4deg 178deg, rgba(214, 235, 255, 0.2) 178.4deg 180deg, transparent 180.4deg 238deg, rgba(157, 126, 63, 0.2) 238.4deg 240deg, transparent 240.4deg 298deg, rgba(214, 235, 255, 0.2) 298.4deg 300deg, transparent 300.4deg),
+    linear-gradient(33deg, transparent 24%, rgba(214, 235, 255, 0.24) 25% 26%, transparent 27% 73%, rgba(214, 235, 255, 0.15) 74% 75%, transparent 76%),
+    linear-gradient(147deg, transparent 26%, rgba(214, 235, 255, 0.2) 27% 28%, transparent 29% 71%, rgba(157, 126, 63, 0.18) 72% 73%, transparent 74%),
+    linear-gradient(90deg, transparent 10%, rgba(157, 126, 63, 0.32) 11% 19%, transparent 20% 80%, rgba(157, 126, 63, 0.32) 81% 89%, transparent 90%) 50% 97% / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent 20%, rgba(98, 214, 255, 0.28) 21% 34%, transparent 35% 65%, rgba(98, 214, 255, 0.28) 66% 79%, transparent 80%) 50% 8% / 100% 1px no-repeat,
+    radial-gradient(circle at 50% 7%, rgba(157, 126, 63, 0.58) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 86% 30%, rgba(98, 214, 255, 0.45) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 74% 82%, rgba(177, 96, 255, 0.34) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 26% 82%, rgba(98, 214, 255, 0.36) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 14% 30%, rgba(157, 126, 63, 0.42) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 46% 30%, rgba(170, 220, 255, 0.12), transparent 34%),
+    linear-gradient(145deg, rgba(20, 42, 78, 0.98), rgba(9, 20, 48, 0.99) 48%, rgba(5, 12, 32, 0.99)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(157, 126, 63, 0.24),
+    inset 0 0 0 2px rgba(98, 214, 255, 0.1),
+    inset 0 0 11px rgba(10, 20, 44, 0.68),
+    0 0 6px rgba(98, 214, 255, 0.16) !important;
+}
+
+/* 0.1.58 - keep the dnd5e ability row layout intact; constrain the sigil to the row. */
+.dnd5e2.sheet.actor.character .ability-scores,
+.window-app.dnd5e2.sheet.actor.character .ability-scores {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: calc(var(--dnd5e-sheet-sidebar-width) + 18px) !important;
+  pointer-events: none;
+  container-type: inline-size;
+  overflow: visible !important;
+  isolation: auto;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .rows,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .rows {
+  position: relative;
+  isolation: isolate;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .rows::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .rows::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4.7rem;
+  z-index: 0;
+  width: 33rem;
+  max-width: 92%;
+  height: 6.4rem;
+  pointer-events: none;
+  transform: translateX(-50%) rotate(-2deg);
+  opacity: 0.28;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse at 78% 38%, transparent 0 17%, rgba(224, 241, 255, 0.26) 17.6% 18.8%, transparent 19.6% 31%, rgba(224, 241, 255, 0.16) 31.6% 32.5%, transparent 33.4%),
+    radial-gradient(ellipse at 23% 68%, transparent 0 18%, rgba(224, 241, 255, 0.22) 18.6% 19.8%, transparent 20.6% 34%, rgba(157, 126, 63, 0.14) 34.6% 35.5%, transparent 36.4%),
+    repeating-conic-gradient(from -7deg at 50% 54%, transparent 0 8deg, rgba(224, 241, 255, 0.11) 8.4deg 9deg, transparent 9.4deg 18deg),
+    linear-gradient(23deg, transparent 18%, rgba(224, 241, 255, 0.18) 18.4% 18.9%, transparent 19.4% 72%, rgba(224, 241, 255, 0.12) 72.4% 72.9%, transparent 73.4%),
+    linear-gradient(151deg, transparent 24%, rgba(224, 241, 255, 0.16) 24.4% 24.9%, transparent 25.4% 67%, rgba(157, 126, 63, 0.12) 67.4% 67.9%, transparent 68.4%),
+    linear-gradient(90deg, transparent 4%, rgba(224, 241, 255, 0.14) 4.5% 4.9%, transparent 5.4% 95%, rgba(224, 241, 255, 0.14) 95.1% 95.5%, transparent 96%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  filter: drop-shadow(0 0 3px rgba(98, 214, 255, 0.15));
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score {
+  z-index: 1;
+}
+
+/* 0.1.59 - remove the lower ability number plaque so the star shape stays clean. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score {
+  width: auto !important;
+  min-width: 1.4rem;
+  height: auto !important;
+  min-height: 1rem;
+  margin-top: -0.04rem !important;
+  padding: 0 !important;
+  transform: translate(0.24rem, 0.07rem);
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: rgba(238, 246, 255, 0.96) !important;
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    0 0 3px rgba(5, 8, 18, 0.95),
+    0 0 7px rgba(98, 214, 255, 0.34),
+    0 0 9px rgba(157, 126, 63, 0.18);
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input {
+  width: 1.55rem !important;
+  height: 1.15rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
+  text-align: center;
+  text-shadow: inherit;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input:hover,
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input:focus,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input:hover,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input:focus {
+  border: 0 !important;
+  outline: none !important;
+  box-shadow:
+    0 0 6px rgba(98, 214, 255, 0.26),
+    0 0 10px rgba(157, 126, 63, 0.16) !important;
+}
+
+/* 0.1.60 - make the lower ability score numbers more legible. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score {
+  min-width: 1.75rem;
+  transform: translate(0.24rem, 0.02rem);
+  font-family: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif !important;
+  font-size: 1.08rem !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  color: rgba(248, 252, 255, 0.98) !important;
+  text-shadow:
+    0 1px 1px rgba(2, 4, 12, 0.95),
+    0 0 3px rgba(2, 4, 12, 0.98),
+    0 0 8px rgba(98, 214, 255, 0.42),
+    0 0 12px rgba(157, 126, 63, 0.2);
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input {
+  width: 1.8rem !important;
+  height: 1.3rem !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: 1 !important;
+  color: inherit !important;
+  letter-spacing: 0 !important;
+}
+
+/* 0.1.61 - use Huiwen Mingchao across the character sheet without breaking icons. */
+.dnd5e2.sheet.actor.character,
+.window-app.dnd5e2.sheet.actor.character,
+.dnd5e2.sheet.actor.character :where(
+  .window-content,
+  .sheet-header,
+  .sheet-body,
+  .sidebar,
+  .main-content,
+  .tab,
+  .card,
+  .items-list,
+  .trait-list,
+  .ability-scores,
+  .ability-score,
+  label,
+  span,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  select,
+  textarea,
+  option
+),
+.window-app.dnd5e2.sheet.actor.character :where(
+  .window-content,
+  .sheet-header,
+  .sheet-body,
+  .sidebar,
+  .main-content,
+  .tab,
+  .card,
+  .items-list,
+  .trait-list,
+  .ability-scores,
+  .ability-score,
+  label,
+  span,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  select,
+  textarea,
+  option
+) {
+  --dnd5e-font-roboto: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif;
+  --dnd5e-font-roboto-condensed: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif;
+  --dnd5e-font-modesto: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif;
+  font-family: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif !important;
+  letter-spacing: 0 !important;
+}
+
+.dnd5e2.sheet.actor.character :is(.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, .fa-fw, [class^="fa-"], [class*=" fa-"]),
+.window-app.dnd5e2.sheet.actor.character :is(.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, .fa-fw, [class^="fa-"], [class*=" fa-"]) {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
+}
+
+.dnd5e2.sheet.actor.character :is(.fab, .fa-brands),
+.window-app.dnd5e2.sheet.actor.character :is(.fab, .fa-brands) {
+  font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important;
+}
+
+/* 0.1.62 - richer blue stat crystals plus restored inspiration badge. */
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before {
+  background:
+    radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.42) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 78% 31%, rgba(170, 225, 255, 0.62) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 63% 70%, rgba(177, 96, 255, 0.36) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 35% 76%, rgba(98, 214, 255, 0.42) 0 0.8px, transparent 1.6px),
+    linear-gradient(116deg, transparent 0 33%, rgba(255, 255, 255, 0.2) 34% 36%, transparent 37% 100%),
+    linear-gradient(28deg, transparent 0 60%, rgba(98, 214, 255, 0.2) 61% 63%, transparent 64% 100%),
+    radial-gradient(circle at 28% 18%, rgba(210, 238, 255, 0.28), transparent 20%),
+    radial-gradient(circle at 74% 66%, rgba(86, 114, 190, 0.34), transparent 32%),
+    linear-gradient(135deg, rgba(31, 83, 132, 0.68), rgba(12, 39, 83, 0.78) 40%, rgba(19, 34, 78, 0.84) 68%, rgba(5, 14, 36, 0.88)) !important;
+  box-shadow:
+    inset 0 5px 10px rgba(255, 255, 255, 0.12),
+    inset 0 -8px 14px rgba(3, 8, 24, 0.48),
+    inset 0 0 0 1px rgba(98, 214, 255, 0.16),
+    0 0 11px rgba(98, 214, 255, 0.24) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after {
+  background:
+    radial-gradient(circle at 18% 38%, rgba(255, 255, 255, 0.3) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 82% 28%, rgba(98, 214, 255, 0.36) 0 0.8px, transparent 1.5px),
+    linear-gradient(120deg, transparent 0 38%, rgba(255, 255, 255, 0.28) 39% 41%, transparent 42% 100%),
+    linear-gradient(28deg, transparent 0 62%, rgba(98, 214, 255, 0.22) 63% 65%, transparent 66% 100%),
+    url("/systems/dnd5e/ui/lozenge.svg") no-repeat top center / contain !important;
+  filter:
+    sepia(1)
+    saturate(1.05)
+    hue-rotate(165deg)
+    brightness(0.62)
+    contrast(1.08)
+    drop-shadow(0 0 4px rgba(98, 214, 255, 0.18));
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge {
+  transform: translateY(0.72rem);
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration {
+  --size: 36px;
+  display: grid !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  place-content: center;
+  position: absolute;
+  right: calc(var(--level-size) + var(--padding-right) - var(--size) / 2);
+  top: calc(var(--level-size) / 2 - var(--size) / 2 + 0.72rem);
+  width: var(--size);
+  height: var(--size);
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent url("/systems/dnd5e/ui/inspiration.webp") no-repeat center / contain !important;
+  box-shadow: none !important;
+  filter:
+    sepia(1)
+    saturate(1.1)
+    hue-rotate(165deg)
+    brightness(0.7)
+    contrast(1.12)
+    drop-shadow(0 2px 4px rgba(3, 8, 24, 0.72))
+    drop-shadow(0 0 5px rgba(98, 214, 255, 0.22)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration::before {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration:hover,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration:hover {
+  filter:
+    sepia(1)
+    saturate(1.12)
+    hue-rotate(165deg)
+    brightness(0.86)
+    contrast(1.12)
+    drop-shadow(0 2px 4px rgba(3, 8, 24, 0.72))
+    drop-shadow(0 0 8px rgba(98, 214, 255, 0.38)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration[aria-pressed="true"]::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration[aria-pressed="true"]::after {
+  content: "";
+  width: calc(var(--size) / 4 - 1px);
+  height: calc(var(--size) / 4 - 1px);
+  background: rgba(236, 248, 255, 0.96);
+  transform: rotate(45deg);
+  box-shadow:
+    0 0 8px 3px rgba(98, 214, 255, 0.5),
+    0 0 14px rgba(177, 96, 255, 0.34);
+  animation: pulsate-inspiration 3s infinite ease-in-out;
+}
+
+/* 0.1.63 - separate the header badges, XP bar, and ability row. */
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration {
+  top: calc(var(--level-size) / 2 - var(--size) / 2 + 0.5rem);
+  opacity: 1 !important;
+  filter:
+    sepia(1)
+    saturate(1.18)
+    hue-rotate(165deg)
+    brightness(1.12)
+    contrast(1.18)
+    drop-shadow(0 2px 4px rgba(3, 8, 24, 0.82))
+    drop-shadow(0 0 7px rgba(98, 214, 255, 0.54))
+    drop-shadow(0 0 12px rgba(177, 96, 255, 0.26)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration:hover,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration:hover {
+  filter:
+    sepia(1)
+    saturate(1.25)
+    hue-rotate(165deg)
+    brightness(1.28)
+    contrast(1.2)
+    drop-shadow(0 2px 4px rgba(3, 8, 24, 0.82))
+    drop-shadow(0 0 10px rgba(98, 214, 255, 0.7))
+    drop-shadow(0 0 15px rgba(177, 96, 255, 0.36)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child {
+  transform: translateY(1.05rem);
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child .xp-label,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child .xp-label {
+  text-shadow:
+    0 0 3px rgba(5, 8, 18, 0.92),
+    0 0 6px rgba(98, 214, 255, 0.24);
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .rows,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .rows {
+  transform: translateY(0.95rem);
+}
+
+/* 0.1.64 - make character sheet right-side tabs readable over busy maps. */
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right {
+  gap: 0.38rem;
+  padding: 0.45rem 0.28rem;
+  border-radius: 0 10px 10px 0;
+  background:
+    linear-gradient(180deg, rgba(10, 16, 34, 0.48), rgba(21, 35, 56, 0.36) 42%, rgba(7, 13, 28, 0.44)),
+    radial-gradient(circle at 50% 12%, rgba(98, 214, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 50% 88%, rgba(177, 96, 255, 0.12), transparent 30%) !important;
+  box-shadow:
+    inset 1px 0 0 rgba(98, 214, 255, 0.24),
+    inset 0 1px 0 rgba(238, 246, 255, 0.08),
+    0 0 12px rgba(5, 8, 18, 0.42),
+    0 0 14px rgba(98, 214, 255, 0.12) !important;
+  backdrop-filter: blur(8px) saturate(1.18);
+  -webkit-backdrop-filter: blur(8px) saturate(1.18);
+  overflow: visible;
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item {
+  width: 2.45rem;
+  height: 2.25rem;
+  margin-inline-start: 0 !important;
+  padding-inline: 0 !important;
+  justify-content: center;
+  border: 0 !important;
+  border-radius: 999px;
+  color: rgba(236, 245, 255, 0.92) !important;
+  --icon-fill: rgba(236, 245, 255, 0.92);
+  background:
+    radial-gradient(circle at 36% 28%, rgba(255, 255, 255, 0.24), transparent 20%),
+    linear-gradient(145deg, rgba(42, 72, 110, 0.58), rgba(12, 22, 48, 0.68)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(98, 214, 255, 0.16),
+    inset 0 1px 0 rgba(238, 246, 255, 0.12),
+    0 0 0 1px rgba(4, 7, 18, 0.7),
+    0 0 8px rgba(98, 214, 255, 0.12) !important;
+  filter:
+    drop-shadow(0 1px 2px rgba(2, 4, 12, 0.86))
+    drop-shadow(0 0 4px rgba(98, 214, 255, 0.22));
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item::after,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item::after {
+  inset: -0.12rem;
+  width: auto;
+  height: auto;
+  border: 0 !important;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(98, 214, 255, 0.18), transparent 64%),
+    conic-gradient(from 45deg, transparent 0 18%, rgba(98, 214, 255, 0.16) 19% 20%, transparent 21% 58%, rgba(177, 96, 255, 0.13) 59% 60%, transparent 61%) !important;
+  opacity: 0.18;
+  transform: none;
+  pointer-events: none;
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item::before,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item::before {
+  content: attr(aria-label);
+  position: absolute;
+  right: calc(100% + 0.28rem);
+  top: 50%;
+  z-index: 4;
+  max-width: 7.5rem;
+  padding: 0.18rem 0.46rem 0.2rem;
+  border: 1px solid rgba(98, 214, 255, 0.18);
+  border-radius: 999px;
+  color: rgba(242, 248, 255, 0.92);
+  background:
+    linear-gradient(120deg, rgba(18, 28, 52, 0.76), rgba(38, 55, 84, 0.58)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.1),
+    0 0 10px rgba(5, 8, 18, 0.42),
+    0 0 8px rgba(98, 214, 255, 0.12);
+  font-family: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif !important;
+  font-size: 0.78rem;
+  line-height: 1.1;
+  letter-spacing: 0 !important;
+  text-align: center;
+  text-shadow:
+    0 1px 1px rgba(2, 4, 12, 0.92),
+    0 0 5px rgba(98, 214, 255, 0.22);
+  white-space: nowrap;
+  opacity: 0.68;
+  transform: translateY(-50%) translateX(0.18rem) scale(0.94);
+  transform-origin: right center;
+  pointer-events: none;
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item:hover,
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item.active,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item:hover,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item.active {
+  color: #ffffff !important;
+  --icon-fill: #ffffff;
+  background:
+    radial-gradient(circle at 38% 28%, rgba(255, 255, 255, 0.34), transparent 22%),
+    linear-gradient(145deg, rgba(68, 112, 160, 0.7), rgba(15, 30, 66, 0.78)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(98, 214, 255, 0.34),
+    inset 0 1px 0 rgba(238, 246, 255, 0.18),
+    0 0 0 1px rgba(4, 7, 18, 0.7),
+    0 0 10px rgba(98, 214, 255, 0.42),
+    0 0 16px rgba(177, 96, 255, 0.22) !important;
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item:hover::before,
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item.active::before,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item:hover::before,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item.active::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0) scale(1);
+  border-color: rgba(98, 214, 255, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.14),
+    0 0 11px rgba(5, 8, 18, 0.5),
+    0 0 11px rgba(98, 214, 255, 0.26);
+}
+
+/* 0.1.65 - restore header controls, fix inspiration state, and enlarge Huiwen text. */
+.dnd5e2.sheet.actor.character,
+.window-app.dnd5e2.sheet.actor.character {
+  --font-size-9: 0.66rem;
+  --font-size-10: 0.72rem;
+  --font-size-11: 0.78rem;
+  --font-size-12: 0.86rem;
+  --font-size-13: 0.94rem;
+  --font-size-14: 1rem;
+  --font-size-15: 1.08rem;
+  --font-size-16: 1.16rem;
+  --font-size-18: 1.3rem;
+  --font-size-20: 1.44rem;
+  --font-size-24: 1.72rem;
+  font-size: 1.04rem;
+}
+
+.dnd5e2.sheet.actor.character :is(.sheet-body, .sheet-header, .card, filigree-box, .pills-group, .items-list, .trait-list),
+.window-app.dnd5e2.sheet.actor.character :is(.sheet-body, .sheet-header, .card, filigree-box, .pills-group, .items-list, .trait-list) {
+  font-size: 1.04rem;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header .document-name,
+.window-app.dnd5e2.sheet.actor.character .sheet-header .document-name,
+.dnd5e2.sheet.actor.character .sheet-header input.document-name,
+.window-app.dnd5e2.sheet.actor.character .sheet-header input.document-name {
+  font-size: clamp(2.7rem, 3.55vw, 3.7rem) !important;
+}
+
+.dnd5e2.sheet.actor.character :is(.card .header, filigree-box > h3, .pills-group h3, .stats label, .ability-score .label, .ability-score .mod, .ability-score .score),
+.window-app.dnd5e2.sheet.actor.character :is(.card .header, filigree-box > h3, .pills-group h3, .stats label, .ability-score .label, .ability-score .mod, .ability-score .score) {
+  font-size: 1.08em;
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item::before,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item::before {
+  font-size: 0.86rem;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child {
+  transform: none !important;
+  margin-top: -0.5rem !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child .sheet-header-buttons,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child .sheet-header-buttons {
+  position: absolute !important;
+  top: 1.5625rem !important;
+  transform: none !important;
+  z-index: 5;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child .sheet-header-buttons > button,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child .sheet-header-buttons > button {
+  width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  padding: 0 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child :is(.xp-label, .xp-bar),
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child :is(.xp-label, .xp-bar) {
+  transform: translateY(1.08rem);
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration {
+  pointer-events: auto !important;
+  z-index: 8;
+  isolation: isolate;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration[aria-pressed="true"],
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration[aria-pressed="true"] {
+  filter:
+    sepia(1)
+    saturate(1.28)
+    hue-rotate(165deg)
+    brightness(1.34)
+    contrast(1.2)
+    drop-shadow(0 2px 4px rgba(3, 8, 24, 0.82))
+    drop-shadow(0 0 10px rgba(98, 214, 255, 0.78))
+    drop-shadow(0 0 18px rgba(177, 96, 255, 0.38)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration[aria-pressed="true"]::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-header > .right .inspiration[aria-pressed="true"]::after {
+  content: "";
+  position: static !important;
+  inset: auto !important;
+  z-index: 2;
+  display: block !important;
+  width: calc(var(--size) / 4 - 1px) !important;
+  height: calc(var(--size) / 4 - 1px) !important;
+  border-radius: 2px;
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.98), rgba(186, 230, 255, 0.92) 52%, rgba(98, 214, 255, 0.72)) !important;
+  transform: rotate(45deg) !important;
+  box-shadow:
+    0 0 8px 3px rgba(98, 214, 255, 0.68),
+    0 0 15px rgba(177, 96, 255, 0.42),
+    0 0 20px rgba(255, 222, 134, 0.18) !important;
+  animation: pulsate-inspiration 3s infinite ease-in-out !important;
+}
+
+/* 0.1.66 - simplify character sheet right tabs: icon plus a small glass plinth. */
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right {
+  gap: 0.42rem;
+  padding-inline: 0.18rem;
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item {
+  width: 2.18rem;
+  height: 2.08rem;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgba(232, 241, 255, 0.9) !important;
+  --icon-fill: rgba(232, 241, 255, 0.9);
+  filter:
+    drop-shadow(0 1px 2px rgba(2, 4, 12, 0.92))
+    drop-shadow(0 0 4px rgba(98, 214, 255, 0.24));
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item > :is(i, dnd5e-icon, svg),
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item > :is(i, dnd5e-icon, svg) {
+  position: relative;
+  z-index: 2;
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item::after,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: auto;
+  top: auto;
+  bottom: 0.13rem;
+  z-index: 1;
+  width: 1.78rem;
+  height: 0.46rem;
+  border: 0 !important;
+  border-radius: 999px;
+  opacity: 0.72;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(210, 235, 255, 0.34), transparent 58%),
+    linear-gradient(90deg, transparent, rgba(98, 214, 255, 0.22) 18%, rgba(126, 103, 190, 0.28) 52%, rgba(98, 214, 255, 0.18) 82%, transparent) !important;
+  box-shadow:
+    0 0 7px rgba(98, 214, 255, 0.2),
+    0 2px 5px rgba(2, 4, 12, 0.48) !important;
+  transform: translateX(-50%) !important;
+  filter: blur(0.1px);
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item:hover,
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item.active,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item:hover,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item.active {
+  color: #ffffff !important;
+  --icon-fill: #ffffff;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter:
+    drop-shadow(0 1px 2px rgba(2, 4, 12, 0.92))
+    drop-shadow(0 0 6px rgba(98, 214, 255, 0.68))
+    drop-shadow(0 0 11px rgba(177, 96, 255, 0.28));
+}
+
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item:hover::after,
+.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item.active::after,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item:hover::after,
+.window-app.dnd5e2.sheet.actor.character.vertical-tabs nav.tabs.tabs-right > .item.active::after {
+  width: 1.96rem;
+  height: 0.52rem;
+  opacity: 1;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(238, 248, 255, 0.5), transparent 62%),
+    linear-gradient(90deg, transparent, rgba(98, 214, 255, 0.42) 18%, rgba(177, 96, 255, 0.34) 52%, rgba(98, 214, 255, 0.32) 82%, transparent) !important;
+  box-shadow:
+    0 0 9px rgba(98, 214, 255, 0.42),
+    0 0 13px rgba(177, 96, 255, 0.22),
+    0 2px 5px rgba(2, 4, 12, 0.48) !important;
+}
+
+/* 0.1.67 - arcane character panels and more room below ability scores. */
+.dnd5e2.sheet.actor.character .sheet-body .main-content,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .main-content {
+  padding-top: 1.7rem !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves),
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  border: 1px solid rgba(110, 174, 224, 0.26) !important;
+  border-radius: 10px !important;
+  background:
+    radial-gradient(circle at 12% 6%, rgba(134, 209, 255, 0.16), transparent 7rem),
+    radial-gradient(circle at 88% 92%, rgba(159, 112, 255, 0.13), transparent 8rem),
+    linear-gradient(118deg, rgba(255, 255, 255, 0.035), transparent 30%),
+    linear-gradient(180deg, rgba(18, 30, 55, 0.58), rgba(12, 17, 35, 0.68) 58%, rgba(8, 12, 27, 0.74)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.12),
+    inset 0 0 0 1px rgba(255, 222, 134, 0.055),
+    0 0 0 1px rgba(3, 7, 18, 0.54),
+    0 8px 18px rgba(2, 4, 12, 0.22),
+    0 0 16px rgba(98, 214, 255, 0.12) !important;
+  backdrop-filter: blur(2px) saturate(1.08);
+  -webkit-backdrop-filter: blur(2px) saturate(1.08);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::before {
+  content: "";
+  display: block !important;
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: 11px;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(98, 214, 255, 0.46), rgba(177, 96, 255, 0.2) 34%, rgba(255, 222, 134, 0.24) 63%, rgba(98, 214, 255, 0.12)) border-box;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 1px;
+  opacity: 0.72;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::after {
+  content: "";
+  display: block !important;
+  position: absolute;
+  inset: 0.35rem;
+  z-index: -1;
+  border-radius: 8px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(238, 246, 255, 0.5) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 82% 22%, rgba(98, 214, 255, 0.44) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 72% 78%, rgba(177, 96, 255, 0.34) 0 0.8px, transparent 1.7px),
+    radial-gradient(circle at 28% 86%, rgba(255, 222, 134, 0.32) 0 0.8px, transparent 1.6px),
+    linear-gradient(120deg, transparent 0 18%, rgba(98, 214, 255, 0.05) 19% 20%, transparent 21% 62%, rgba(177, 96, 255, 0.045) 63% 64%, transparent 65%);
+  opacity: 0.64;
+  filter: drop-shadow(0 0 4px rgba(98, 214, 255, 0.18));
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3 {
+  border: 0 !important;
+  border-radius: 9px 9px 0 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(238, 246, 255, 0.18), transparent 42%),
+    linear-gradient(90deg, transparent, rgba(98, 214, 255, 0.16) 18%, rgba(177, 96, 255, 0.1) 52%, rgba(255, 222, 134, 0.1) 78%, transparent) !important;
+  color: rgba(236, 225, 190, 0.96) !important;
+  text-shadow:
+    0 1px 2px rgba(2, 4, 12, 0.92),
+    0 0 5px rgba(98, 214, 255, 0.38),
+    0 0 10px rgba(177, 96, 255, 0.22);
+  box-shadow:
+    inset 0 -1px 0 rgba(98, 214, 255, 0.14),
+    0 1px 0 rgba(255, 222, 134, 0.08) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li {
+  border-bottom-color: rgba(134, 209, 255, 0.15) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li:hover,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li:hover {
+  background:
+    linear-gradient(90deg, rgba(98, 214, 255, 0.07), rgba(177, 96, 255, 0.045), transparent) !important;
+  box-shadow: inset 2px 0 0 rgba(98, 214, 255, 0.28);
+}
+
+/* 0.1.68 - remove dnd5e filigree art and replace it with custom arcane panels. */
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves),
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) {
+  --filigree-background-color: transparent;
+  --filigree-border-color: transparent;
+  --filigree-drop-shadow: none;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 13px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::before {
+  content: "";
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  padding: 0;
+  border-radius: 13px;
+  opacity: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 10%, rgba(142, 220, 255, 0.18), transparent 5.5rem),
+    radial-gradient(circle at 92% 88%, rgba(169, 112, 255, 0.14), transparent 7rem),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.055), transparent 25%),
+    linear-gradient(180deg, rgba(16, 31, 56, 0.62), rgba(11, 18, 39, 0.72) 54%, rgba(8, 12, 27, 0.78)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.14),
+    inset 0 -1px 0 rgba(98, 214, 255, 0.09),
+    inset 0 0 22px rgba(98, 214, 255, 0.045),
+    0 10px 20px rgba(2, 4, 12, 0.2),
+    0 0 18px rgba(98, 214, 255, 0.11) !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::after {
+  content: "";
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 13px;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0.96;
+  background:
+    radial-gradient(circle at 13% 16%, rgba(238, 246, 255, 0.55) 0 0.8px, transparent 1.7px),
+    radial-gradient(circle at 84% 22%, rgba(98, 214, 255, 0.42) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 73% 82%, rgba(177, 96, 255, 0.36) 0 0.8px, transparent 1.6px),
+    linear-gradient(90deg, rgba(98, 214, 255, 0.5), rgba(177, 96, 255, 0.26) 32%, rgba(255, 222, 134, 0.2) 66%, rgba(98, 214, 255, 0.18)) border-box;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  box-shadow:
+    0 0 10px rgba(98, 214, 255, 0.14),
+    inset 0 0 12px rgba(177, 96, 255, 0.08) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > :is(h3, ul, button),
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > :is(h3, ul, button) {
+  position: relative;
+  z-index: 2;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3 {
+  margin: 0 0 0.12rem;
+  padding: 0.7rem 1rem 0.42rem;
+  border: 0 !important;
+  border-radius: 13px 13px 0 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(98, 214, 255, 0.13) 18%, rgba(177, 96, 255, 0.1) 52%, rgba(255, 222, 134, 0.09) 78%, transparent),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)) !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(98, 214, 255, 0.13),
+    0 1px 0 rgba(255, 222, 134, 0.06) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul {
+  padding-inline: 0.82rem !important;
+}
+
+/* 0.1.69 - ornate arcane linework for the custom character panels. */
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves),
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) {
+  overflow: hidden;
+  border-radius: 16px !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::before {
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 50% 4%, rgba(238, 246, 255, 0.18), transparent 3.8rem),
+    radial-gradient(circle at 12% 10%, rgba(142, 220, 255, 0.22), transparent 6.2rem),
+    radial-gradient(circle at 92% 86%, rgba(169, 112, 255, 0.17), transparent 7.5rem),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.065), transparent 26%),
+    linear-gradient(180deg, rgba(13, 31, 59, 0.66), rgba(10, 17, 39, 0.76) 56%, rgba(6, 10, 25, 0.82)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 246, 255, 0.16),
+    inset 0 0 28px rgba(98, 214, 255, 0.06),
+    inset 0 -18px 36px rgba(4, 6, 18, 0.24),
+    0 12px 24px rgba(2, 4, 12, 0.24),
+    0 0 20px rgba(98, 214, 255, 0.14) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves)::after {
+  inset: 0;
+  z-index: 1;
+  padding: 0;
+  border-radius: 16px;
+  opacity: 0.9;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' preserveAspectRatio='none'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='9' width='282' height='282' rx='18' stroke='%237edcff' stroke-opacity='.36' stroke-width='1.2'/%3E%3Crect x='18' y='18' width='264' height='264' rx='12' stroke='%23d1b46f' stroke-opacity='.2' stroke-width='.8'/%3E%3Cpath d='M31 73 C56 62 42 35 78 25 C57 45 82 55 57 72 C43 82 43 96 27 111' stroke='%237edcff' stroke-opacity='.32' stroke-width='1.1'/%3E%3Cpath d='M22 44 C42 44 45 26 66 24 M22 254 C42 254 45 274 66 276' stroke='%23d1b46f' stroke-opacity='.28' stroke-width='.9'/%3E%3Cpath d='M269 73 C244 62 258 35 222 25 C243 45 218 55 243 72 C257 82 257 96 273 111' stroke='%237edcff' stroke-opacity='.32' stroke-width='1.1'/%3E%3Cpath d='M278 44 C258 44 255 26 234 24 M278 254 C258 254 255 274 234 276' stroke='%23d1b46f' stroke-opacity='.28' stroke-width='.9'/%3E%3Cpath d='M31 227 C56 238 42 265 78 275 C57 255 82 245 57 228 C43 218 43 204 27 189' stroke='%237edcff' stroke-opacity='.22' stroke-width='1'/%3E%3Cpath d='M269 227 C244 238 258 265 222 275 C243 255 218 245 243 228 C257 218 257 204 273 189' stroke='%237edcff' stroke-opacity='.22' stroke-width='1'/%3E%3Cpath d='M72 22 H129 M171 22 H228 M72 278 H129 M171 278 H228' stroke='%237edcff' stroke-opacity='.24' stroke-width='.9'/%3E%3Cpath d='M150 12 L164 26 L150 40 L136 26 Z' stroke='%23d1b46f' stroke-opacity='.42' stroke-width='1.1'/%3E%3Cpath d='M129 26 C137 39 163 39 171 26 M116 27 C130 52 170 52 184 27' stroke='%237edcff' stroke-opacity='.22' stroke-width='.9'/%3E%3Cpath d='M37 38 L42 49 L53 54 L42 59 L37 70 L32 59 L21 54 L32 49 Z M263 38 L268 49 L279 54 L268 59 L263 70 L258 59 L247 54 L258 49 Z' stroke='%23d1b46f' stroke-opacity='.36' stroke-width='.9'/%3E%3Cpath d='M38 148 H24 M276 148 H262 M150 282 L156 288 L150 294 L144 288 Z' stroke='%237edcff' stroke-opacity='.24' stroke-width='.9'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat,
+    radial-gradient(circle at 14% 18%, rgba(238, 246, 255, 0.44) 0 0.8px, transparent 1.7px),
+    radial-gradient(circle at 85% 20%, rgba(98, 214, 255, 0.4) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 72% 82%, rgba(177, 96, 255, 0.34) 0 0.8px, transparent 1.6px) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(98, 214, 255, 0.16),
+    inset 0 0 0 2px rgba(255, 222, 134, 0.035),
+    0 0 14px rgba(98, 214, 255, 0.12) !important;
+  filter:
+    drop-shadow(0 0 5px rgba(98, 214, 255, 0.16))
+    drop-shadow(0 0 6px rgba(177, 96, 255, 0.08));
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3 {
+  position: relative;
+  padding-top: 0.96rem;
+  padding-bottom: 0.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(238, 246, 255, 0.2), transparent 2.8rem),
+    linear-gradient(90deg, transparent, rgba(98, 214, 255, 0.2) 20%, rgba(177, 96, 255, 0.12) 50%, rgba(255, 222, 134, 0.13) 78%, transparent),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3::before {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  top: 0.34rem;
+  height: 1px;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, rgba(98, 214, 255, 0.42), rgba(255, 222, 134, 0.34) 50%, rgba(98, 214, 255, 0.32), transparent);
+  box-shadow: 0 0 7px rgba(98, 214, 255, 0.28);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools, .saves) > h3::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.16rem;
+  width: 0.54rem;
+  height: 0.54rem;
+  pointer-events: none;
+  border: 1px solid rgba(255, 222, 134, 0.48);
+  background:
+    radial-gradient(circle, rgba(238, 246, 255, 0.48), rgba(98, 214, 255, 0.18) 55%, transparent 56%);
+  box-shadow:
+    0 0 7px rgba(98, 214, 255, 0.34),
+    0 0 10px rgba(177, 96, 255, 0.16);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul {
+  position: relative;
+  padding-inline: 1.12rem !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul::before,
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul::after {
+  content: "";
+  position: absolute;
+  top: 0.28rem;
+  bottom: 0.62rem;
+  width: 0.5rem;
+  pointer-events: none;
+  opacity: 0.34;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 222, 134, 0.65) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 50% 50%, rgba(98, 214, 255, 0.58) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 50% 90%, rgba(177, 96, 255, 0.48) 0 1px, transparent 1.8px),
+    linear-gradient(180deg, transparent, rgba(98, 214, 255, 0.22) 18%, transparent 38%, rgba(255, 222, 134, 0.16) 62%, transparent);
+  filter: drop-shadow(0 0 4px rgba(98, 214, 255, 0.28));
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul::before {
+  left: 0.3rem;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul::after {
+  right: 0.3rem;
+}
+
+/* 0.1.70 - keep dnd5e item editor header layout intact. */
+.dnd5e2.sheet.item:not(.minimized) .window-content,
+.window-app.dnd5e2.sheet.item:not(.minimized) .window-content {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 12px 8px !important;
+  gap: 8px !important;
+}
+
+.dnd5e2.sheet.item .sheet-header,
+.window-app.dnd5e2.sheet.item .sheet-header {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  justify-content: normal !important;
+  gap: 8px !important;
+  min-height: 104px !important;
+  padding: 0 12px !important;
+  margin-top: 8px !important;
+}
+
+.dnd5e2.sheet.item .sheet-header > .left,
+.window-app.dnd5e2.sheet.item .sheet-header > .left {
+  flex: 0 0 auto !important;
+  width: 96px !important;
+}
+
+.dnd5e2.sheet.item .sheet-header > .middle,
+.window-app.dnd5e2.sheet.item .sheet-header > .middle {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-evenly !important;
+}
+
+.dnd5e2.sheet.item .sheet-header > .right,
+.window-app.dnd5e2.sheet.item .sheet-header > .right {
+  flex: 0 0 96px !important;
+  margin-left: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .item-image,
+.window-app.dnd5e2.sheet.item .sheet-header .item-image {
+  display: block !important;
+  width: 96px !important;
+  height: 96px !important;
+  min-width: 96px !important;
+  margin: 0 !important;
+  object-fit: cover !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .document-name,
+.window-app.dnd5e2.sheet.item .sheet-header .document-name,
+.dnd5e2.sheet.item .sheet-header input.document-name,
+.window-app.dnd5e2.sheet.item .sheet-header input.document-name {
+  width: 100% !important;
+  max-width: 28rem !important;
+  text-align: center !important;
+  justify-self: center !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .identity-info .subtitles,
+.window-app.dnd5e2.sheet.item .sheet-header .identity-info .subtitles {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .common-fields,
+.window-app.dnd5e2.sheet.item .sheet-header .common-fields {
+  width: 96px !important;
+  gap: 8px !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .common-fields :is(.quantity, .weight, .price),
+.window-app.dnd5e2.sheet.item .sheet-header .common-fields :is(.quantity, .weight, .price) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 4px !important;
+  width: 100% !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .common-fields input,
+.window-app.dnd5e2.sheet.item .sheet-header .common-fields input {
+  width: 3.45rem !important;
+  min-width: 0 !important;
+  text-align: center !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .common-fields select,
+.window-app.dnd5e2.sheet.item .sheet-header .common-fields select {
+  width: 3.25rem !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+}
+
+.dnd5e2.sheet.item nav.tabs,
+.window-app.dnd5e2.sheet.item nav.tabs {
+  display: flex !important;
+  justify-content: space-evenly !important;
+  align-items: flex-start !important;
+}
+
+/* 0.1.71 - compass-star ability score crystals. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score {
+  overflow: visible !important;
+  filter:
+    drop-shadow(0 4px 5px rgba(2, 4, 12, 0.6))
+    drop-shadow(0 0 6px rgba(98, 214, 255, 0.2)) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  inset: -0.78rem -0.6rem -0.42rem !important;
+  z-index: -1 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  opacity: 0.96;
+  background:
+    linear-gradient(135deg, rgba(205, 174, 100, 0.92), rgba(92, 70, 28, 0.96) 38%, rgba(185, 146, 73, 0.78) 58%, rgba(43, 34, 18, 0.92)) !important;
+  clip-path: polygon(
+    50% 0%,
+    58% 34%,
+    84% 9%,
+    66% 40%,
+    100% 50%,
+    66% 60%,
+    84% 91%,
+    58% 66%,
+    50% 100%,
+    42% 66%,
+    16% 91%,
+    34% 60%,
+    0% 50%,
+    34% 40%,
+    16% 9%,
+    42% 34%
+  ) !important;
+  box-shadow:
+    0 0 0 1px rgba(2, 4, 12, 0.92),
+    0 0 7px rgba(173, 137, 65, 0.22),
+    0 0 12px rgba(98, 214, 255, 0.12) !important;
+  transform: scaleX(1.02);
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::after {
+  inset: -0.68rem -0.5rem -0.32rem !important;
+  z-index: 0 !important;
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(235, 248, 255, 0.24) 0 7%, transparent 8%),
+    conic-gradient(from 45deg at 50% 50%, transparent 0 8deg, rgba(224, 241, 255, 0.32) 9deg 11deg, transparent 12deg 80deg, rgba(157, 126, 63, 0.22) 81deg 83deg, transparent 84deg 170deg, rgba(224, 241, 255, 0.24) 171deg 173deg, transparent 174deg 260deg, rgba(157, 126, 63, 0.18) 261deg 263deg, transparent 264deg 360deg),
+    linear-gradient(90deg, transparent 8%, rgba(157, 126, 63, 0.34) 9% 18%, transparent 19% 81%, rgba(157, 126, 63, 0.34) 82% 91%, transparent 92%) 50% 50% / 100% 1px no-repeat,
+    linear-gradient(0deg, transparent 7%, rgba(98, 214, 255, 0.2) 8% 20%, transparent 21% 79%, rgba(98, 214, 255, 0.18) 80% 92%, transparent 93%) 50% 50% / 1px 100% no-repeat,
+    radial-gradient(circle at 50% 4%, rgba(215, 185, 112, 0.62) 0 1px, transparent 2px),
+    radial-gradient(circle at 96% 50%, rgba(98, 214, 255, 0.48) 0 1px, transparent 2px),
+    radial-gradient(circle at 50% 96%, rgba(177, 96, 255, 0.38) 0 1px, transparent 2px),
+    radial-gradient(circle at 4% 50%, rgba(98, 214, 255, 0.44) 0 1px, transparent 2px),
+    linear-gradient(145deg, rgba(24, 54, 92, 0.98), rgba(8, 21, 52, 0.99) 46%, rgba(5, 11, 30, 0.99)) !important;
+  clip-path: polygon(
+    50% 0%,
+    57% 35%,
+    80% 14%,
+    64% 42%,
+    94% 50%,
+    64% 58%,
+    80% 86%,
+    57% 65%,
+    50% 100%,
+    43% 65%,
+    20% 86%,
+    36% 58%,
+    6% 50%,
+    36% 42%,
+    20% 14%,
+    43% 35%
+  ) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(157, 126, 63, 0.28),
+    inset 0 0 0 2px rgba(98, 214, 255, 0.12),
+    inset 0 0 10px rgba(5, 12, 32, 0.74),
+    0 0 7px rgba(98, 214, 255, 0.16) !important;
+  filter:
+    drop-shadow(0 0 2px rgba(173, 137, 65, 0.22))
+    drop-shadow(0 0 5px rgba(98, 214, 255, 0.16)) !important;
+  animation: spell-ability-motes 5.6s ease-in-out infinite alternate;
+}
+
+/* 0.1.77 - thinner gold outline with small secondary points in the star notches. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  inset: -0.5rem -0.38rem -0.23rem !important;
+  background:
+    linear-gradient(145deg, rgba(178, 142, 76, 0.86), rgba(70, 53, 24, 0.95) 42%, rgba(151, 114, 57, 0.74) 64%, rgba(31, 25, 15, 0.94)) !important;
+  clip-path: polygon(
+    50% 0%,
+    58% 30%,
+    62% 23%,
+    66% 30%,
+    94% 24%,
+    72% 46%,
+    82% 50%,
+    72% 54%,
+    94% 76%,
+    66% 70%,
+    62% 77%,
+    58% 70%,
+    50% 100%,
+    42% 70%,
+    38% 77%,
+    34% 70%,
+    6% 76%,
+    28% 54%,
+    18% 50%,
+    28% 46%,
+    6% 24%,
+    34% 30%,
+    38% 23%,
+    42% 30%
+  ) !important;
+  box-shadow:
+    0 0 0 1px rgba(2, 4, 12, 0.82),
+    0 0 4px rgba(173, 137, 65, 0.14),
+    0 0 8px rgba(98, 214, 255, 0.09) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::after {
+  inset: -0.45rem -0.33rem -0.18rem !important;
+  clip-path: polygon(
+    50% 5%,
+    58% 33%,
+    61% 28%,
+    64% 33%,
+    88% 29%,
+    69% 47%,
+    76% 50%,
+    69% 53%,
+    88% 71%,
+    64% 67%,
+    61% 72%,
+    58% 67%,
+    50% 95%,
+    42% 67%,
+    39% 72%,
+    36% 67%,
+    12% 71%,
+    31% 53%,
+    24% 50%,
+    31% 47%,
+    12% 29%,
+    36% 33%,
+    39% 28%,
+    42% 33%
+  ) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(143, 112, 57, 0.2),
+    inset 0 0 0 2px rgba(98, 214, 255, 0.09),
+    inset 0 0 10px rgba(5, 12, 32, 0.72),
+    0 0 5px rgba(98, 214, 255, 0.13) !important;
+}
+
+/* 0.1.114 - keep the tools proficiency header cog out of the row controls. */
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"],
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"] {
+  position: absolute !important;
+  right: 0.92rem !important;
+  top: 0.64rem !important;
+  z-index: 8 !important;
+  display: grid !important;
+  place-content: center !important;
+  width: 1.42rem !important;
+  height: 1.42rem !important;
+  min-width: 1.42rem !important;
+  min-height: 1.42rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle, rgba(238, 246, 255, 0.1), transparent 64%) !important;
+  color: rgba(232, 242, 255, 0.88) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  text-shadow:
+    0 0 5px rgba(98, 214, 255, 0.5),
+    0 0 9px rgba(177, 96, 255, 0.26) !important;
+  box-shadow: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul {
+  padding-inline-end: 1.35rem !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li {
+  column-gap: 0.58rem !important;
+}
+
+/* 0.1.115 - keep skill/tool/saves proficiency pips visible in edit mode. */
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li > proficiency-cycle,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li > proficiency-cycle {
+  --proficiency-cycle-enabled-color: #6ca7ff;
+  --proficiency-cycle-disabled-color: rgba(124, 191, 255, 0.74);
+  position: relative;
+  z-index: 4;
+  flex: 0 0 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin-inline: 0 0.05rem !important;
+  filter:
+    drop-shadow(0 0 3px rgba(108, 167, 255, 0.5))
+    drop-shadow(0 0 5px rgba(8, 16, 36, 0.72)) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li,
+.window-app.dnd5e2.sheet.actor.character .sheet-body :is(.skills, .tools, .saves) > ul > li {
+  overflow: visible !important;
+}
+
+/* 0.1.116 - stabilize death-save failure pips and center their X mark. */
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pips,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pips {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.28rem !important;
+  padding: 0 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip {
+  --pip-size: 1rem;
+  position: relative !important;
+  display: grid !important;
+  place-content: center !important;
+  flex: 0 0 var(--pip-size) !important;
+  width: var(--pip-size) !important;
+  height: var(--pip-size) !important;
+  min-width: var(--pip-size) !important;
+  min-height: var(--pip-size) !important;
+  padding: 0 !important;
+  border: 1px solid rgba(236, 225, 190, 0.58) !important;
+  border-radius: 999px !important;
+  background: rgba(8, 9, 17, 0.78) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 4px rgba(2, 4, 12, 0.72) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip.filled,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip.filled {
+  background: rgba(236, 225, 190, 0.86) !important;
+  box-shadow:
+    0 0 5px rgba(236, 225, 190, 0.3),
+    0 0 8px rgba(98, 214, 255, 0.13) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip.filled.failure::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .death-tray .death-saves .pip.filled.failure::before {
+  content: "\f00d" !important;
+  display: block !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  font-family: var(--font-awesome) !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  color: rgba(238, 246, 255, 0.98) !important;
+  transform: none !important;
+  text-shadow:
+    0 1px 1px rgba(2, 4, 12, 0.72),
+    0 0 3px rgba(98, 214, 255, 0.28) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"]:hover,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"]:hover {
+  color: rgba(255, 240, 190, 0.98) !important;
+  text-shadow:
+    0 0 5px rgba(255, 222, 134, 0.62),
+    0 0 12px rgba(98, 214, 255, 0.46) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"] > i,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"] > i {
+  display: inline-block !important;
+  margin: 0 !important;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
+  font-size: 0.92rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  color: currentColor !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"]::before,
+.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"]::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"]::before,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > button.trait-selector.config-button[data-trait="tool"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 0.1.81 - restore Huiwen Mingchao on dnd5e item sheets while leaving icons native. */
+.dnd5e2.sheet.item,
+.window-app.dnd5e2.sheet.item,
+.application.dnd5e2.sheet.item {
+  --dnd5e-font-roboto: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif;
+  --dnd5e-font-roboto-condensed: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif;
+  --dnd5e-font-modesto: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif;
+  font-family: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif !important;
+}
+
+.dnd5e2.sheet.item :is(
+  .window-title,
+  .window-subtitle,
+  .source-book,
+  .sheet-header,
+  .sheet-header *,
+  nav.tabs,
+  nav.tabs *,
+  .window-content,
+  .window-content *,
+  button,
+  input,
+  select,
+  textarea,
+  option
+):not(.fa):not(.fas):not(.far):not(.fab):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa-fw):not([class^="fa-"]):not([class*=" fa-"]),
+.window-app.dnd5e2.sheet.item :is(
+  .window-title,
+  .window-subtitle,
+  .source-book,
+  .sheet-header,
+  .sheet-header *,
+  nav.tabs,
+  nav.tabs *,
+  .window-content,
+  .window-content *,
+  button,
+  input,
+  select,
+  textarea,
+  option
+):not(.fa):not(.fas):not(.far):not(.fab):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa-fw):not([class^="fa-"]):not([class*=" fa-"]),
+.application.dnd5e2.sheet.item :is(
+  .window-title,
+  .window-subtitle,
+  .source-book,
+  .sheet-header,
+  .sheet-header *,
+  nav.tabs,
+  nav.tabs *,
+  .window-content,
+  .window-content *,
+  button,
+  input,
+  select,
+  textarea,
+  option
+):not(.fa):not(.fas):not(.far):not(.fab):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa-fw):not([class^="fa-"]):not([class*=" fa-"]) {
+  font-family: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* 0.1.80 - item title-bar icons stay native to dnd5e. */
+.dnd5e2.sheet.item .window-header,
+.window-app.dnd5e2.sheet.item .window-header,
+.application.dnd5e2.sheet.item .window-header {
+  flex-wrap: nowrap !important;
+}
+
+.dnd5e2.sheet.item .window-header slide-toggle.mode-slider,
+.window-app.dnd5e2.sheet.item .window-header slide-toggle.mode-slider,
+.application.dnd5e2.sheet.item .window-header slide-toggle.mode-slider {
+  order: 0 !important;
+  flex: 0 0 auto !important;
+  margin: 0 0.35rem 0 0 !important;
+}
+
+.dnd5e2.sheet.item .window-header .header-elements,
+.window-app.dnd5e2.sheet.item .window-header .header-elements,
+.application.dnd5e2.sheet.item .window-header .header-elements {
+  display: contents !important;
+  flex: none !important;
+}
+
+.dnd5e2.sheet.item .window-header .header-elements .source-book,
+.window-app.dnd5e2.sheet.item .window-header .header-elements .source-book,
+.application.dnd5e2.sheet.item .window-header .header-elements .source-book {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-left: auto !important;
+}
+
+.dnd5e2.sheet.item .window-header .header-elements .source-book button::before,
+.dnd5e2.sheet.item .window-header .header-elements .source-book button::after,
+.window-app.dnd5e2.sheet.item .window-header .header-elements .source-book button::before,
+.window-app.dnd5e2.sheet.item .window-header .header-elements .source-book button::after,
+.application.dnd5e2.sheet.item .window-header .header-elements .source-book button::before,
+.application.dnd5e2.sheet.item .window-header .header-elements .source-book button::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close),
+.window-app.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close),
+.application.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close) {
+  width: auto !important;
+  min-width: 1.25rem !important;
+  height: auto !important;
+  min-height: 1.25rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgba(232, 242, 255, 0.9) !important;
+  text-shadow: 0 0 5px rgba(98, 214, 255, 0.36) !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close):hover,
+.window-app.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close):hover,
+.application.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close):hover {
+  color: rgba(238, 218, 166, 0.96) !important;
+}
+
+/* 0.1.86 - keep the native dnd5e additional-controls ellipsis visible on item sheets. */
+.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"],
+.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"],
+.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  width: 1.25rem !important;
+  min-width: 1.25rem !important;
+  height: 1.25rem !important;
+  min-height: 1.25rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 0.92rem !important;
+  line-height: 1 !important;
+  transform: translateY(2px) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score :is(.label, .mod, .score),
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score :is(.label, .mod, .score) {
+  position: relative;
+  z-index: 2;
+}
+
+/* 0.1.89 - restore macro configuration header name layout. */
+.macro-config .window-content .sheet-header.img-name,
+.window-app.macro-config .window-content .sheet-header.img-name,
+.application.macro-config .window-content .sheet-header.img-name {
+  display: grid !important;
+  grid-template-columns: 72px minmax(12rem, 1fr) !important;
+  align-items: center !important;
+  gap: 0.9rem !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.macro-config .window-content .sheet-header.img-name > img,
+.window-app.macro-config .window-content .sheet-header.img-name > img,
+.application.macro-config .window-content .sheet-header.img-name > img {
+  grid-column: 1 !important;
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  flex: 0 0 64px !important;
+  justify-self: start !important;
+}
+
+.macro-config .window-content .sheet-header.img-name > :not(img),
+.window-app.macro-config .window-content .sheet-header.img-name > :not(img),
+.application.macro-config .window-content .sheet-header.img-name > :not(img) {
+  grid-column: 2 !important;
+  min-width: 0 !important;
+  justify-self: stretch !important;
+}
+
+.macro-config .window-content .sheet-header.img-name :is(input[name="name"], input.document-name, .document-name),
+.window-app.macro-config .window-content .sheet-header.img-name :is(input[name="name"], input.document-name, .document-name),
+.application.macro-config .window-content .sheet-header.img-name :is(input[name="name"], input.document-name, .document-name) {
+  display: block !important;
+  width: 100% !important;
+  min-width: 12rem !important;
+  max-width: none !important;
+  height: 2.45rem !important;
+  flex: 1 1 auto !important;
+}
+
+.macro-config .window-content .sheet-header.img-name .dime-title,
+.window-app.macro-config .window-content .sheet-header.img-name .dime-title,
+.application.macro-config .window-content .sheet-header.img-name .dime-title {
+  width: 100% !important;
+  min-width: 12rem !important;
+  margin: 0 !important;
+  font-size: 1.12rem !important;
+}
+
+/* 0.1.92 - keep character inventory and spell row controls in the native dnd5e positions. */
+.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls,
+.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls,
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls,
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls {
+  width: 70px !important;
+  min-width: 70px !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  padding: 0 38px 0 4px !important;
+  position: relative !important;
+}
+
+.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-context-menu],
+.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-context-menu],
+.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-toggle-description],
+.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-toggle-description],
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-context-menu],
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-context-menu],
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-toggle-description],
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-toggle-description] {
+  position: absolute !important;
+  inset: 0 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: end !important;
+  width: auto !important;
+  padding: 0 10px 0 5px !important;
+}
+
+.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-toggle-description],
+.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-toggle-description],
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-toggle-description],
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-toggle-description] {
+  right: 20px !important;
+  padding: 0 !important;
+}
+
+/* 0.1.97 - keep inactive equip, attune, and preparation state icons readable. */
+.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls :is(
+  [data-action="attune"],
+  [data-action="equip"],
+  [data-action="prepare"]
+):not(.active),
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls :is(
+  [data-action="attune"],
+  [data-action="equip"],
+  [data-action="prepare"]
+):not(.active) {
+  color: rgba(198, 216, 238, 0.72) !important;
+  opacity: 1 !important;
+  filter:
+    drop-shadow(0 0 2px rgba(8, 12, 24, 0.85))
+    drop-shadow(0 0 5px rgba(98, 214, 255, 0.24));
+  text-shadow:
+    0 0 3px rgba(8, 12, 24, 0.88),
+    0 0 7px rgba(98, 214, 255, 0.24) !important;
+}
+
+.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls :is(
+  [data-action="attune"],
+  [data-action="equip"],
+  [data-action="prepare"]
+).active,
+.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls :is(
+  [data-action="attune"],
+  [data-action="equip"],
+  [data-action="prepare"]
+).active {
+  color: rgba(255, 226, 146, 0.95) !important;
+  filter:
+    drop-shadow(0 0 3px rgba(255, 222, 134, 0.62))
+    drop-shadow(0 0 8px rgba(98, 214, 255, 0.32));
+}
+
+/* 0.1.72 - pin read-only item sheet physical fields to the far right. */
+.dnd5e2.sheet.item .sheet-header,
+.window-app.dnd5e2.sheet.item .sheet-header {
+  display: grid !important;
+  grid-template-columns: 96px minmax(0, 1fr) minmax(96px, max-content) !important;
+  grid-template-areas: "image identity fields" !important;
+  align-items: stretch !important;
+  column-gap: 12px !important;
+  width: 100% !important;
+}
+
+.dnd5e2.sheet.item .sheet-header > .left,
+.window-app.dnd5e2.sheet.item .sheet-header > .left {
+  grid-area: image !important;
+  width: 96px !important;
+  justify-self: start !important;
+}
+
+.dnd5e2.sheet.item .sheet-header > .middle,
+.window-app.dnd5e2.sheet.item .sheet-header > .middle {
+  grid-area: identity !important;
+  width: 100% !important;
+  justify-self: stretch !important;
+  align-self: stretch !important;
+  min-width: 0 !important;
+}
+
+.dnd5e2.sheet.item .sheet-header > .right,
+.window-app.dnd5e2.sheet.item .sheet-header > .right {
+  grid-area: fields !important;
+  justify-self: end !important;
+  align-self: stretch !important;
+  width: max-content !important;
+  min-width: 96px !important;
+  margin-left: 0 !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .common-fields:not(.physical),
+.window-app.dnd5e2.sheet.item .sheet-header .common-fields:not(.physical) {
+  min-width: 72px !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .common-fields.physical,
+.window-app.dnd5e2.sheet.item .sheet-header .common-fields.physical {
+  min-width: 96px !important;
+  width: max-content !important;
+}
+
+.dnd5e2.sheet.item .sheet-header .common-fields :is(.quantity, .weight, .price),
+.window-app.dnd5e2.sheet.item .sheet-header .common-fields :is(.quantity, .weight, .price) {
+  justify-content: flex-end !important;
+  white-space: nowrap !important;
+}
+
+/* 0.1.73 - return ability score crystals to a true six-point star. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score {
+  overflow: visible !important;
+  filter:
+    drop-shadow(0 4px 5px rgba(2, 4, 12, 0.62))
+    drop-shadow(0 0 5px rgba(98, 214, 255, 0.18)) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  inset: -0.55rem -0.42rem -0.26rem !important;
+  z-index: -1 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  opacity: 0.96;
+  background:
+    linear-gradient(145deg, rgba(190, 154, 82, 0.9), rgba(91, 68, 27, 0.98) 42%, rgba(173, 132, 62, 0.78) 62%, rgba(45, 33, 15, 0.94)) !important;
+  clip-path: polygon(
+    50% 0%,
+    62% 30%,
+    94% 24%,
+    74% 50%,
+    94% 76%,
+    62% 70%,
+    50% 100%,
+    38% 70%,
+    6% 76%,
+    26% 50%,
+    6% 24%,
+    38% 30%
+  ) !important;
+  box-shadow:
+    0 0 0 1px rgba(2, 4, 12, 0.92),
+    0 0 6px rgba(173, 137, 65, 0.18),
+    0 0 10px rgba(98, 214, 255, 0.1) !important;
+  transform: none !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::after {
+  inset: -0.47rem -0.34rem -0.18rem !important;
+  z-index: 0 !important;
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(235, 248, 255, 0.2) 0 10%, transparent 11%),
+    linear-gradient(90deg, transparent 12%, rgba(157, 126, 63, 0.32) 13% 24%, transparent 25% 75%, rgba(157, 126, 63, 0.32) 76% 87%, transparent 88%) 50% 50% / 100% 1px no-repeat,
+    linear-gradient(60deg, transparent 24%, rgba(98, 214, 255, 0.18) 25% 26%, transparent 27% 73%, rgba(98, 214, 255, 0.13) 74% 75%, transparent 76%),
+    linear-gradient(120deg, transparent 24%, rgba(98, 214, 255, 0.16) 25% 26%, transparent 27% 73%, rgba(157, 126, 63, 0.14) 74% 75%, transparent 76%),
+    radial-gradient(circle at 50% 8%, rgba(202, 170, 96, 0.6) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 86% 28%, rgba(98, 214, 255, 0.42) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 74% 82%, rgba(177, 96, 255, 0.32) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 26% 82%, rgba(98, 214, 255, 0.34) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 14% 28%, rgba(157, 126, 63, 0.44) 0 0.9px, transparent 1.8px),
+    linear-gradient(145deg, rgba(24, 53, 91, 0.98), rgba(8, 20, 50, 0.99) 48%, rgba(5, 11, 30, 0.99)) !important;
+  clip-path: polygon(
+    50% 4%,
+    60% 32%,
+    89% 27%,
+    70% 50%,
+    89% 73%,
+    60% 68%,
+    50% 96%,
+    40% 68%,
+    11% 73%,
+    30% 50%,
+    11% 27%,
+    40% 32%
+  ) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(157, 126, 63, 0.26),
+    inset 0 0 0 2px rgba(98, 214, 255, 0.1),
+    inset 0 0 10px rgba(5, 12, 32, 0.72),
+    0 0 6px rgba(98, 214, 255, 0.14) !important;
+  filter:
+    drop-shadow(0 0 2px rgba(173, 137, 65, 0.18))
+    drop-shadow(0 0 4px rgba(98, 214, 255, 0.14)) !important;
+  animation: spell-ability-motes 5.6s ease-in-out infinite alternate;
+}
+
+/* 0.1.102 - use a cleaner transparent interlaced hexagram for ability scores. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -0.58rem -0.48rem -0.3rem !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  border: 0 !important;
+  border-radius: 48% !important;
+  opacity: 0.76 !important;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(14, 28, 54, 0.72) 0 36%, rgba(93, 189, 230, 0.18) 47%, transparent 68%),
+    radial-gradient(ellipse at 50% 54%, rgba(205, 163, 82, 0.32) 0 18%, transparent 58%) !important;
+  clip-path: none !important;
+  box-shadow:
+    0 0 8px rgba(98, 214, 255, 0.12),
+    0 0 12px rgba(194, 156, 82, 0.1) !important;
+  filter: blur(0.15px) !important;
+  transform: scaleX(1.08) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -0.62rem -0.5rem -0.31rem !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  opacity: 0.88 !important;
+  background:
+    url("../assets/ability-hexagram.svg") center / contain no-repeat !important;
+  clip-path: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter:
+    drop-shadow(0 0 2px rgba(244, 220, 154, 0.28))
+    drop-shadow(0 0 4px rgba(98, 214, 255, 0.14)) !important;
+  animation: none !important;
+}
+
+/* 0.1.107 - return ability abbreviations to the cleaner white treatment. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .label,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .label {
+  color: #ffffff !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.96),
+    0 0 3px rgba(0, 0, 0, 0.9),
+    0 0 6px rgba(2, 8, 22, 0.82),
+    0 0 7px rgba(130, 225, 255, 0.28) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .label::before,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .label::before,
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .label::after,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .label::after {
+  background: linear-gradient(90deg, transparent, rgba(244, 220, 154, 0.5), transparent) !important;
+  box-shadow: 0 0 4px rgba(244, 220, 154, 0.18) !important;
+}
+
+/* 0.1.109 - make ability modifiers heavier so the plus sign stays readable. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .sign,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .sign,
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .mod,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .mod {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.01em !important;
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.96),
+    1px 0 1px rgba(0, 0, 0, 0.76),
+    -1px 0 1px rgba(0, 0, 0, 0.76),
+    0 0 3px rgba(0, 0, 0, 0.9),
+    0 0 5px rgba(2, 8, 22, 0.78),
+    0 0 6px rgba(130, 225, 255, 0.24) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .sign,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .sign {
+  font-size: 1.08em !important;
+  margin-inline-end: 0.08em !important;
+  -webkit-text-stroke: 0.25px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 0.1.113 - nudge ability scores farther right and give panels more breathing room. */
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score {
+  width: 1.58rem !important;
+  min-width: 1.58rem !important;
+  height: 1.58rem !important;
+  min-height: 1.58rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: -0.02rem !important;
+  padding: 0 !important;
+  transform: translate(0.52rem, 0.13rem) !important;
+  border: 1px solid rgba(225, 244, 255, 0.14) !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(18, 28, 52, 0.46) 0 44%, rgba(16, 29, 55, 0.24) 64%, rgba(98, 214, 255, 0.08) 82%, transparent 83%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 5px rgba(3, 8, 18, 0.35),
+    0 0 5px rgba(98, 214, 255, 0.1) !important;
+}
+
+.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input,
+.window-app.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input {
+  width: 1.58rem !important;
+  height: 1.58rem !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+}
+
