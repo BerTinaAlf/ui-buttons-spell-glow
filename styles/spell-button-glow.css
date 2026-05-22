@@ -2055,13 +2055,37 @@ button[aria-selected="true"]::after,
 
 .dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites,
 .window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites {
-  border-top: 1px solid transparent !important;
-  border-image: linear-gradient(
-    90deg,
-    rgba(255, 222, 134, 0.38),
-    rgba(98, 214, 255, 0.12),
-    transparent 82%
-  ) 1 !important;
+  border: 0 !important;
+  border-image: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 0.2.11 - remove leftover favorite panel separator lines. */
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > h3,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > h3,
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > h3 {
+  border: 0 !important;
+  border-bottom: 0 !important;
+  border-image: none !important;
+  box-shadow: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > ul,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > ul,
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > ul {
+  border: 0 !important;
+  border-image: none !important;
+  outline: 0 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > ul .drop,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > ul .drop,
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > ul .drop {
+  border: 0 !important;
+  border-image: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 .dnd5e2.sheet.actor.character .sheet-header::after,
@@ -4800,6 +4824,110 @@ button[aria-selected="true"]::after,
 .dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button::after,
 .window-app.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button::after,
 .application.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 0.2.10 - hide the floating create button on player character list tabs. */
+.dnd5e2.sheet.actor.character:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
+.window-app.dnd5e2.sheet.actor.character:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
+.application.dnd5e2.sheet.actor.character:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
+.dnd5e2.sheet.actor.character form:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
+.window-app.dnd5e2.sheet.actor.character form:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
+.application.dnd5e2.sheet.actor.character form:is(.tab-inventory, .tab-features, .tab-spells) .create-child {
+  display: none !important;
+}
+
+/* 0.2.12 - restore native item activity controls and create button placement. */
+.dnd5e2.sheet.item:not(.minimized) .window-content,
+.window-app.dnd5e2.sheet.item:not(.minimized) .window-content,
+.application.dnd5e2.sheet.item:not(.minimized) .window-content {
+  position: relative !important;
+}
+
+.dnd5e2.sheet.item:is(.tab-activities) .create-child,
+.window-app.dnd5e2.sheet.item:is(.tab-activities) .create-child,
+.application.dnd5e2.sheet.item:is(.tab-activities) .create-child,
+.dnd5e2.sheet.item form.tab-activities .create-child,
+.window-app.dnd5e2.sheet.item form.tab-activities .create-child,
+.application.dnd5e2.sheet.item form.tab-activities .create-child {
+  position: absolute !important;
+  inset: auto 16px 16px auto !important;
+  display: block !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 24px !important;
+  z-index: 5 !important;
+}
+
+.dnd5e2.sheet.item .activities-list .item-row,
+.window-app.dnd5e2.sheet.item .activities-list .item-row,
+.application.dnd5e2.sheet.item .activities-list .item-row {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.dnd5e2.sheet.item .activities-list .activity-name,
+.window-app.dnd5e2.sheet.item .activities-list .activity-name,
+.application.dnd5e2.sheet.item .activities-list .activity-name {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+.dnd5e2.sheet.item .activities-list .activity-controls,
+.window-app.dnd5e2.sheet.item .activities-list .activity-controls,
+.application.dnd5e2.sheet.item .activities-list .activity-controls {
+  flex: 0 0 70px !important;
+  width: 70px !important;
+  min-width: 70px !important;
+  padding: 0 38px 0 4px !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  overflow: visible !important;
+}
+
+.dnd5e2.sheet.item .activities-list .activity-controls > .control-button,
+.window-app.dnd5e2.sheet.item .activities-list .activity-controls > .control-button,
+.application.dnd5e2.sheet.item .activities-list .activity-controls > .control-button {
+  position: relative !important;
+  inset: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+.dnd5e2.sheet.item .activities-list .activity-controls > [data-context-menu],
+.window-app.dnd5e2.sheet.item .activities-list .activity-controls > [data-context-menu],
+.application.dnd5e2.sheet.item .activities-list .activity-controls > [data-context-menu] {
+  position: absolute !important;
+  inset: 0 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 10px 0 5px !important;
+  transform: none !important;
+}
+
+.dnd5e2.sheet.item .activities-list .activity-controls > button::after,
+.window-app.dnd5e2.sheet.item .activities-list .activity-controls > button::after,
+.application.dnd5e2.sheet.item .activities-list .activity-controls > button::after {
   content: none !important;
   display: none !important;
 }
