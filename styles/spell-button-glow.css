@@ -2846,6 +2846,49 @@ button[aria-selected="true"]::after,
     0 0 8px rgba(98, 214, 255, 0.38);
 }
 
+/* 0.2.13 - keep TyphonJS/Svelte app header controls icon-only. */
+.application .window-header button.header-control[class*="svelte-auto-"],
+.application .window-header button.header-button[class*="svelte-auto-"],
+.application .window-header button[data-action="close"][class*="svelte-auto-"],
+.application .window-header button.close[class*="svelte-auto-"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  width: var(--tjs-app-header-button-size, 1.5rem) !important;
+  min-width: var(--tjs-app-header-button-size, 1.5rem) !important;
+  height: var(--tjs-app-header-button-size, 1.5rem) !important;
+  min-height: var(--tjs-app-header-button-size, 1.5rem) !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.application .window-header button.header-control[class*="svelte-auto-"]::before,
+.application .window-header button.header-button[class*="svelte-auto-"]::before,
+.application .window-header button[data-action="close"][class*="svelte-auto-"]::before,
+.application .window-header button.close[class*="svelte-auto-"]::before {
+  content: none !important;
+  display: none !important;
+}
+
+.application .window-header button.header-control[class*="svelte-auto-"] :is(i, svg, .icon, .icon-int),
+.application .window-header button.header-button[class*="svelte-auto-"] :is(i, svg, .icon, .icon-int),
+.application .window-header button[data-action="close"][class*="svelte-auto-"] :is(i, svg, .icon, .icon-int),
+.application .window-header button.close[class*="svelte-auto-"] :is(i, svg, .icon, .icon-int) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1em !important;
+  height: 1em !important;
+  margin: 0 !important;
+  color: currentColor !important;
+  font-size: 0.95rem !important;
+  line-height: 1 !important;
+  text-shadow: inherit !important;
+}
+
 /* 0.1.57 - CSS-drawn astral sigils for ability backgrounds. */
 .dnd5e2.sheet.actor.character .ability-scores,
 .window-app.dnd5e2.sheet.actor.character .ability-scores {
@@ -6520,33 +6563,4 @@ button[aria-selected="true"]::after,
     background-position: 36px 24px, 31px 18px;
     opacity: 0.26;
   }
-}
-
-/* 0.2.13 - match Automated Animations' Svelte tab bar to the arcane glass theme. */
-:is(#AA-autorec-settings, #AA-item-settings, #AA-ae-settings, #Autorec-Menu-Manager, #OptionsInformation) header[class*="svelte-auto-"] ul li[class*="svelte-auto-"] {
-  color: rgba(255, 226, 146, 0.95) !important;
-  filter:
-    drop-shadow(0 0 2px rgba(10, 12, 24, 0.72))
-    drop-shadow(0 0 5px rgba(255, 222, 134, 0.2)) !important;
-  text-shadow:
-    0 0 3px rgba(10, 12, 24, 0.72),
-    0 0 7px rgba(255, 222, 134, 0.22) !important;
-}
-
-:is(#AA-autorec-settings, #AA-item-settings, #AA-ae-settings, #Autorec-Menu-Manager, #OptionsInformation) header[class*="svelte-auto-"] ul li[class*="svelte-auto-"] :is(i, svg, span) {
-  color: currentColor !important;
-  -webkit-text-fill-color: currentColor !important;
-  text-shadow: inherit !important;
-}
-
-:is(#AA-autorec-settings, #AA-item-settings, #AA-ae-settings, #Autorec-Menu-Manager, #OptionsInformation) header[class*="svelte-auto-"] ul li[class*="svelte-auto-"]:is(.active, :hover, :focus-visible) {
-  color: #eef9ff !important;
-  filter:
-    drop-shadow(0 0 4px rgba(98, 214, 255, 0.96))
-    drop-shadow(0 0 10px rgba(177, 96, 255, 0.74))
-    drop-shadow(0 0 14px rgba(255, 222, 134, 0.3)) !important;
-  text-shadow:
-    0 0 5px rgba(98, 214, 255, 0.92),
-    0 0 10px rgba(177, 96, 255, 0.7),
-    0 0 13px rgba(255, 222, 134, 0.3) !important;
 }
