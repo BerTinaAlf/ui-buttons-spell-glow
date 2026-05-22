@@ -4265,6 +4265,53 @@ button[aria-selected="true"]::after,
   overflow: hidden !important;
 }
 
+/* 0.2.9 - align skill and tool proficiency columns. */
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul,
+.application.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul {
+  padding-inline: 0.75rem 0.7rem !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li,
+.application.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li {
+  display: grid !important;
+  grid-template-columns: 18px 3.1rem minmax(0, 1fr) 1.8rem 1.25rem !important;
+  column-gap: 0.34rem !important;
+  align-items: center !important;
+  padding-inline: 0.25rem !important;
+  overflow: visible !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > proficiency-cycle,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > proficiency-cycle,
+.application.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > proficiency-cycle {
+  justify-self: center !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > :is(.ability, select.ability),
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > :is(.ability, select.ability),
+.application.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > :is(.ability, select.ability) {
+  width: 3.1rem !important;
+  min-width: 0 !important;
+  justify-self: start !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > .name,
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > .name,
+.application.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > .name {
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.05 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > :is(.bonus, .passive),
+.window-app.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > :is(.bonus, .passive),
+.application.dnd5e2.sheet.actor.character .sheet-body filigree-box:is(.skills, .tools) > ul > li > :is(.bonus, .passive) {
+  justify-self: end !important;
+  text-align: right !important;
+}
+
 .dnd5e2.sheet.actor.character .sheet-body .right .pills-group > h3.icon,
 .window-app.dnd5e2.sheet.actor.character .sheet-body .right .pills-group > h3.icon {
   display: inline-flex !important;
@@ -5440,6 +5487,59 @@ button[aria-selected="true"]::after,
   transform-origin: left top !important;
 }
 
+/* 0.2.7 - restore dnd5e's native NPC legendary action/resistance pip icons. */
+.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip,
+.window-app.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip,
+.application.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip {
+  --pip-size: 28px !important;
+  width: var(--pip-size) !important;
+  height: var(--pip-size) !important;
+  min-width: var(--pip-size) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: grayscale(1) !important;
+}
+
+.dnd5e2.sheet.actor.npc .sheet-header .legendary .legact .pip,
+.window-app.dnd5e2.sheet.actor.npc .sheet-header .legendary .legact .pip,
+.application.dnd5e2.sheet.actor.npc .sheet-header .legendary .legact .pip {
+  background: transparent url("/systems/dnd5e/ui/legact-inactive.webp") center / contain no-repeat !important;
+}
+
+.dnd5e2.sheet.actor.npc .sheet-header .legendary .legact .pip.filled,
+.window-app.dnd5e2.sheet.actor.npc .sheet-header .legendary .legact .pip.filled,
+.application.dnd5e2.sheet.actor.npc .sheet-header .legendary .legact .pip.filled {
+  background-image: url("/systems/dnd5e/ui/legact-active.webp") !important;
+  filter: none !important;
+}
+
+.dnd5e2.sheet.actor.npc .sheet-header .legendary .legres .pip,
+.window-app.dnd5e2.sheet.actor.npc .sheet-header .legendary .legres .pip,
+.application.dnd5e2.sheet.actor.npc .sheet-header .legendary .legres .pip {
+  background: transparent url("/systems/dnd5e/ui/legres-inactive.webp") center / contain no-repeat !important;
+}
+
+.dnd5e2.sheet.actor.npc .sheet-header .legendary .legres .pip.filled,
+.window-app.dnd5e2.sheet.actor.npc .sheet-header .legendary .legres .pip.filled,
+.application.dnd5e2.sheet.actor.npc .sheet-header .legendary .legres .pip.filled {
+  background-image: url("/systems/dnd5e/ui/legres-active.webp") !important;
+  filter: none !important;
+}
+
+.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip:is(:hover, :focus),
+.window-app.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip:is(:hover, :focus),
+.application.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip:is(:hover, :focus) {
+  box-shadow: none !important;
+  filter: grayscale(1) drop-shadow(0 0 6px var(--dnd5e-color-gold)) !important;
+}
+
+.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip.filled:is(:hover, :focus),
+.window-app.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip.filled:is(:hover, :focus),
+.application.dnd5e2.sheet.actor.npc .sheet-header .legendary :is(.legact, .legres) .pip.filled:is(:hover, :focus) {
+  filter: drop-shadow(0 0 6px var(--dnd5e-color-gold)) !important;
+}
+
 .dnd5e2.sheet.actor.npc .sheet-body .main-content,
 .window-app.dnd5e2.sheet.actor.npc .sheet-body .main-content,
 .application.dnd5e2.sheet.actor.npc .sheet-body .main-content {
@@ -5620,7 +5720,7 @@ button[aria-selected="true"]::after,
 .window-app.dnd5e2.sheet.actor.group .sheet-header .sheet-header-buttons,
 .application.dnd5e2.sheet.actor.group .sheet-header .sheet-header-buttons {
   position: absolute !important;
-  top: 10px !important;
+  top: -34px !important;
   left: 72px !important;
   display: flex !important;
   justify-content: flex-start !important;
@@ -6093,6 +6193,124 @@ button[aria-selected="true"]::after,
     inset 0 0 6px rgba(255, 255, 255, 0.9),
     0 0 7px rgba(255, 222, 134, 0.44),
     0 1px 3px rgba(2, 4, 12, 0.78) !important;
+}
+
+/* 0.2.8 - restore native character exhaustion pips after global button cleanup. */
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top,
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  overflow: visible !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips,
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  padding: 10px !important;
+  z-index: 3 !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip,
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip {
+  --pip-size: 16px !important;
+  display: grid !important;
+  place-content: center !important;
+  width: var(--pip-size) !important;
+  height: var(--pip-size) !important;
+  min-width: var(--pip-size) !important;
+  min-height: var(--pip-size) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 2px solid var(--dnd5e-color-gold) !important;
+  border-radius: 50% !important;
+  background: var(--dnd5e-background-alt-1) !important;
+  box-shadow: 0 0 6px var(--dnd5e-shadow-45) !important;
+  filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip::after,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip::after,
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip.filled,
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip.filled,
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip.filled {
+  background: var(--dnd5e-color-gold) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip:not(:disabled):is(:hover, :focus),
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip:not(:disabled):is(:hover, :focus),
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip:not(:disabled):is(:hover, :focus) {
+  background: var(--dnd5e-background-alt-1) !important;
+  box-shadow: 0 0 6px var(--dnd5e-color-gold) !important;
+}
+
+.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip.filled:not(:disabled):is(:hover, :focus),
+.window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip.filled:not(:disabled):is(:hover, :focus),
+.application.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip.filled:not(:disabled):is(:hover, :focus) {
+  background: var(--dnd5e-color-gold) !important;
+}
+
+/* 0.2.8: Preserve Foundry/dnd5e minimized behavior after sheet layout overrides. */
+:is(.app, .application, .window-app, .sheet):is(.minimized, .minimizing, .maximizing) .window-content {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) .window-content,
+.window-app.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) .window-content,
+.application.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) .window-content {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing),
+.window-app.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing),
+.application.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) {
+  min-width: 250px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing)::before,
+.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing)::after,
+.window-app.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing)::before,
+.window-app.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing)::after,
+.application.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing)::before,
+.application.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing)::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) nav.tabs,
+.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) .window-header .header-elements,
+.window-app.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) nav.tabs,
+.window-app.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) .window-header .header-elements,
+.application.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) nav.tabs,
+.application.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) .window-header .header-elements {
+  display: none !important;
 }
 
 @keyframes spell-meter-stars-a {
