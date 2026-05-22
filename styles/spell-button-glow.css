@@ -176,8 +176,10 @@ textarea,
 .window-app .window-header::after,
 .dialog .window-header::after,
 .sheet-header::after {
+  position: absolute;
+  inset: auto 0 0;
   display: block;
-  width: 100%;
+  width: auto;
   height: 1px;
   content: "";
   pointer-events: none;
@@ -189,6 +191,12 @@ textarea,
   filter: drop-shadow(0 0 3px rgba(98, 214, 255, 0.42));
   opacity: 0.42;
   animation: spell-border-motes 7s ease-in-out infinite alternate;
+}
+
+.sheet-header::after {
+  position: static;
+  inset: auto;
+  width: 100%;
 }
 
 .sheet .window-header button:first-of-type,
@@ -221,6 +229,7 @@ textarea,
 .dialog .window-header,
 .sheet .window-header,
 .window-app.sheet .window-header {
+  position: relative;
   display: flex !important;
   align-items: center;
   gap: 0.35rem;
@@ -233,7 +242,9 @@ textarea,
 .dialog .window-header .window-title,
 .sheet .window-header .window-title,
 .window-app.sheet .window-header .window-title {
-  flex: 1 1 auto;
+  flex: 1 1 auto !important;
+  min-width: 0;
+  max-width: none !important;
 }
 
 .window-header :is(.header-control, .header-button, a.header-button, button.header-button, button[data-action="close"], .close),
@@ -2844,49 +2855,6 @@ button[aria-selected="true"]::after,
   text-shadow:
     0 0 4px rgba(10, 12, 24, 0.86),
     0 0 8px rgba(98, 214, 255, 0.38);
-}
-
-/* 0.2.13 - keep TyphonJS/Svelte app header controls icon-only. */
-.application .window-header button.header-control[class*="svelte-auto-"],
-.application .window-header button.header-button[class*="svelte-auto-"],
-.application .window-header button[data-action="close"][class*="svelte-auto-"],
-.application .window-header button.close[class*="svelte-auto-"] {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0 !important;
-  width: var(--tjs-app-header-button-size, 1.5rem) !important;
-  min-width: var(--tjs-app-header-button-size, 1.5rem) !important;
-  height: var(--tjs-app-header-button-size, 1.5rem) !important;
-  min-height: var(--tjs-app-header-button-size, 1.5rem) !important;
-  padding: 0 !important;
-  font-size: 0 !important;
-  line-height: 1 !important;
-  white-space: nowrap !important;
-}
-
-.application .window-header button.header-control[class*="svelte-auto-"]::before,
-.application .window-header button.header-button[class*="svelte-auto-"]::before,
-.application .window-header button[data-action="close"][class*="svelte-auto-"]::before,
-.application .window-header button.close[class*="svelte-auto-"]::before {
-  content: none !important;
-  display: none !important;
-}
-
-.application .window-header button.header-control[class*="svelte-auto-"] :is(i, svg, .icon, .icon-int),
-.application .window-header button.header-button[class*="svelte-auto-"] :is(i, svg, .icon, .icon-int),
-.application .window-header button[data-action="close"][class*="svelte-auto-"] :is(i, svg, .icon, .icon-int),
-.application .window-header button.close[class*="svelte-auto-"] :is(i, svg, .icon, .icon-int) {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 1em !important;
-  height: 1em !important;
-  margin: 0 !important;
-  color: currentColor !important;
-  font-size: 0.95rem !important;
-  line-height: 1 !important;
-  text-shadow: inherit !important;
 }
 
 /* 0.1.57 - CSS-drawn astral sigils for ability backgrounds. */
