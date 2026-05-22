@@ -4199,7 +4199,7 @@ button[aria-selected="true"]::after,
   column-gap: 0.34rem !important;
   align-items: center !important;
   padding-inline: 0.25rem !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .dnd5e2.sheet.actor.character .sheet-body filigree-box.tools > ul > li > :is(.ability, select.ability),
@@ -4721,6 +4721,42 @@ button[aria-selected="true"]::after,
     drop-shadow(0 0 8px rgba(98, 214, 255, 0.32));
 }
 
+/* 0.2.2 - separate spell-slot configuration from the spell list quick-search control. */
+.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header,
+.window-app.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header,
+.application.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header {
+  position: relative !important;
+  padding-right: 2.9rem !important;
+}
+
+.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button,
+.window-app.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button,
+.application.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button {
+  position: absolute !important;
+  inset: 50% 0.45rem auto auto !important;
+  z-index: 4 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1.35rem !important;
+  min-width: 1.35rem !important;
+  height: 1.35rem !important;
+  min-height: 1.35rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: rgba(255, 226, 146, 0.95) !important;
+  font-size: 0.92rem !important;
+  line-height: 1 !important;
+  transform: translateY(-50%) !important;
+}
+
+.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button::after,
+.window-app.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button::after,
+.application.dnd5e2.sheet.actor.character .inventory-element .spells-list .items-section .items-header > button.config-button::after {
+  content: none !important;
+  display: none !important;
+}
+
 /* 0.1.72 - pin read-only item sheet physical fields to the far right. */
 .dnd5e2.sheet.item .sheet-header,
 .window-app.dnd5e2.sheet.item .sheet-header {
@@ -5237,7 +5273,7 @@ button[aria-selected="true"]::after,
   display: flex !important;
   align-items: stretch !important;
   gap: 12px !important;
-  min-height: 280px !important;
+  min-height: 224px !important;
   padding: 0 12px !important;
   border-bottom: 1px solid rgba(184, 210, 255, 0.08) !important;
 }
@@ -5797,6 +5833,268 @@ button[aria-selected="true"]::after,
   padding-block: 8px !important;
 }
 
+/* 0.2.3 - keep glass-panel form controls readable over map artwork. */
+:is(.app, .application, .window-app, .dialog, .sheet, .sidebar-popout) :is(
+  button,
+  .button,
+  input:not([type="color"]):not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea
+) {
+  color: #f7fbff !important;
+  -webkit-text-fill-color: #f7fbff !important;
+  text-shadow:
+    0 1px 2px rgba(2, 4, 12, 0.88),
+    0 0 5px rgba(98, 214, 255, 0.28) !important;
+}
+
+:is(.app, .application, .window-app, .dialog, .sheet, .sidebar-popout) :is(
+  button,
+  .button,
+  input:not([type="color"]):not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea
+):is(:disabled, [disabled], [readonly]) {
+  color: rgba(247, 251, 255, 0.9) !important;
+  -webkit-text-fill-color: rgba(247, 251, 255, 0.9) !important;
+  opacity: 1 !important;
+}
+
+:is(.app, .application, .window-app, .dialog, .sheet, .sidebar-popout) button :is(i, span),
+:is(.app, .application, .window-app, .dialog, .sheet, .sidebar-popout) .button :is(i, span) {
+  color: currentColor !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+:is(.app, .application, .window-app, .dialog, .sheet, .sidebar-popout) select :is(option, optgroup) {
+  color: #1d2432 !important;
+  -webkit-text-fill-color: #1d2432 !important;
+  text-shadow: none !important;
+}
+
+/* 0.2.6 - remove the extra backing glyph around checked Foundry checkboxes. */
+:is(.app, .application, .window-app, .dialog, .sheet, .sidebar-popout) input[type="checkbox"]:checked::before {
+  content: none !important;
+  display: none !important;
+}
+
+:is(.app, .application, .window-app, .dialog, .sheet, .sidebar-popout) input[type="checkbox"]:checked::after {
+  position: static !important;
+  display: block !important;
+  color: var(--checkbox-checked-color, var(--color-warm-1)) !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+}
+
+/* 0.2.4 - compact dnd5e configuration sheets so the header does not leave a blank glass band. */
+.dnd5e2.application.config-sheet:not(.minimized) .window-header,
+.dnd5e2.application.standard-form.config-sheet:not(.minimized) .window-header {
+  align-items: center !important;
+  min-height: var(--header-height, 32px) !important;
+  margin-block-end: 0 !important;
+  padding-block: 0 !important;
+}
+
+.dnd5e2.application.config-sheet:not(.minimized) .window-header :is(h1, .window-title),
+.dnd5e2.application.standard-form.config-sheet:not(.minimized) .window-header :is(h1, .window-title) {
+  position: static !important;
+  inset: auto !important;
+  z-index: auto !important;
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  padding-inline: 2.1rem 0.6rem !important;
+  color: rgba(247, 251, 255, 0.92) !important;
+  font-size: var(--font-size-20, 20px) !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+  text-shadow:
+    0 1px 2px rgba(2, 4, 12, 0.88),
+    0 0 6px rgba(98, 214, 255, 0.3) !important;
+}
+
+.dnd5e2.application.config-sheet:not(.minimized) .window-content,
+.dnd5e2.application.standard-form.config-sheet:not(.minimized) .window-content {
+  margin-block-start: 0 !important;
+  padding-block-start: 0.55rem !important;
+}
+
+.dnd5e2.application.config-sheet:not(.minimized) .window-content > :first-child,
+.dnd5e2.application.standard-form.config-sheet:not(.minimized) .window-content > :first-child {
+  margin-block-start: 0 !important;
+}
+
+/* 0.1.121 - keep spellcasting metrics on one line. */
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save {
+  min-width: 3.75rem !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save .label,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save .label,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save .label {
+  white-space: nowrap !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared {
+  min-width: 4.35rem !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .label,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .label,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .label {
+  white-space: nowrap !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .value.max-preparations,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .value.max-preparations,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .value.max-preparations {
+  display: inline-flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 0.12rem !important;
+  min-width: 4.2rem !important;
+  width: max-content !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .value.max-preparations > span,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .value.max-preparations > span,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .value.max-preparations > span {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+}
+
+/* 0.2.5 - give the dnd5e edit-mode capsule a lightweight starfield and purple mist state. */
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider {
+  --slide-toggle-width: 2.55rem !important;
+  --slide-toggle-height: 1.28rem !important;
+  --slide-toggle-padding: 0.16rem !important;
+  --slide-toggle-track-color-unchecked: transparent !important;
+  --slide-toggle-track-color-checked: transparent !important;
+  --slide-toggle-thumb-color: rgba(245, 249, 255, 0.96) !important;
+  position: relative !important;
+  z-index: 3 !important;
+  flex: 0 0 auto !important;
+  width: var(--slide-toggle-width) !important;
+  min-width: var(--slide-toggle-width) !important;
+  height: var(--slide-toggle-height) !important;
+  min-height: var(--slide-toggle-height) !important;
+  margin-inline-end: auto !important;
+  filter: drop-shadow(0 1px 3px rgba(2, 4, 12, 0.72)) !important;
+  isolation: isolate !important;
+  transform: none !important;
+}
+
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-track,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-track,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-track {
+  position: relative !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle at 18% 32%, rgba(255, 255, 255, 0.9) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 72% 28%, rgba(255, 222, 134, 0.72) 0 0.7px, transparent 1.5px),
+    linear-gradient(135deg, rgba(5, 7, 16, 0.96), rgba(15, 22, 40, 0.96) 52%, rgba(4, 5, 12, 0.98)) !important;
+  box-shadow:
+    inset 0 0 8px rgba(4, 6, 18, 0.82) !important;
+}
+
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-track::after,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-track::after,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-track::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0.14rem !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  border-radius: inherit !important;
+  opacity: 0.4 !important;
+  background:
+    radial-gradient(circle at 24% 30%, rgba(255, 255, 255, 0.82) 0 0.55px, transparent 1.2px),
+    radial-gradient(circle at 76% 58%, rgba(98, 214, 255, 0.62) 0 0.55px, transparent 1.2px) !important;
+  filter: none !important;
+}
+
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-thumb,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-thumb,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-thumb {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  background:
+    radial-gradient(circle at 40% 32%, rgba(255, 255, 255, 0.98) 0 26%, rgba(222, 230, 247, 0.95) 27% 58%, rgba(98, 214, 255, 0.5) 100%) !important;
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.82),
+    0 1px 3px rgba(2, 4, 12, 0.78) !important;
+}
+
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-thumb::before,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-thumb::before,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider .slide-toggle-thumb::before {
+  color: rgba(30, 34, 48, 0.96) !important;
+  font-size: 0.58rem !important;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.9) !important;
+  filter: none !important;
+}
+
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider:is(:hover, :focus-visible) .slide-toggle-track,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider:is(:hover, :focus-visible) .slide-toggle-track,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider:is(:hover, :focus-visible) .slide-toggle-track {
+  border-color: rgba(255, 222, 134, 0.62) !important;
+  box-shadow:
+    inset 0 0 10px rgba(4, 6, 18, 0.8),
+    0 0 6px rgba(98, 214, 255, 0.18) !important;
+}
+
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-track,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-track,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-track {
+  border-color: rgba(255, 222, 134, 0.7) !important;
+  background:
+    radial-gradient(ellipse 78% 170% at 18% 72%, rgba(222, 178, 255, 0.64), transparent 58%),
+    radial-gradient(ellipse 86% 190% at 54% 14%, rgba(96, 183, 255, 0.5), transparent 62%),
+    radial-gradient(ellipse 95% 175% at 86% 62%, rgba(139, 75, 211, 0.76), transparent 64%),
+    linear-gradient(135deg, rgba(26, 18, 54, 0.78), rgba(65, 35, 114, 0.72) 58%, rgba(18, 24, 64, 0.72)) !important;
+  box-shadow:
+    inset 0 0 10px rgba(205, 139, 255, 0.26),
+    0 0 5px rgba(91, 184, 255, 0.16) !important;
+}
+
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-track::after,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-track::after,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-track::after {
+  inset: -0.18rem -0.16rem -0.16rem -0.12rem !important;
+  opacity: 0.82 !important;
+  border-radius: 57% 43% 63% 42% / 44% 64% 38% 58% !important;
+  background:
+    radial-gradient(ellipse 46% 70% at 26% 72%, rgba(236, 207, 255, 0.5), transparent 64%),
+    radial-gradient(ellipse 58% 86% at 52% 34%, rgba(173, 92, 245, 0.5), transparent 68%),
+    radial-gradient(ellipse 48% 74% at 87% 45%, rgba(86, 189, 255, 0.42), transparent 66%),
+    radial-gradient(ellipse 70% 80% at 74% 84%, rgba(74, 62, 175, 0.36), transparent 72%) !important;
+  filter: blur(7px) !important;
+}
+
+.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-thumb,
+.window-app.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-thumb,
+.application.dnd5e2.sheet:is(.actor, .item):not(.minimized) > :is(header, .window-header) > slide-toggle.mode-slider[checked] .slide-toggle-thumb {
+  background:
+    radial-gradient(circle at 38% 30%, rgba(255, 255, 255, 1) 0 20%, rgba(255, 226, 146, 0.98) 21% 52%, rgba(98, 214, 255, 0.74) 100%) !important;
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 7px rgba(255, 222, 134, 0.44),
+    0 1px 3px rgba(2, 4, 12, 0.78) !important;
+}
+
 @keyframes spell-meter-stars-a {
   0% {
     background-position: 0 0, 9px 1px, center;
@@ -5877,4 +6175,3 @@ button[aria-selected="true"]::after,
     opacity: 0.26;
   }
 }
-
