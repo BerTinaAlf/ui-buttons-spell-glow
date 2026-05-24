@@ -1924,6 +1924,31 @@ button[aria-selected="true"]::after,
   -webkit-backdrop-filter: none !important;
 }
 
+/* 0.2.10 - keep character biography note columns from inheriting the glass-card treatment. */
+.dnd5e2.sheet.actor.character .tab[data-tab="biography"] > .middle > :is(.left, .right),
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="biography"] > .middle > :is(.left, .right),
+.application.dnd5e2.sheet.actor.character .tab[data-tab="biography"] > .middle > :is(.left, .right) {
+  border: 0 !important;
+  border-image: none !important;
+  outline: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="biography"] .textbox textarea.untext,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="biography"] .textbox textarea.untext,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="biography"] .textbox textarea.untext {
+  border: 0 !important;
+  background: var(--dnd5e-background-5) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
 .dnd5e2.sheet.actor.character .ability-scores,
 .window-app.dnd5e2.sheet.actor.character .ability-scores {
   background: transparent !important;
