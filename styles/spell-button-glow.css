@@ -199,12 +199,12 @@ textarea,
   width: 100%;
 }
 
-.sheet .window-header button:first-of-type,
-.sheet .window-header .header-control:first-child,
-.sheet .window-header .header-button:first-child,
-.window-app.sheet .window-header button:first-of-type,
-.window-app.sheet .window-header .header-control:first-child,
-.window-app.sheet .window-header .header-button:first-child {
+.sheet:not(#tokenbar) .window-header button:first-of-type,
+.sheet:not(#tokenbar) .window-header .header-control:first-child,
+.sheet:not(#tokenbar) .window-header .header-button:first-child,
+.window-app.sheet:not(#tokenbar) .window-header button:first-of-type,
+.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child,
+.window-app.sheet:not(#tokenbar) .window-header .header-button:first-child {
   position: relative;
   min-width: 2.15rem;
   min-height: 1.18rem;
@@ -287,12 +287,12 @@ textarea,
   display: none !important;
 }
 
-.sheet .window-header button:first-of-type::before,
-.sheet .window-header .header-control:first-child::before,
-.sheet .window-header .header-button:first-child::before,
-.window-app.sheet .window-header button:first-of-type::before,
-.window-app.sheet .window-header .header-control:first-child::before,
-.window-app.sheet .window-header .header-button:first-child::before {
+.sheet:not(#tokenbar) .window-header button:first-of-type::before,
+.sheet:not(#tokenbar) .window-header .header-control:first-child::before,
+.sheet:not(#tokenbar) .window-header .header-button:first-child::before,
+.window-app.sheet:not(#tokenbar) .window-header button:first-of-type::before,
+.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child::before,
+.window-app.sheet:not(#tokenbar) .window-header .header-button:first-child::before {
   position: absolute;
   inset: -0.3rem;
   content: "";
@@ -307,12 +307,12 @@ textarea,
   animation: spell-switch-motes 3.8s ease-in-out infinite alternate;
 }
 
-.sheet .window-header button:first-of-type:hover,
-.sheet .window-header .header-control:first-child:hover,
-.sheet .window-header .header-button:first-child:hover,
-.window-app.sheet .window-header button:first-of-type:hover,
-.window-app.sheet .window-header .header-control:first-child:hover,
-.window-app.sheet .window-header .header-button:first-child:hover {
+.sheet:not(#tokenbar) .window-header button:first-of-type:hover,
+.sheet:not(#tokenbar) .window-header .header-control:first-child:hover,
+.sheet:not(#tokenbar) .window-header .header-button:first-child:hover,
+.window-app.sheet:not(#tokenbar) .window-header button:first-of-type:hover,
+.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child:hover,
+.window-app.sheet:not(#tokenbar) .window-header .header-button:first-child:hover {
   border-color: rgba(184, 210, 255, 0.46) !important;
   box-shadow:
     inset 0 1px 0 rgba(238, 246, 255, 0.2),
@@ -320,12 +320,12 @@ textarea,
     0 0 18px rgba(177, 96, 255, 0.22) !important;
 }
 
-.sheet .window-header button:first-of-type:hover::before,
-.sheet .window-header .header-control:first-child:hover::before,
-.sheet .window-header .header-button:first-child:hover::before,
-.window-app.sheet .window-header button:first-of-type:hover::before,
-.window-app.sheet .window-header .header-control:first-child:hover::before,
-.window-app.sheet .window-header .header-button:first-child:hover::before {
+.sheet:not(#tokenbar) .window-header button:first-of-type:hover::before,
+.sheet:not(#tokenbar) .window-header .header-control:first-child:hover::before,
+.sheet:not(#tokenbar) .window-header .header-button:first-child:hover::before,
+.window-app.sheet:not(#tokenbar) .window-header button:first-of-type:hover::before,
+.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child:hover::before,
+.window-app.sheet:not(#tokenbar) .window-header .header-button:first-child:hover::before {
   opacity: 0.62;
 }
 
@@ -2614,12 +2614,12 @@ button[aria-selected="true"]::after,
   letter-spacing: 0 !important;
 }
 
-.sheet:not(.actor.character) .window-header button:first-of-type,
-.sheet:not(.actor.character) .window-header .header-control:first-child,
-.sheet:not(.actor.character) .window-header .header-button:first-child,
-.window-app.sheet:not(.actor.character) .window-header button:first-of-type,
-.window-app.sheet:not(.actor.character) .window-header .header-control:first-child,
-.window-app.sheet:not(.actor.character) .window-header .header-button:first-child,
+.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type,
+.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child,
+.sheet:not(.actor.character):not(#tokenbar) .window-header .header-button:first-child,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-button:first-child,
 .dnd5e2:not(.actor.character) .window-header button:first-of-type,
 .dnd5e2:not(.actor.character) .window-header .header-control:first-child,
 .dnd5e2:not(.actor.character) .window-header .header-button:first-child {
@@ -2634,12 +2634,12 @@ button[aria-selected="true"]::after,
   filter: none !important;
 }
 
-.sheet:not(.actor.character) .window-header button:first-of-type::before,
-.sheet:not(.actor.character) .window-header .header-control:first-child::before,
-.sheet:not(.actor.character) .window-header .header-button:first-child::before,
-.window-app.sheet:not(.actor.character) .window-header button:first-of-type::before,
-.window-app.sheet:not(.actor.character) .window-header .header-control:first-child::before,
-.window-app.sheet:not(.actor.character) .window-header .header-button:first-child::before,
+.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type::before,
+.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child::before,
+.sheet:not(.actor.character):not(#tokenbar) .window-header .header-button:first-child::before,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type::before,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child::before,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-button:first-child::before,
 .dnd5e2:not(.actor.character) .window-header button:first-of-type::before,
 .dnd5e2:not(.actor.character) .window-header .header-control:first-child::before,
 .dnd5e2:not(.actor.character) .window-header .header-button:first-child::before {
@@ -6449,38 +6449,6 @@ button[aria-selected="true"]::after,
 .window-app.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) .window-header .header-elements,
 .application.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) nav.tabs,
 .application.dnd5e2.sheet.actor:is(.minimized, .minimizing, .maximizing) .window-header .header-elements {
-  display: none !important;
-}
-
-/* 0.2.9 - keep Token Action HUD collapse toggles visible on the server's TAH 2.0.x styles. */
-#token-action-hud-app #token-action-hud #tah-collapse-expand :is(#tah-collapse-hud, #tah-expand-hud) > i,
-#token-action-hud-app #token-action-hud .tah-list-subgroup-title > :is(.tah-collapse-icon, .tah-expand-icon):not(.tah-hidden) {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  color: var(--tah-list-subgroup-title-icon-color, var(--tah-icon-color, rgba(239, 246, 255, 0.92))) !important;
-  -webkit-text-fill-color: currentColor !important;
-  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
-  font-style: normal !important;
-  font-weight: 900 !important;
-  text-shadow:
-    0 0 3px rgba(8, 12, 24, 0.86),
-    0 0 6px rgba(98, 214, 255, 0.36) !important;
-}
-
-#token-action-hud-app #token-action-hud .tah-list-subgroup-title:hover > :is(.tah-collapse-icon, .tah-expand-icon):not(.tah-hidden),
-#token-action-hud-app #token-action-hud #tah-collapse-expand :is(#tah-collapse-hud, #tah-expand-hud):hover > i {
-  color: var(--tah-list-subgroup-title-hover-icon-color, var(--tah-icon-hover-color, #ffffff)) !important;
-  text-shadow:
-    0 0 4px rgba(98, 214, 255, 0.72),
-    0 0 8px rgba(177, 96, 255, 0.48) !important;
-}
-
-#token-action-hud-app #token-action-hud #tah-collapse-expand :is(#tah-collapse-hud, #tah-expand-hud)::after,
-#token-action-hud-app #token-action-hud .tah-list-subgroup-title > :is(.tah-collapse-icon, .tah-expand-icon)::after {
-  content: none !important;
   display: none !important;
 }
 
