@@ -199,11 +199,11 @@ textarea,
   width: 100%;
 }
 
-.sheet:not(#tokenbar) .window-header button:first-of-type,
-.sheet:not(#tokenbar) .window-header .header-control:first-child,
+.sheet:not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"]),
+.sheet:not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"]),
 .sheet:not(#tokenbar) .window-header .header-button:first-child,
-.window-app.sheet:not(#tokenbar) .window-header button:first-of-type,
-.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child,
+.window-app.sheet:not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"]),
+.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"]),
 .window-app.sheet:not(#tokenbar) .window-header .header-button:first-child {
   position: relative;
   min-width: 2.15rem;
@@ -287,11 +287,11 @@ textarea,
   display: none !important;
 }
 
-.sheet:not(#tokenbar) .window-header button:first-of-type::before,
-.sheet:not(#tokenbar) .window-header .header-control:first-child::before,
+.sheet:not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"])::before,
+.sheet:not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"])::before,
 .sheet:not(#tokenbar) .window-header .header-button:first-child::before,
-.window-app.sheet:not(#tokenbar) .window-header button:first-of-type::before,
-.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child::before,
+.window-app.sheet:not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"])::before,
+.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"])::before,
 .window-app.sheet:not(#tokenbar) .window-header .header-button:first-child::before {
   position: absolute;
   inset: -0.3rem;
@@ -307,11 +307,11 @@ textarea,
   animation: spell-switch-motes 3.8s ease-in-out infinite alternate;
 }
 
-.sheet:not(#tokenbar) .window-header button:first-of-type:hover,
-.sheet:not(#tokenbar) .window-header .header-control:first-child:hover,
+.sheet:not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"]):hover,
+.sheet:not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"]):hover,
 .sheet:not(#tokenbar) .window-header .header-button:first-child:hover,
-.window-app.sheet:not(#tokenbar) .window-header button:first-of-type:hover,
-.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child:hover,
+.window-app.sheet:not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"]):hover,
+.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"]):hover,
 .window-app.sheet:not(#tokenbar) .window-header .header-button:first-child:hover {
   border-color: rgba(184, 210, 255, 0.46) !important;
   box-shadow:
@@ -320,11 +320,11 @@ textarea,
     0 0 18px rgba(177, 96, 255, 0.22) !important;
 }
 
-.sheet:not(#tokenbar) .window-header button:first-of-type:hover::before,
-.sheet:not(#tokenbar) .window-header .header-control:first-child:hover::before,
+.sheet:not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"]):hover::before,
+.sheet:not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"]):hover::before,
 .sheet:not(#tokenbar) .window-header .header-button:first-child:hover::before,
-.window-app.sheet:not(#tokenbar) .window-header button:first-of-type:hover::before,
-.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child:hover::before,
+.window-app.sheet:not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"]):hover::before,
+.window-app.sheet:not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"]):hover::before,
 .window-app.sheet:not(#tokenbar) .window-header .header-button:first-child:hover::before {
   opacity: 0.62;
 }
@@ -2639,14 +2639,14 @@ button[aria-selected="true"]::after,
   letter-spacing: 0 !important;
 }
 
-.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type,
-.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child,
+.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"]),
+.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"]),
 .sheet:not(.actor.character):not(#tokenbar) .window-header .header-button:first-child,
-.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type,
-.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"]),
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"]),
 .window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-button:first-child,
-.dnd5e2:not(.actor.character) .window-header button:first-of-type,
-.dnd5e2:not(.actor.character) .window-header .header-control:first-child,
+.dnd5e2:not(.actor.character) .window-header button:first-of-type:not([data-action="toggleControls"]),
+.dnd5e2:not(.actor.character) .window-header .header-control:first-child:not([data-action="toggleControls"]),
 .dnd5e2:not(.actor.character) .window-header .header-button:first-child {
   min-width: auto !important;
   min-height: auto !important;
@@ -2659,14 +2659,14 @@ button[aria-selected="true"]::after,
   filter: none !important;
 }
 
-.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type::before,
-.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child::before,
+.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"])::before,
+.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"])::before,
 .sheet:not(.actor.character):not(#tokenbar) .window-header .header-button:first-child::before,
-.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type::before,
-.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child::before,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header button:first-of-type:not([data-action="toggleControls"])::before,
+.window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-control:first-child:not([data-action="toggleControls"])::before,
 .window-app.sheet:not(.actor.character):not(#tokenbar) .window-header .header-button:first-child::before,
-.dnd5e2:not(.actor.character) .window-header button:first-of-type::before,
-.dnd5e2:not(.actor.character) .window-header .header-control:first-child::before,
+.dnd5e2:not(.actor.character) .window-header button:first-of-type:not([data-action="toggleControls"])::before,
+.dnd5e2:not(.actor.character) .window-header .header-control:first-child:not([data-action="toggleControls"])::before,
 .dnd5e2:not(.actor.character) .window-header .header-button:first-child::before {
   content: none !important;
   display: none !important;
@@ -4524,9 +4524,9 @@ button[aria-selected="true"]::after,
   display: none !important;
 }
 
-.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close),
-.window-app.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close),
-.application.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close) {
+.dnd5e2.sheet.item .window-header :is(button.header-control:not([data-action="toggleControls"]), a.header-control, .header-button, [data-action="close"], .close),
+.window-app.dnd5e2.sheet.item .window-header :is(button.header-control:not([data-action="toggleControls"]), a.header-control, .header-button, [data-action="close"], .close),
+.application.dnd5e2.sheet.item .window-header :is(button.header-control:not([data-action="toggleControls"]), a.header-control, .header-button, [data-action="close"], .close) {
   width: auto !important;
   min-width: 1.25rem !important;
   height: auto !important;
@@ -4543,95 +4543,10 @@ button[aria-selected="true"]::after,
   -webkit-backdrop-filter: none !important;
 }
 
-.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close):hover,
-.window-app.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close):hover,
-.application.dnd5e2.sheet.item .window-header :is(button.header-control, a.header-control, .header-button, [data-action="close"], .close):hover {
+.dnd5e2.sheet.item .window-header :is(button.header-control:not([data-action="toggleControls"]), a.header-control, .header-button, [data-action="close"], .close):hover,
+.window-app.dnd5e2.sheet.item .window-header :is(button.header-control:not([data-action="toggleControls"]), a.header-control, .header-button, [data-action="close"], .close):hover,
+.application.dnd5e2.sheet.item .window-header :is(button.header-control:not([data-action="toggleControls"]), a.header-control, .header-button, [data-action="close"], .close):hover {
   color: rgba(238, 218, 166, 0.96) !important;
-}
-
-/* 0.1.86 - keep the native dnd5e additional-controls ellipsis visible on item sheets. */
-.dnd5e2 .window-header button.header-control[data-action="toggleControls"],
-.window-app.dnd5e2 .window-header button.header-control[data-action="toggleControls"],
-.application.dnd5e2 .window-header button.header-control[data-action="toggleControls"],
-.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"],
-.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"],
-.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  overflow: visible !important;
-  width: 1.25rem !important;
-  min-width: 1.25rem !important;
-  height: 1.25rem !important;
-  min-height: 1.25rem !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  color: rgba(232, 242, 255, 0.9) !important;
-  font-size: 0.92rem !important;
-  line-height: 1 !important;
-  text-align: center !important;
-  transform: none !important;
-}
-
-.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::before,
-.window-app.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::before,
-.application.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::before,
-.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before,
-.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before,
-.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::before {
-  position: static !important;
-  inset: auto !important;
-  display: inline-block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: auto !important;
-  height: auto !important;
-  content: var(--fa, "\f142") !important;
-  background: none !important;
-  filter: none !important;
-  animation: none !important;
-  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
-  font-size: 0.95rem !important;
-  font-style: normal !important;
-  font-weight: 900 !important;
-  line-height: 1 !important;
-  color: currentColor !important;
-  text-shadow: inherit !important;
-}
-
-.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::after,
-.window-app.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::after,
-.application.dnd5e2 .window-header button.header-control[data-action="toggleControls"]::after,
-.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::after,
-.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::after,
-.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"]::after {
-  content: none !important;
-  display: none !important;
-}
-
-.dnd5e2 .window-header button.header-control[data-action="toggleControls"] > i,
-.window-app.dnd5e2 .window-header button.header-control[data-action="toggleControls"] > i,
-.application.dnd5e2 .window-header button.header-control[data-action="toggleControls"] > i,
-.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] > i,
-.window-app.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] > i,
-.application.dnd5e2.sheet.item .window-header button.header-control[data-action="toggleControls"] > i {
-  display: inline-block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  margin: 0 !important;
-  color: currentColor !important;
-  font-size: 0.95rem !important;
-  line-height: 1 !important;
 }
 
 .dnd5e2.sheet.actor.character .ability-scores .ability-score :is(.label, .mod, .score),
