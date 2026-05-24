@@ -6452,6 +6452,38 @@ button[aria-selected="true"]::after,
   display: none !important;
 }
 
+/* 0.2.9 - keep Token Action HUD collapse toggles visible on the server's TAH 2.0.x styles. */
+#token-action-hud-app #token-action-hud #tah-collapse-expand :is(#tah-collapse-hud, #tah-expand-hud) > i,
+#token-action-hud-app #token-action-hud .tah-list-subgroup-title > :is(.tah-collapse-icon, .tah-expand-icon):not(.tah-hidden) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: var(--tah-list-subgroup-title-icon-color, var(--tah-icon-color, rgba(239, 246, 255, 0.92))) !important;
+  -webkit-text-fill-color: currentColor !important;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro" !important;
+  font-style: normal !important;
+  font-weight: 900 !important;
+  text-shadow:
+    0 0 3px rgba(8, 12, 24, 0.86),
+    0 0 6px rgba(98, 214, 255, 0.36) !important;
+}
+
+#token-action-hud-app #token-action-hud .tah-list-subgroup-title:hover > :is(.tah-collapse-icon, .tah-expand-icon):not(.tah-hidden),
+#token-action-hud-app #token-action-hud #tah-collapse-expand :is(#tah-collapse-hud, #tah-expand-hud):hover > i {
+  color: var(--tah-list-subgroup-title-hover-icon-color, var(--tah-icon-hover-color, #ffffff)) !important;
+  text-shadow:
+    0 0 4px rgba(98, 214, 255, 0.72),
+    0 0 8px rgba(177, 96, 255, 0.48) !important;
+}
+
+#token-action-hud-app #token-action-hud #tah-collapse-expand :is(#tah-collapse-hud, #tah-expand-hud)::after,
+#token-action-hud-app #token-action-hud .tah-list-subgroup-title > :is(.tah-collapse-icon, .tah-expand-icon)::after {
+  content: none !important;
+  display: none !important;
+}
+
 @keyframes spell-meter-stars-a {
   0% {
     background-position: 0 0, 9px 1px, center;
