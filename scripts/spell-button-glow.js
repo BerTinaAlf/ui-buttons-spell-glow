@@ -1,5 +1,5 @@
 const SPELL_BUTTON_SELECTOR = [
-  "button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))",
+  "button:not(#heartbeat-button):not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))",
   ".button",
   ".control-tool",
   ".scene-control",

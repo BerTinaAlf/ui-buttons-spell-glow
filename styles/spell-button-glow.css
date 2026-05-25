@@ -1328,6 +1328,57 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   display: none !important;
 }
 
+/* 0.2.19 - let Heartbeat keep its native floating toggle position. */
+#sidebar:has(> #heartbeat-button) {
+  position: relative !important;
+}
+
+#heartbeat-button {
+  position: absolute !important;
+  isolation: auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#heartbeat-button:hover,
+#heartbeat-button:focus-visible,
+#heartbeat-button:active,
+#heartbeat-button.spell-casting {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+
+#heartbeat-button::before,
+#heartbeat-button::after {
+  content: none !important;
+  display: none !important;
+}
+
 @keyframes spell-cast-mist {
   0% {
     opacity: 0;
