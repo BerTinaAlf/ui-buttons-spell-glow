@@ -4595,11 +4595,13 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   font-size: 1.12rem !important;
 }
 
-/* 0.1.92 - keep character inventory and spell row controls in the native dnd5e positions. */
-.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls,
-.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls,
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls,
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls {
+/* 0.2.19 - keep character and NPC inventory/spell row controls in the native dnd5e positions. */
+.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls,
+.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls,
+.window-app.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls,
+.window-app.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls,
+.application.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls,
+.application.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls {
   width: 70px !important;
   min-width: 70px !important;
   align-items: stretch !important;
@@ -4609,14 +4611,12 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   position: relative !important;
 }
 
-.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-context-menu],
-.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-context-menu],
-.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-toggle-description],
-.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-toggle-description],
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-context-menu],
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-context-menu],
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-toggle-description],
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-toggle-description] {
+.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls :is([data-context-menu], [data-toggle-description], [data-action="toggleExpand"]),
+.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls :is([data-context-menu], [data-toggle-description], [data-action="toggleExpand"]),
+.window-app.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls :is([data-context-menu], [data-toggle-description], [data-action="toggleExpand"]),
+.window-app.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls :is([data-context-menu], [data-toggle-description], [data-action="toggleExpand"]),
+.application.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls :is([data-context-menu], [data-toggle-description], [data-action="toggleExpand"]),
+.application.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls :is([data-context-menu], [data-toggle-description], [data-action="toggleExpand"]) {
   position: absolute !important;
   inset: 0 0 0 auto !important;
   display: flex !important;
@@ -4626,21 +4626,28 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   padding: 0 10px 0 5px !important;
 }
 
-.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-toggle-description],
-.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-toggle-description],
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls [data-toggle-description],
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .items-header .item-controls [data-toggle-description] {
+.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls :is([data-toggle-description], [data-action="toggleExpand"]),
+.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls :is([data-toggle-description], [data-action="toggleExpand"]),
+.window-app.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls :is([data-toggle-description], [data-action="toggleExpand"]),
+.window-app.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls :is([data-toggle-description], [data-action="toggleExpand"]),
+.application.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .item .item-controls :is([data-toggle-description], [data-action="toggleExpand"]),
+.application.dnd5e2.sheet.actor:is(.character, .npc) .inventory-element .items-section .items-header .item-controls :is([data-toggle-description], [data-action="toggleExpand"]) {
   right: 20px !important;
   padding: 0 !important;
 }
 
-/* 0.1.97 - keep inactive equip, attune, and preparation state icons readable. */
-.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls :is(
+/* 0.2.19 - share player-sheet equip, attune, and preparation state colors with NPC and encounter sheets. */
+.dnd5e2.sheet.actor:is(.character, .npc, .encounter) .inventory-element .items-section .item .item-controls :is(
   [data-action="attune"],
   [data-action="equip"],
   [data-action="prepare"]
 ):not(.active),
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls :is(
+.window-app.dnd5e2.sheet.actor:is(.character, .npc, .encounter) .inventory-element .items-section .item .item-controls :is(
+  [data-action="attune"],
+  [data-action="equip"],
+  [data-action="prepare"]
+):not(.active),
+.application.dnd5e2.sheet.actor:is(.character, .npc, .encounter) .inventory-element .items-section .item .item-controls :is(
   [data-action="attune"],
   [data-action="equip"],
   [data-action="prepare"]
@@ -4655,12 +4662,17 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
     0 0 7px rgba(98, 214, 255, 0.24) !important;
 }
 
-.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls :is(
+.dnd5e2.sheet.actor:is(.character, .npc, .encounter) .inventory-element .items-section .item .item-controls :is(
   [data-action="attune"],
   [data-action="equip"],
   [data-action="prepare"]
 ).active,
-.window-app.dnd5e2.sheet.actor.character .inventory-element .items-section .item .item-controls :is(
+.window-app.dnd5e2.sheet.actor:is(.character, .npc, .encounter) .inventory-element .items-section .item .item-controls :is(
+  [data-action="attune"],
+  [data-action="equip"],
+  [data-action="prepare"]
+).active,
+.application.dnd5e2.sheet.actor:is(.character, .npc, .encounter) .inventory-element .items-section .item .item-controls :is(
   [data-action="attune"],
   [data-action="equip"],
   [data-action="prepare"]
@@ -5568,6 +5580,75 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
 .application.dnd5e2.sheet.actor.npc .sheet-body .main-content .tab-body {
   flex: 1 1 auto !important;
   min-width: 0 !important;
+}
+
+/* 0.2.19 - restore dnd5e encounter header sizing so the title and action buttons do not collapse. */
+.dnd5e2.sheet.actor.encounter .sheet-header,
+.window-app.dnd5e2.sheet.actor.encounter .sheet-header,
+.application.dnd5e2.sheet.actor.encounter .sheet-header {
+  display: flex !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  gap: 8px !important;
+  padding: 0 16px !important;
+}
+
+.dnd5e2.sheet.actor.encounter .sheet-header > .left,
+.window-app.dnd5e2.sheet.actor.encounter .sheet-header > .left,
+.application.dnd5e2.sheet.actor.encounter .sheet-header > .left {
+  flex: 0 0 96px !important;
+  min-width: 96px !important;
+}
+
+.dnd5e2.sheet.actor.encounter .sheet-header > .middle,
+.window-app.dnd5e2.sheet.actor.encounter .sheet-header > .middle,
+.application.dnd5e2.sheet.actor.encounter .sheet-header > .middle {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-evenly !important;
+  min-width: 10rem !important;
+}
+
+.dnd5e2.sheet.actor.encounter .sheet-header > .right,
+.window-app.dnd5e2.sheet.actor.encounter .sheet-header > .right,
+.application.dnd5e2.sheet.actor.encounter .sheet-header > .right {
+  flex: 0 0 144px !important;
+  min-width: 144px !important;
+  margin-left: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+}
+
+.dnd5e2.sheet.actor.encounter .sheet-header .portrait,
+.window-app.dnd5e2.sheet.actor.encounter .sheet-header .portrait,
+.application.dnd5e2.sheet.actor.encounter .sheet-header .portrait {
+  width: 96px !important;
+  height: 96px !important;
+}
+
+.dnd5e2.sheet.actor.encounter .sheet-header .document-name,
+.window-app.dnd5e2.sheet.actor.encounter .sheet-header .document-name,
+.application.dnd5e2.sheet.actor.encounter .sheet-header .document-name,
+.dnd5e2.sheet.actor.encounter .sheet-header input.document-name,
+.window-app.dnd5e2.sheet.actor.encounter .sheet-header input.document-name,
+.application.dnd5e2.sheet.actor.encounter .sheet-header input.document-name {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  font-family: var(--dnd5e-font-modesto) !important;
+  font-size: var(--font-size-32) !important;
+  font-weight: bold !important;
+  line-height: 1.05 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 /* 0.1.120 - restore the native dnd5e party/group sheet proportions. */
