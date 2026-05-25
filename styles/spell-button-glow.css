@@ -615,6 +615,17 @@ textarea,
     0 0 18px rgba(98, 214, 255, 0.06) !important;
 }
 
+/* 0.2.19 - hide the collapsed sidebar body so chat content cannot peek past the tab rail. */
+#sidebar-content:not(.expanded) {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+#sidebar-content.expanded {
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
 #sidebar-content::before {
   position: absolute;
   inset: 0 auto 0 0;
@@ -1042,6 +1053,12 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   z-index: 1;
 }
 
+/* 0.2.19 - keep Dice Tray's quantity flags floating above dice instead of entering button layout. */
+.dice-tray button > .dice-tray__flag {
+  position: absolute !important;
+  z-index: 2 !important;
+}
+
 button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))::after,
 .button::after,
 .control-tool::after,
@@ -1303,6 +1320,12 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
       transparent
     );
   transform: translate(-50%, -50%) scale(0.44) rotate(38deg);
+}
+
+/* 0.2.19 - roll privacy icons are Font Awesome pseudo-elements, so skip the shared orb. */
+#roll-privacy [data-action="rollMode"]::after {
+  content: none !important;
+  display: none !important;
 }
 
 @keyframes spell-cast-mist {
