@@ -1,5 +1,5 @@
 const SPELL_BUTTON_SELECTOR = [
-  "button:not(#hotbar button):not(#bg3-hotbar-container button)",
+  "button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))",
   ".button",
   ".control-tool",
   ".scene-control",
@@ -13,20 +13,19 @@ const SPELL_BUTTON_SELECTOR = [
 
 function createSpellMistBurst(button) {
   const rect = button.getBoundingClientRect();
+  if (!rect.width || !rect.height) return;
+
   const burst = document.createElement("span");
   burst.className = "spell-cast-mist-burst";
 
-  const isLeftControl = Boolean(button.closest("#controls"));
-  const left = isLeftControl
-    ? Math.max(rect.left + (rect.width * 1.15), 54)
-    : rect.left + (rect.width / 2);
-  const top = rect.top + (rect.height / 2);
+  const left = Math.min(Math.max(rect.left + (rect.width / 2), 24), window.innerWidth - 24);
+  const top = Math.min(Math.max(rect.top + (rect.height / 2), 24), window.innerHeight - 24);
 
   burst.style.left = `${left}px`;
   burst.style.top = `${top}px`;
   document.body.append(burst);
 
-  window.setTimeout(() => burst.remove(), 900);
+  window.setTimeout(() => burst.remove(), 760);
 }
 
 document.addEventListener(

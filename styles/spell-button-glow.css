@@ -66,6 +66,9 @@ textarea,
 #controls ol,
 #controls li,
 #controls :is(ol, ul, li, menu, nav, section, div),
+#scene-controls,
+#scene-controls > *,
+#scene-controls :is(ol, ul, li, menu, nav, section, div),
 .scene-controls,
 .main-controls,
 .sub-controls,
@@ -84,6 +87,7 @@ textarea,
 }
 
 #controls,
+#scene-controls,
 .scene-controls,
 .main-controls,
 .sub-controls,
@@ -93,10 +97,17 @@ textarea,
   z-index: 80;
 }
 
+#scene-controls.faded-ui,
+#sidebar-tabs.faded-ui {
+  opacity: 1 !important;
+}
+
 #ui-left,
 #ui-left :is(ol, ul, li, menu, nav, section, div),
 #controls,
 #controls :is(ol, ul, li, menu, nav, section, div),
+#scene-controls,
+#scene-controls :is(ol, ul, li, menu, nav, section, div),
 .scene-controls,
 .main-controls,
 .sub-controls,
@@ -115,6 +126,10 @@ textarea,
 #ui-left :is(ol, ul, li, menu, nav, section, div)::after,
 #controls :is(ol, ul, li, menu, nav, section, div)::before,
 #controls :is(ol, ul, li, menu, nav, section, div)::after,
+#scene-controls::before,
+#scene-controls::after,
+#scene-controls :is(ol, ul, li, menu, nav, section, div)::before,
+#scene-controls :is(ol, ul, li, menu, nav, section, div)::after,
 .scene-controls::before,
 .scene-controls::after,
 .main-controls::before,
@@ -970,7 +985,7 @@ textarea,
     inset 0 1px 0 rgba(238, 246, 255, 0.18) !important;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button),
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)),
 .button,
 .control-tool,
 .scene-control,
@@ -1001,7 +1016,7 @@ button:not(#hotbar button):not(#bg3-hotbar-container button),
     transform 160ms ease;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button) > *,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)) > *,
 .button > *,
 .control-tool > *,
 .scene-control > *,
@@ -1018,7 +1033,7 @@ button:not(#hotbar button):not(#bg3-hotbar-container button) > *,
   z-index: 1;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button)::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))::after,
 .button::after,
 .control-tool::after,
 .scene-control::after,
@@ -1058,8 +1073,8 @@ button:not(#hotbar button):not(#bg3-hotbar-container button)::after,
   transform-origin: center;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):hover,
-button:not(#hotbar button):not(#bg3-hotbar-container button):focus-visible,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):hover,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):focus-visible,
 .button:hover,
 .button:focus-visible,
 .control-tool:hover,
@@ -1099,8 +1114,8 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):focus-visible,
   transform: translateY(-1px);
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):hover::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button):focus-visible::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):hover::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):focus-visible::after,
 .button:hover::after,
 .button:focus-visible::after,
 .control-tool:hover::after,
@@ -1132,7 +1147,7 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):focus-visible::afte
     transform 240ms ease;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):active,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):active,
 .button:active,
 .control-tool:active,
 .scene-control:active,
@@ -1149,7 +1164,7 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):active,
   transform: translateY(0) scale(0.98);
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button).spell-casting,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).spell-casting,
 .button.spell-casting,
 .control-tool.spell-casting,
 .scene-control.spell-casting,
@@ -1174,29 +1189,26 @@ button:not(#hotbar button):not(#bg3-hotbar-container button).spell-casting,
 
 .spell-cast-mist-burst {
   position: fixed;
-  width: 7.2em;
-  height: 5.8em;
+  width: 4.8rem;
+  height: 4.2rem;
   z-index: 100000;
   border-radius: 48% 52% 56% 44% / 54% 45% 55% 46%;
-  content: "";
   pointer-events: none;
   opacity: 0;
   background:
-    radial-gradient(ellipse at 48% 50%, rgba(255, 255, 255, 0.52) 0 6%, transparent 24%),
-    radial-gradient(ellipse at 28% 46%, rgba(98, 214, 255, 0.5) 0 12%, transparent 38%),
-    radial-gradient(ellipse at 70% 54%, rgba(177, 96, 255, 0.42) 0 12%, transparent 40%),
-    radial-gradient(ellipse at 42% 22%, rgba(238, 246, 255, 0.28) 0 8%, transparent 30%),
-    radial-gradient(ellipse at 58% 82%, rgba(98, 214, 255, 0.24) 0 9%, transparent 34%),
-    radial-gradient(ellipse at 50% 50%, rgba(126, 90, 255, 0.18) 0 28%, transparent 68%);
+    radial-gradient(ellipse at 48% 50%, rgba(255, 255, 255, 0.48) 0 6%, transparent 24%),
+    radial-gradient(ellipse at 30% 48%, rgba(98, 214, 255, 0.46) 0 12%, transparent 38%),
+    radial-gradient(ellipse at 70% 54%, rgba(132, 152, 255, 0.24) 0 12%, transparent 40%),
+    radial-gradient(ellipse at 42% 22%, rgba(238, 246, 255, 0.22) 0 8%, transparent 30%),
+    radial-gradient(ellipse at 58% 82%, rgba(98, 214, 255, 0.18) 0 9%, transparent 34%);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 5.4em 4.2em;
-  filter: blur(3px) drop-shadow(0 0 9px rgba(98, 214, 255, 0.58)) drop-shadow(0 0 16px rgba(177, 96, 255, 0.42));
-  mix-blend-mode: screen;
-  transform: translate(-50%, -50%) scale(0.18, 0.12) rotate(-10deg);
+  background-size: 4.2rem 3.4rem;
+  filter: blur(2px) saturate(1.08);
+  transform: translate(-50%, -50%) scale(0.2, 0.14) rotate(-8deg);
   transform-origin: center;
   will-change: opacity, filter, transform;
-  animation: spell-cast-mist 760ms ease-out;
+  animation: spell-cast-mist 680ms ease-out forwards;
 }
 
 .control-tool.active,
@@ -1211,10 +1223,10 @@ button:not(#hotbar button):not(#bg3-hotbar-container button).spell-casting,
 .playlist-control.selected,
 .playlist-control[aria-pressed="true"],
 .playlist-control[aria-selected="true"],
-button:not(#hotbar button):not(#bg3-hotbar-container button).active,
-button:not(#hotbar button):not(#bg3-hotbar-container button).selected,
-button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-pressed="true"],
-button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-selected="true"],
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).active,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).selected,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))[aria-pressed="true"],
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))[aria-selected="true"],
 .button.active,
 .button.selected,
 .button[aria-pressed="true"],
@@ -1253,10 +1265,10 @@ button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-selected="true
 .playlist-control.selected::after,
 .playlist-control[aria-pressed="true"]::after,
 .playlist-control[aria-selected="true"]::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button).active::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button).selected::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-pressed="true"]::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-selected="true"]::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).active::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).selected::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))[aria-pressed="true"]::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))[aria-selected="true"]::after,
 .button.active::after,
 .button.selected::after,
 .button[aria-pressed="true"]::after,
@@ -1287,32 +1299,26 @@ button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-selected="true
 @keyframes spell-cast-mist {
   0% {
     opacity: 0;
-    filter: blur(1.5px);
-    transform: translate(-50%, -50%) scale(0.18, 0.12) rotate(-10deg);
+    filter: blur(1.4px) saturate(1.05);
+    transform: translate(-50%, -50%) scale(0.2, 0.14) rotate(-8deg);
   }
 
-  20% {
-    opacity: 0.82;
-    filter: blur(2.5px) drop-shadow(0 0 10px rgba(238, 246, 255, 0.48)) drop-shadow(0 0 16px rgba(98, 214, 255, 0.5));
-    transform: translate(-50%, -52%) scale(0.7, 0.45) rotate(8deg);
+  22% {
+    opacity: 0.78;
+    filter: blur(2px) saturate(1.12);
+    transform: translate(-50%, -51%) scale(0.72, 0.48) rotate(5deg);
   }
 
-  52% {
-    opacity: 0.58;
-    filter: blur(4px) drop-shadow(0 0 13px rgba(98, 214, 255, 0.42)) drop-shadow(0 0 22px rgba(177, 96, 255, 0.34));
-    transform: translate(-49%, -54%) scale(1.12, 0.82) rotate(18deg);
-  }
-
-  78% {
-    opacity: 0.24;
-    filter: blur(6px) drop-shadow(0 0 16px rgba(98, 214, 255, 0.26)) drop-shadow(0 0 26px rgba(177, 96, 255, 0.2));
-    transform: translate(-52%, -57%) scale(1.42, 1.08) rotate(25deg);
+  56% {
+    opacity: 0.48;
+    filter: blur(3.2px) saturate(1.08);
+    transform: translate(-50%, -53%) scale(1.06, 0.78) rotate(13deg);
   }
 
   100% {
     opacity: 0;
-    filter: blur(8px) drop-shadow(0 0 18px rgba(98, 214, 255, 0.12));
-    transform: translate(-53%, -60%) scale(1.7, 1.26) rotate(31deg);
+    filter: blur(5px) saturate(1);
+    transform: translate(-50%, -56%) scale(1.36, 1.02) rotate(20deg);
   }
 }
 
