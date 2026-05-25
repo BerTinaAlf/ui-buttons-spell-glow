@@ -20,7 +20,6 @@
 }
 
 body,
-button,
 input,
 select,
 textarea,
@@ -139,7 +138,6 @@ textarea,
 #sidebar,
 #players,
 #navigation,
-#hotbar,
 #pause,
 .dialog,
 .sheet,
@@ -732,12 +730,7 @@ textarea,
 #navigation #scene-list,
 #navigation .scene,
 #navigation .scene.view,
-#navigation .scene.context,
-#hotbar,
-#hotbar #action-bar,
-#hotbar .macro,
-#hotbar .bar-controls,
-#hotbar .page-control {
+#navigation .scene.context {
   border: 1px solid rgba(184, 210, 255, 0.22) !important;
   background:
     linear-gradient(115deg, rgba(255, 255, 255, 0.045), transparent 28%),
@@ -762,10 +755,7 @@ textarea,
 }
 
 #players:hover,
-#navigation .scene:hover,
-#hotbar .macro:hover,
-#hotbar .bar-controls:hover,
-#hotbar .page-control:hover {
+#navigation .scene:hover {
   border-color: rgba(184, 210, 255, 0.34) !important;
   box-shadow:
     inset 0 1px 0 rgba(238, 246, 255, 0.14),
@@ -774,8 +764,7 @@ textarea,
 }
 
 #navigation .scene.active,
-#navigation .scene.view,
-#hotbar .macro.active {
+#navigation .scene.view {
   border-color: rgba(255, 222, 134, 0.34) !important;
   box-shadow:
     inset 0 1px 0 rgba(238, 246, 255, 0.14),
@@ -786,7 +775,6 @@ textarea,
 #players h3,
 #players ol,
 #players li,
-#hotbar .macro .macro-key,
 #navigation .scene-name {
   background: transparent !important;
   color: #efeaff;
@@ -798,10 +786,7 @@ textarea,
 #players,
 #navigation .scene,
 #navigation .scene.view,
-#navigation .scene.context,
-#hotbar .macro,
-#hotbar .bar-controls,
-#hotbar .page-control {
+#navigation .scene.context {
   background:
     linear-gradient(115deg, rgba(255, 255, 255, 0.035), transparent 30%),
     radial-gradient(circle at 24% 26%, rgba(98, 214, 255, 0.04), transparent 6rem),
@@ -816,7 +801,6 @@ textarea,
   -webkit-backdrop-filter: blur(12px) saturate(1.16);
 }
 
-#hotbar #action-bar,
 #navigation #scene-list {
   background: transparent !important;
   border-color: rgba(184, 210, 255, 0.12) !important;
@@ -825,9 +809,7 @@ textarea,
 
 #navigation,
 #navigation #scene-list,
-#players,
-#hotbar,
-#hotbar #action-bar {
+#players {
   border: 1px solid rgba(184, 210, 255, 0.18) !important;
   background:
     linear-gradient(115deg, rgba(255, 255, 255, 0.04), transparent 28%),
@@ -840,12 +822,6 @@ textarea,
     0 0 12px rgba(98, 214, 255, 0.045) !important;
   backdrop-filter: blur(14px) saturate(1.18);
   -webkit-backdrop-filter: blur(14px) saturate(1.18);
-}
-
-#hotbar {
-  left: 50% !important;
-  right: auto !important;
-  transform: translateX(-50%) !important;
 }
 
 #players {
@@ -982,7 +958,6 @@ textarea,
 #sidebar:hover,
 #players:hover,
 #navigation:hover,
-#hotbar:hover,
 .dialog:hover,
 .sheet:hover,
 .sidebar-popout:hover {
@@ -995,7 +970,7 @@ textarea,
     inset 0 1px 0 rgba(238, 246, 255, 0.18) !important;
 }
 
-button,
+button:not(#hotbar button):not(#bg3-hotbar-container button),
 .button,
 .control-tool,
 .scene-control,
@@ -1026,7 +1001,7 @@ button,
     transform 160ms ease;
 }
 
-button > *,
+button:not(#hotbar button):not(#bg3-hotbar-container button) > *,
 .button > *,
 .control-tool > *,
 .scene-control > *,
@@ -1043,7 +1018,7 @@ button > *,
   z-index: 1;
 }
 
-button::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button)::after,
 .button::after,
 .control-tool::after,
 .scene-control::after,
@@ -1083,8 +1058,8 @@ button::after,
   transform-origin: center;
 }
 
-button:hover,
-button:focus-visible,
+button:not(#hotbar button):not(#bg3-hotbar-container button):hover,
+button:not(#hotbar button):not(#bg3-hotbar-container button):focus-visible,
 .button:hover,
 .button:focus-visible,
 .control-tool:hover,
@@ -1124,8 +1099,8 @@ button:focus-visible,
   transform: translateY(-1px);
 }
 
-button:hover::after,
-button:focus-visible::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):hover::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):focus-visible::after,
 .button:hover::after,
 .button:focus-visible::after,
 .control-tool:hover::after,
@@ -1157,7 +1132,7 @@ button:focus-visible::after,
     transform 240ms ease;
 }
 
-button:active,
+button:not(#hotbar button):not(#bg3-hotbar-container button):active,
 .button:active,
 .control-tool:active,
 .scene-control:active,
@@ -1174,7 +1149,7 @@ button:active,
   transform: translateY(0) scale(0.98);
 }
 
-button.spell-casting,
+button:not(#hotbar button):not(#bg3-hotbar-container button).spell-casting,
 .button.spell-casting,
 .control-tool.spell-casting,
 .scene-control.spell-casting,
@@ -1236,14 +1211,14 @@ button.spell-casting,
 .playlist-control.selected,
 .playlist-control[aria-pressed="true"],
 .playlist-control[aria-selected="true"],
+button:not(#hotbar button):not(#bg3-hotbar-container button).active,
+button:not(#hotbar button):not(#bg3-hotbar-container button).selected,
+button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-pressed="true"],
+button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-selected="true"],
 .button.active,
 .button.selected,
 .button[aria-pressed="true"],
 .button[aria-selected="true"],
-button.active,
-button.selected,
-button[aria-pressed="true"],
-button[aria-selected="true"],
 .tabs .item.active,
 .tabs .item.selected,
 .tabs .item[aria-selected="true"],
@@ -1278,14 +1253,14 @@ button[aria-selected="true"],
 .playlist-control.selected::after,
 .playlist-control[aria-pressed="true"]::after,
 .playlist-control[aria-selected="true"]::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button).active::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button).selected::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-pressed="true"]::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button)[aria-selected="true"]::after,
 .button.active::after,
 .button.selected::after,
 .button[aria-pressed="true"]::after,
 .button[aria-selected="true"]::after,
-button.active::after,
-button.selected::after,
-button[aria-pressed="true"]::after,
-button[aria-selected="true"]::after,
 .tabs .item.active::after,
 .tabs .item.selected::after,
 .tabs .item[aria-selected="true"]::after,

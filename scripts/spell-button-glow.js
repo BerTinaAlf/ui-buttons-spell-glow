@@ -1,5 +1,5 @@
 const SPELL_BUTTON_SELECTOR = [
-  "button",
+  "button:not(#hotbar button):not(#bg3-hotbar-container button)",
   ".button",
   ".control-tool",
   ".scene-control",
