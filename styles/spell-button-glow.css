@@ -102,6 +102,11 @@ textarea,
   opacity: 1 !important;
 }
 
+/* 0.2.17 - keep Visual Active Effects clear of Foundry's sidebar tab rail. */
+#interface:has(#sidebar-content.expanded) .visual-active-effects.panel {
+  right: calc(var(--visual-active-effects-right-offset, 50px) + 364px * var(--ui-scale, 1)) !important;
+}
+
 #ui-left,
 #ui-left :is(ol, ul, li, menu, nav, section, div),
 #controls,
