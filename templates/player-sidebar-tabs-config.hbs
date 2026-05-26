@@ -1,0 +1,39 @@
+<form class="ui-buttons-spell-glow-player-sidebar-tabs-config">
+  <p class="notes">这些选项只影响非 GM 玩家。取消勾选后，玩家端会隐藏对应的右侧栏标签和内容。</p>
+
+  <div class="ui-buttons-spell-glow-sidebar-tabs-list">
+    <div class="ui-buttons-spell-glow-sidebar-tab-row header-row">
+      <span class="tab-icon"></span>
+      <span class="tab-name">右侧栏</span>
+      <span class="tab-visible">玩家可见</span>
+    </div>
+    {{#each tabs}}
+      <label class="ui-buttons-spell-glow-sidebar-tab-row" data-tab-id="{{id}}">
+        <span class="tab-icon"><i class="{{icon}}"></i></span>
+        <span class="tab-name">{{label}}</span>
+        <span class="tab-visible">
+          <input type="checkbox" name="visible-{{id}}" data-sidebar-tab-id="{{id}}" {{#if checked}}checked{{/if}}>
+        </span>
+      </label>
+    {{/each}}
+  </div>
+
+  <footer class="sheet-footer flexrow">
+    <button type="submit">
+      <i class="fas fa-save"></i>
+      保存
+    </button>
+    <button type="button" data-action="select-all">
+      <i class="fas fa-check-double"></i>
+      全选
+    </button>
+    <button type="button" data-action="hide-compendium">
+      <i class="fas fa-atlas"></i>
+      只隐藏合集包
+    </button>
+    <button type="button" data-action="select-none">
+      <i class="fas fa-ban"></i>
+      全不选
+    </button>
+  </footer>
+</form>
