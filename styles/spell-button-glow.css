@@ -4914,6 +4914,22 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   position: relative !important;
 }
 
+.dnd5e2.sheet.item .create-child,
+.window-app.dnd5e2.sheet.item .create-child,
+.application.dnd5e2.sheet.item .create-child {
+  position: absolute !important;
+  inset: auto 16px 16px auto !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 24px !important;
+  z-index: 5 !important;
+  transform: none !important;
+}
+
 .dnd5e2.sheet.item:is(.tab-activities) .create-child,
 .window-app.dnd5e2.sheet.item:is(.tab-activities) .create-child,
 .application.dnd5e2.sheet.item:is(.tab-activities) .create-child,
