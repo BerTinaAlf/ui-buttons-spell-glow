@@ -1273,26 +1273,46 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
 
 .spell-cast-mist-burst {
   position: fixed;
-  width: 4.8rem;
-  height: 4.2rem;
+  width: 5.45rem;
+  height: 4.45rem;
   z-index: 100000;
   border-radius: 48% 52% 56% 44% / 54% 45% 55% 46%;
   pointer-events: none;
   opacity: 0;
   background:
-    radial-gradient(ellipse at 48% 50%, rgba(255, 255, 255, 0.48) 0 6%, transparent 24%),
-    radial-gradient(ellipse at 30% 48%, rgba(98, 214, 255, 0.46) 0 12%, transparent 38%),
-    radial-gradient(ellipse at 70% 54%, rgba(132, 152, 255, 0.24) 0 12%, transparent 40%),
-    radial-gradient(ellipse at 42% 22%, rgba(238, 246, 255, 0.22) 0 8%, transparent 30%),
-    radial-gradient(ellipse at 58% 82%, rgba(98, 214, 255, 0.18) 0 9%, transparent 34%);
+    radial-gradient(ellipse at 48% 50%, rgba(255, 255, 255, 0.38) 0 5%, rgba(255, 255, 255, 0.16) 15%, rgba(255, 255, 255, 0) 35%),
+    radial-gradient(ellipse at 30% 48%, rgba(98, 214, 255, 0.36) 0 10%, rgba(98, 214, 255, 0.16) 28%, rgba(98, 214, 255, 0) 54%),
+    radial-gradient(ellipse at 62% 52%, rgba(118, 188, 255, 0.21) 0 11%, rgba(118, 188, 255, 0.1) 30%, rgba(118, 188, 255, 0) 56%),
+    radial-gradient(ellipse at 76% 50%, rgba(164, 116, 255, 0.16) 0 12%, rgba(164, 116, 255, 0.08) 32%, rgba(164, 116, 255, 0) 60%),
+    radial-gradient(ellipse at 90% 55%, rgba(190, 124, 255, 0.07) 0 8%, rgba(190, 124, 255, 0.035) 24%, rgba(190, 124, 255, 0) 50%),
+    radial-gradient(ellipse at 70% 54%, rgba(132, 152, 255, 0.16) 0 12%, rgba(132, 152, 255, 0.07) 30%, rgba(132, 152, 255, 0) 56%),
+    radial-gradient(ellipse at 42% 22%, rgba(238, 246, 255, 0.17) 0 8%, rgba(238, 246, 255, 0.07) 22%, rgba(238, 246, 255, 0) 48%),
+    radial-gradient(ellipse at 58% 82%, rgba(98, 214, 255, 0.14) 0 9%, rgba(98, 214, 255, 0.06) 26%, rgba(98, 214, 255, 0) 52%);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 4.2rem 3.4rem;
-  filter: blur(2px) saturate(1.08);
+  background-size: 5.1rem 3.85rem;
+  filter: blur(3px) saturate(1.04);
   transform: translate(-50%, -50%) scale(0.2, 0.14) rotate(-8deg);
   transform-origin: center;
   will-change: opacity, filter, transform;
   animation: spell-cast-mist 680ms ease-out forwards;
+}
+
+.spell-cast-mist-burst::after {
+  position: absolute;
+  inset: -0.36rem -1.05rem -0.18rem 28%;
+  content: "";
+  pointer-events: none;
+  border-radius: 56% 44% 48% 52% / 46% 56% 44% 54%;
+  opacity: 0.42;
+  background:
+    radial-gradient(ellipse at 28% 48%, rgba(112, 202, 255, 0.18) 0 10%, rgba(112, 202, 255, 0.08) 30%, rgba(112, 202, 255, 0) 58%),
+    radial-gradient(ellipse at 58% 52%, rgba(176, 124, 255, 0.16) 0 12%, rgba(176, 124, 255, 0.07) 34%, rgba(176, 124, 255, 0) 62%),
+    linear-gradient(90deg, rgba(98, 214, 255, 0.1), rgba(164, 116, 255, 0.08) 48%, rgba(124, 74, 255, 0.025) 78%, rgba(124, 74, 255, 0));
+  filter: blur(4.2px) saturate(1.04);
+  transform: translateX(0.02rem) scale(0.58, 0.4) rotate(8deg);
+  transform-origin: left center;
+  animation: spell-cast-violet-drift 680ms ease-out forwards;
 }
 
 .control-tool.active,
@@ -1440,26 +1460,52 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
 @keyframes spell-cast-mist {
   0% {
     opacity: 0;
-    filter: blur(1.4px) saturate(1.05);
+    filter: blur(2.4px) saturate(1.02);
     transform: translate(-50%, -50%) scale(0.2, 0.14) rotate(-8deg);
   }
 
   22% {
-    opacity: 0.78;
-    filter: blur(2px) saturate(1.12);
+    opacity: 0.66;
+    filter: blur(3.2px) saturate(1.08);
     transform: translate(-50%, -51%) scale(0.72, 0.48) rotate(5deg);
   }
 
   56% {
-    opacity: 0.48;
-    filter: blur(3.2px) saturate(1.08);
+    opacity: 0.4;
+    filter: blur(4.6px) saturate(1.04);
     transform: translate(-50%, -53%) scale(1.06, 0.78) rotate(13deg);
   }
 
   100% {
     opacity: 0;
-    filter: blur(5px) saturate(1);
+    filter: blur(6.6px) saturate(1);
     transform: translate(-50%, -56%) scale(1.36, 1.02) rotate(20deg);
+  }
+}
+
+@keyframes spell-cast-violet-drift {
+  0% {
+    opacity: 0;
+    filter: blur(3px) saturate(1.02);
+    transform: translateX(-0.12rem) scale(0.42, 0.28) rotate(2deg);
+  }
+
+  28% {
+    opacity: 0.38;
+    filter: blur(4px) saturate(1.06);
+    transform: translateX(0.08rem) scale(0.74, 0.5) rotate(8deg);
+  }
+
+  62% {
+    opacity: 0.22;
+    filter: blur(5px) saturate(1.03);
+    transform: translateX(0.28rem) scale(0.96, 0.7) rotate(12deg);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(6.8px) saturate(1);
+    transform: translateX(0.52rem) scale(1.16, 0.86) rotate(16deg);
   }
 }
 
