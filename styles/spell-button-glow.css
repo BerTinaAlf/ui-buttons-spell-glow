@@ -4897,26 +4897,19 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   display: none !important;
 }
 
-/* 0.2.10 - hide the floating create button on player character list tabs. */
-.dnd5e2.sheet.actor.character:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
-.window-app.dnd5e2.sheet.actor.character:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
-.application.dnd5e2.sheet.actor.character:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
-.dnd5e2.sheet.actor.character form:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
-.window-app.dnd5e2.sheet.actor.character form:is(.tab-inventory, .tab-features, .tab-spells) .create-child,
-.application.dnd5e2.sheet.actor.character form:is(.tab-inventory, .tab-features, .tab-spells) .create-child {
-  display: none !important;
-}
-
-/* 0.2.12 - restore native item activity controls and create button placement. */
-.dnd5e2.sheet.item:not(.minimized) .window-content,
-.window-app.dnd5e2.sheet.item:not(.minimized) .window-content,
-.application.dnd5e2.sheet.item:not(.minimized) .window-content {
+/* 0.2.12 - restore native create button placement and item activity controls. */
+.dnd5e2.sheet:is(.item, .actor):not(.minimized) .window-content,
+.window-app.dnd5e2.sheet:is(.item, .actor):not(.minimized) .window-content,
+.application.dnd5e2.sheet:is(.item, .actor):not(.minimized) .window-content {
   position: relative !important;
 }
 
-.dnd5e2.sheet.item .create-child,
-.window-app.dnd5e2.sheet.item .create-child,
-.application.dnd5e2.sheet.item .create-child {
+.dnd5e2.sheet:is(.item, .actor) .window-content > .create-child,
+.window-app.dnd5e2.sheet:is(.item, .actor) .window-content > .create-child,
+.application.dnd5e2.sheet:is(.item, .actor) .window-content > .create-child,
+.dnd5e2.sheet:is(.item, .actor) form:is(.tab-inventory, .tab-features, .tab-spells, .tab-effects, .tab-advancement, .tab-activities, .tab-crew) > .create-child,
+.window-app.dnd5e2.sheet:is(.item, .actor) form:is(.tab-inventory, .tab-features, .tab-spells, .tab-effects, .tab-advancement, .tab-activities, .tab-crew) > .create-child,
+.application.dnd5e2.sheet:is(.item, .actor) form:is(.tab-inventory, .tab-features, .tab-spells, .tab-effects, .tab-advancement, .tab-activities, .tab-crew) > .create-child {
   position: absolute !important;
   inset: auto 16px 16px auto !important;
   width: 28px !important;
@@ -4927,6 +4920,28 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   padding: 0 !important;
   line-height: 24px !important;
   z-index: 5 !important;
+  transform: none !important;
+}
+
+.dnd5e2.sheet.actor .inventory-element .bottom.with-child,
+.window-app.dnd5e2.sheet.actor .inventory-element .bottom.with-child,
+.application.dnd5e2.sheet.actor .inventory-element .bottom.with-child {
+  justify-content: flex-end !important;
+}
+
+.dnd5e2.sheet.actor .inventory-element .bottom.with-child .create-child,
+.window-app.dnd5e2.sheet.actor .inventory-element .bottom.with-child .create-child,
+.application.dnd5e2.sheet.actor .inventory-element .bottom.with-child .create-child {
+  position: relative !important;
+  inset: unset !important;
+  flex: 0 0 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  margin: 0 0 0 auto !important;
+  padding: 0 !important;
+  line-height: 24px !important;
   transform: none !important;
 }
 
