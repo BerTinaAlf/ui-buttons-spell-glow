@@ -6321,27 +6321,65 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
 }
 
 /* 0.1.121 - keep spellcasting metrics on one line. */
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting {
+  width: max-content !important;
+  min-width: 230px !important;
+  max-width: none !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared),
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared),
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared) {
+  display: grid !important;
+  grid-template-columns: repeat(4, max-content) !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared) > *,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared) > *,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared) > * {
+  min-width: max-content !important;
+  overflow: visible !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared) :is(.label, .value),
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared) :is(.label, .value),
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared) :is(.label, .value) {
+  overflow: visible !important;
+  text-overflow: unset !important;
+  white-space: nowrap !important;
+}
+
 .dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save,
 .window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save,
 .application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save {
-  min-width: 3.75rem !important;
+  min-width: 0 !important;
 }
 
 .dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save .label,
 .window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save .label,
 .application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .save .label {
+  display: block !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
   white-space: nowrap !important;
 }
 
 .dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared,
 .window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared,
 .application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared {
-  min-width: 4.35rem !important;
+  min-width: 0 !important;
 }
 
 .dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .label,
 .window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .label,
 .application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .prepared .label {
+  display: block !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
   white-space: nowrap !important;
 }
 
@@ -6351,10 +6389,11 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   display: inline-flex !important;
   align-items: baseline !important;
   justify-content: center !important;
-  gap: 0.12rem !important;
-  min-width: 4.2rem !important;
+  gap: 0.05rem !important;
+  min-width: 44px !important;
   width: max-content !important;
   max-width: none !important;
+  font-size: var(--font-size-14, 14px) !important;
   white-space: nowrap !important;
   line-height: 1 !important;
 }
