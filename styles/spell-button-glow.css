@@ -3271,6 +3271,78 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important;
 }
 
+/* Player-authored biography/description text keeps the native dnd5e face. */
+:is(.dnd5e2.sheet.actor, .window-app.dnd5e2.sheet.actor, .application.dnd5e2.sheet.actor) :is(
+  .tab[data-tab="biography"],
+  .tab.biography,
+  .tab[data-tab="description"],
+  .tab.description
+) :is(
+  input,
+  select,
+  textarea,
+  option,
+  prose-mirror,
+  prose-mirror *,
+  code-mirror,
+  code-mirror *,
+  .cm-editor,
+  .cm-editor *,
+  .characteristics .value,
+  .textbox > p,
+  .editor-content,
+  .editor-content *
+):not(.fa):not(.fas):not(.far):not(.fab):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa-fw):not([class^="fa-"]):not([class*=" fa-"]) {
+  font-family: Roboto, sans-serif !important;
+}
+
+:is(.dnd5e2.sheet.actor, .window-app.dnd5e2.sheet.actor, .application.dnd5e2.sheet.actor) :is(
+  .tab[data-tab="biography"],
+  .tab.biography,
+  .tab[data-tab="description"],
+  .tab.description
+) :is(
+  input,
+  select,
+  textarea,
+  option,
+  prose-mirror,
+  code-mirror,
+  .cm-editor,
+  .characteristics .value,
+  .textbox > p,
+  .editor-content
+):not(.fa):not(.fas):not(.far):not(.fab):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa-fw):not([class^="fa-"]):not([class*=" fa-"]) {
+  font-size: 0.82rem !important;
+}
+
+:is(.dnd5e2.sheet.actor, .window-app.dnd5e2.sheet.actor, .application.dnd5e2.sheet.actor) :is(
+  .tab[data-tab="biography"],
+  .tab.biography
+) .characteristics :is(input, .value) {
+  font-size: 0.72rem !important;
+}
+
+:is(.dnd5e2.sheet.actor, .window-app.dnd5e2.sheet.actor, .application.dnd5e2.sheet.actor) :is(
+  .tab[data-tab="biography"],
+  .tab.biography
+) .textbox textarea.untext,
+:is(.dnd5e2.sheet.actor, .window-app.dnd5e2.sheet.actor, .application.dnd5e2.sheet.actor) :is(
+  .tab[data-tab="biography"],
+  .tab.biography
+) .textbox > p {
+  font-size: 0.78rem !important;
+}
+
+:is(.dnd5e2.sheet.actor, .window-app.dnd5e2.sheet.actor, .application.dnd5e2.sheet.actor) :is(
+  .tab[data-tab="biography"],
+  .tab.biography,
+  .tab[data-tab="description"],
+  .tab.description
+) :is(.editor-content h1, .editor-content h2, .editor-content h3, .editor-content h4, .editor-content h5, .editor-content h6) {
+  font-family: "Roboto Slab", serif !important;
+}
+
 /* 0.1.62 - richer blue stat crystals plus restored inspiration badge. */
 .dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before,
 .window-app.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before {
@@ -4648,6 +4720,37 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
 ):not(.fa):not(.fas):not(.far):not(.fab):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa-fw):not([class^="fa-"]):not([class*=" fa-"]) {
   font-family: "HuiwenMingchao", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Serif SC", serif !important;
   letter-spacing: 0 !important;
+}
+
+:is(.dnd5e2.sheet.item, .window-app.dnd5e2.sheet.item, .application.dnd5e2.sheet.item) :is(
+  .tab.details,
+  .tab.description,
+  .item-descriptions,
+  .info-block
+) :is(
+  input,
+  select,
+  textarea,
+  option,
+  prose-mirror,
+  prose-mirror *,
+  code-mirror,
+  code-mirror *,
+  .cm-editor,
+  .cm-editor *,
+  .value,
+  .editor-content,
+  .editor-content *
+):not(.fa):not(.fas):not(.far):not(.fab):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa-fw):not([class^="fa-"]):not([class*=" fa-"]) {
+  font-family: Roboto, sans-serif !important;
+}
+
+:is(.dnd5e2.sheet.item, .window-app.dnd5e2.sheet.item, .application.dnd5e2.sheet.item) :is(
+  .tab.details,
+  .tab.description,
+  .item-descriptions
+) .editor-content :is(h1, h2, h3, h4, h5, h6) {
+  font-family: "Roboto Slab", serif !important;
 }
 
 /* 0.1.80 - item title-bar icons stay native to dnd5e. */
