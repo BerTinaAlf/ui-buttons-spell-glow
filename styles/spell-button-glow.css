@@ -1063,7 +1063,7 @@ textarea,
     inset 0 1px 0 rgba(238, 246, 255, 0.18) !important;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)),
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button),
 .button,
 .control-tool,
 .scene-control,
@@ -1094,7 +1094,7 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
     transform 160ms ease;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)) > *,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button) > *,
 .button > *,
 .control-tool > *,
 .scene-control > *,
@@ -1117,7 +1117,7 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   z-index: 2 !important;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button)::after,
 .button::after,
 .control-tool::after,
 .scene-control::after,
@@ -1157,8 +1157,8 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   transform-origin: center;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):hover,
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):focus-visible,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button):hover,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button):focus-visible,
 .button:hover,
 .button:focus-visible,
 .control-tool:hover,
@@ -1198,8 +1198,8 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   transform: translateY(-1px);
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):hover::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):focus-visible::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button):hover::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button):focus-visible::after,
 .button:hover::after,
 .button:focus-visible::after,
 .control-tool:hover::after,
@@ -1231,7 +1231,7 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
     transform 240ms ease;
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):active,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button):active,
 .button:active,
 .control-tool:active,
 .scene-control:active,
@@ -1248,7 +1248,7 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   transform: translateY(0) scale(0.98);
 }
 
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).spell-casting,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button).spell-casting,
 .button.spell-casting,
 .control-tool.spell-casting,
 .scene-control.spell-casting,
@@ -1327,10 +1327,10 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
 .playlist-control.selected,
 .playlist-control[aria-pressed="true"],
 .playlist-control[aria-selected="true"],
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).active,
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).selected,
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))[aria-pressed="true"],
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))[aria-selected="true"],
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button).active,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button).selected,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button)[aria-pressed="true"],
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button)[aria-selected="true"],
 .button.active,
 .button.selected,
 .button[aria-pressed="true"],
@@ -1369,10 +1369,10 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
 .playlist-control.selected::after,
 .playlist-control[aria-pressed="true"]::after,
 .playlist-control[aria-selected="true"]::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).active::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)).selected::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))[aria-pressed="true"]::after,
-button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip))[aria-selected="true"]::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button).active::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button).selected::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button)[aria-pressed="true"]::after,
+button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.actor button:is(.inspiration, .death-save, .pip)):not(.radio-button)[aria-selected="true"]::after,
 .button.active::after,
 .button.selected::after,
 .button[aria-pressed="true"]::after,
@@ -6386,6 +6386,82 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
   text-shadow: none !important;
 }
 
+/* 0.2.27 - restore dnd5e's native search glyph after the global font override. */
+.dnd5e2 item-list-controls search,
+.dnd5e2 .filter-element search {
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 4px !important;
+  background: var(--dnd5e-background-card) !important;
+  box-shadow: 0 0 6px var(--dnd5e-shadow-45) !important;
+  border: var(--dnd5e-border-gold) !important;
+  padding-right: 0.25rem !important;
+  position: relative !important;
+}
+
+.dnd5e2 item-list-controls search > input[type="text"],
+.dnd5e2 .filter-element search > input[type="text"] {
+  position: relative !important;
+  z-index: 0 !important;
+  flex: 1 !important;
+  background: none !important;
+  border: none !important;
+  padding: 0.75rem 0.5rem 0.75rem 2.25rem !important;
+  font-size: var(--font-size-13) !important;
+  height: unset !important;
+  line-height: 1 !important;
+  font-family: var(--dnd5e-font-roboto) !important;
+  outline: none !important;
+}
+
+.dnd5e2 item-list-controls search::before,
+.dnd5e2 .filter-element search::before {
+  content: "\f002" !important;
+  font-family: var(--font-awesome) !important;
+  font-weight: bold !important;
+  color: var(--color-text-tertiary) !important;
+  -webkit-text-fill-color: var(--color-text-tertiary) !important;
+  position: absolute !important;
+  left: 0.75rem !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* 0.2.27 - restore dnd5e's native radio buttons after global button cleanup. */
+.dnd5e2 button.radio-button {
+  width: 13px !important;
+  height: 13px !important;
+  border: none !important;
+  border-radius: 100% !important;
+  background: none !important;
+  box-shadow: inset 0 0 6px var(--dnd5e-shadow-45) !important;
+  padding: 3px !important;
+  display: grid !important;
+  justify-content: unset !important;
+}
+
+.dnd5e2 button.radio-button::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dnd5e2 .card .header .radio-button {
+  background: var(--dnd5e-background-alt-1) !important;
+}
+
+.dnd5e2 button.radio-button[aria-pressed="true"]::before {
+  content: "" !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: inline-block !important;
+  border-radius: 100% !important;
+  background: var(--color-border-dark-5) !important;
+}
+
+.dnd5e2 .card .header .radio-button[aria-pressed="true"]::before {
+  background: var(--dnd5e-color-gold) !important;
+}
+
 /* 0.2.4 - compact dnd5e configuration sheets so the header does not leave a blank glass band. */
 .dnd5e2.application.config-sheet:not(.minimized) .window-header,
 .dnd5e2.application.standard-form.config-sheet:not(.minimized) .window-header {
@@ -6428,8 +6504,21 @@ button:not(#hotbar button):not(#bg3-hotbar-container button):not(.dnd5e2.sheet.a
 .window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting,
 .application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting {
   width: max-content !important;
-  min-width: 230px !important;
+  min-width: 0 !important;
   max-width: none !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .header,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .header,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .header {
+  min-width: max-content !important;
+}
+
+.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .header h3,
+.window-app.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .header h3,
+.application.dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .header h3 {
+  min-width: max-content !important;
+  white-space: nowrap !important;
 }
 
 .dnd5e2.sheet.actor.character .tab[data-tab="spells"] .top .card.spellcasting .info:has(.prepared),
