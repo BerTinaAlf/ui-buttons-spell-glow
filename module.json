@@ -2,7 +2,7 @@
   "id": "ui-buttons-spell-glow",
   "title": "法术风格ui",
   "description": "星空 玻璃 法术 风格ui，按键交互时蓝紫色奥术光晕。",
-  "version": "0.2.28",
+  "version": "0.2.29",
   "url": "https://github.com/BerTinaAlf/ui-buttons-spell-glow",
   "manifest": "https://raw.githubusercontent.com/BerTinaAlf/ui-buttons-spell-glow/main/module.json",
   "download": "https://github.com/BerTinaAlf/ui-buttons-spell-glow/archive/refs/heads/main.zip",
@@ -12,8 +12,8 @@
     }
   ],
   "compatibility": {
-    "minimum": "10",
-    "verified": "13"
+    "minimum": "13",
+    "verified": "14"
   },
   "styles": [
     "styles/spell-button-glow.css"
